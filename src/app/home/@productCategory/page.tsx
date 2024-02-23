@@ -1,5 +1,5 @@
 "use client";
-import { productCategory } from "@/app/constants/constants";
+import { productCategory } from "@/constants/constants";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
