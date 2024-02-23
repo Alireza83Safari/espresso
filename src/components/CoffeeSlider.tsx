@@ -7,7 +7,7 @@ import Coffee from "./Coffee";
 
 const CoffeeSlider = () => {
   const breakpoints = {
-    320: {
+    1: {
       slidesPerView: 1,
       spaceBetween: 10,
     },
@@ -20,6 +20,10 @@ const CoffeeSlider = () => {
       spaceBetween: 30,
     },
     1024: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+    1200: {
       slidesPerView: 5,
       spaceBetween: 30,
     },
