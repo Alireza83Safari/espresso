@@ -1,4 +1,5 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaInstagram, FaSearch, FaTelegram, FaUser } from "react-icons/fa";
@@ -8,6 +9,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { TfiShoppingCart } from "react-icons/tfi";
 
 const Header = () => {
+  const { data: session } = useSession();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -89,6 +91,7 @@ const Header = () => {
                   </ul>
                 </div>
               </li>
+
               <li className="flex items-center lg:border-none border-b lg:p-0 p-3">
                 <p>کافی شاپ</p>
                 <IoIosArrowDown className="text-sm" />
@@ -102,21 +105,24 @@ const Header = () => {
             <FaInstagram />
             <FaTelegram />
           </div>
+          {!session ? (
+            <Link
+              href="/login"
+              className="bg-green hover:bg-[#0A5B01] text-white rounded-lg text-sm px-2 py-[7px] ml-3 lg:flex hidden"
+            >
+              ورود \ عضویت
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="bg-green hover:bg-[#0A5B01] w-10 h-10 rounded-full text-white flex justify-center items-center text-lg ml-3"
+            >
+              <FaUser className="" />
+            </Link>
+          )}
 
-          <Link
-            href="/login"
-            className="bg-green text-white rounded-lg text-sm px-2 py-[7px] ml-3 lg:flex hidden"
-          >
-            ورود \ عضویت
-          </Link>
-          <Link
-            href="/login"
-            className="bg-green w-10 h-10 rounded-full text-white flex justify-center items-center text-lg ml-3"
-          >
-            <FaUser className="" />
-          </Link>
           <div className="flex items-center lg:pr-3 lg:gap-x-3 lg:border-r border-textGray">
-            <div className="p-3 rounded-full bg-green lg:flex hidden">
+            <div className="p-3 rounded-full bg-green hover:bg-[#0A5B01] lg:flex hidden">
               <FaSearch className="text-white" />
             </div>
             <TfiShoppingCart className="text-3xl ml-2" />
