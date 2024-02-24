@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AuthContext from "@/context/AuthContext";
 
 export const metadata: Metadata = {
   title: "اسپرسوگرام | فروشگاه آنلاین اسپرسوگرام",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" className=" overflow-x-hidden">
-      <body>{children}</body>
+      <body>
+        <AuthContext>{children}</AuthContext>
+      </body>
     </html>
   );
 }
