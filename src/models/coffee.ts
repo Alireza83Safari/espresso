@@ -12,6 +12,11 @@ export const coffeeSchema = new mongoose.Schema(
     },
     seed: {
       type: String,
+      enum: ["mix", "pure"],
+      required: true,
+    },
+    seedType: {
+      type: String,
       required: true,
     },
     image: {
