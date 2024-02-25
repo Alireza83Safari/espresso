@@ -9,7 +9,7 @@ interface CoffeeProps {
 
 const Coffee: React.FC<CoffeeProps> = ({ coffee }) => {
   return (
-    <div className="border-l border-gray-200 text-center">
+    <div className="border-l border-gray-200 text-center my-5">
       <Link href={`/coffee/${coffee?._id}`} className="text-center">
         <div className="flex justify-center group relative">
           <Image

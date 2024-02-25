@@ -5,8 +5,8 @@ const v = new Validator();
 const coffeeSchema = {
   name: { type: "string", min: 2, max: 200, unique: true },
   price: { type: "number" },
-  seed: { type: "string", min: 2, max: 200, enum: ["mix", "pure"] },
-  seedType: { type: "seedType", min: 2, max: 200 },
+  seed: { type: "string", min: 2, max: 200, enum: ["powdery", "mix", "pure"] },
+  seedType: { type: "string", min: 2, max: 200 },
   image: { type: "string" },
   label: { type: "string", min: 2, max: 200 },
   description: { type: "string", min: 2, max: 1000 },

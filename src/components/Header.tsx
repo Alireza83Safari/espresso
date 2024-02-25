@@ -11,13 +11,12 @@ import { TfiShoppingCart } from "react-icons/tfi";
 const Header = () => {
   const { data: session } = useSession();
   const [isMenuOpen, setMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className="m-auto lg:container fixed top-0 right-0 left-0 z-20 bg-white shadow-lg">
+    <div className="m-auto lg:container fixed top-0 right-0 left-0 z-20 bg-white min-w-full shadow-lg">
       <div className="lg:flex sm:grid sm:grid-cols-3 flex items-center justify-between max-w-[1080px] mx-auto h-[5.7rem] z-10">
         <button className="lg:hidden flex mr-2" onClick={toggleMenu}>
           <GiHamburgerMenu className="text-2xl" />
@@ -49,19 +48,7 @@ const Header = () => {
             }`}
           >
             <ul className="lg:flex items-center gap-x-5 lg:text-base font-semibold text-textGray">
-              <li className="lg:border-none border-b lg:p-0 p-3 group relative">
-                <div className="">
-                  <span>خانه</span>
-                  <div className="absolute top-5 left-0 hidden group-hover:block bg-white border rounded-lg border-gray-300 p-3">
-                    <ul>
-                      <li>1</li>
-                      <li>1</li>
-                      <li>1</li>
-                      <li>1</li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
+              <li className="lg:border-none border-b lg:p-0 p-3">خانه</li>
               <li className="lg:border-none border-b lg:p-0 p-3">وبلاگ</li>
               <li className="lg:border-none border-b lg:p-0 p-3">قهوه</li>
               <li className="flex items-center lg:border-none border-b lg:p-0 p-3">
