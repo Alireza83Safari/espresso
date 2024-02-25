@@ -12,7 +12,7 @@ export const coffeeSchema = new mongoose.Schema(
     },
     seed: {
       type: String,
-      enum: ["mix", "pure"],
+      enum: ["mix", "pure", "powdery"],
       required: true,
     },
     seedType: {
@@ -37,6 +37,11 @@ export const coffeeSchema = new mongoose.Schema(
     },
     weight: {
       type: Number,
+      required: true,
+    },
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
       required: true,
     },
   },
