@@ -17,15 +17,22 @@ export default async function page({ searchParams }: any) {
   return (
     <>
       <Header />
-      <div className=" lg:mt-32 mt-40 mx-auto max-w-[1080px] mb-16">
-        <FilterProduct />
-        <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1">
-          {products?.map((product: ProductType) => (
-            <Product product={product} />
-          ))}
-        </div>
+      <div className="lg:mt-32 mt-40 mx-auto max-w-[1080px] mb-16">
+        {products?.length ? (
+          <>
+            <FilterProduct />
+            <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1">
+              {products?.map((product: ProductType) => (
+                <Product product={product} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <h1 className="sm:text-4xl text-3xl text-center text-green my-52">
+            محصولی یافت نشد
+          </h1>
+        )}
       </div>
-
       <Footer />
     </>
   );
