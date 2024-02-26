@@ -1,6 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaInstagram, FaSearch, FaTelegram, FaUser } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
@@ -9,10 +10,17 @@ import { IoIosArrowDown } from "react-icons/io";
 import { TfiShoppingCart } from "react-icons/tfi";
 
 const Header = () => {
+  const { push } = useRouter();
   const { data: session } = useSession();
+  const [searchQuery, setSearchQuery] = useState("");
   const [isMenuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
+  };
+  const handleSearch = () => {
+    if (searchQuery) {
+      push(`/product?q=${searchQuery}`);
+    }
   };
 
   return (
@@ -22,9 +30,12 @@ const Header = () => {
           <GiHamburgerMenu className="text-2xl" />
         </button>
 
-        <p className="sm:text-xl text-lg font-black text-green sm:text-center">
+        <Link
+          href="/home"
+          className="sm:text-xl text-lg font-black text-green sm:text-center"
+        >
           اسپرسو گرام
-        </p>
+        </Link>
         <div
           className={` ${
             isMenuOpen
@@ -48,12 +59,80 @@ const Header = () => {
             }`}
           >
             <ul className="lg:flex items-center gap-x-5 lg:text-base font-semibold text-textGray">
-              <li className="lg:border-none border-b lg:p-0 p-3">خانه</li>
+              <li className="lg:border-none border-b lg:p-0 p-3">
+                <Link href="/home">خانه</Link>
+              </li>
               <li className="lg:border-none border-b lg:p-0 p-3">وبلاگ</li>
-              <li className="lg:border-none border-b lg:p-0 p-3">قهوه</li>
-              <li className="flex items-center lg:border-none border-b lg:p-0 p-3">
-                <p>محصولات مصرفی</p>
-                <IoIosArrowDown className="text-sm" />
+              <li className="lg:border-none border-b lg:p-0 group transition duration-300 p-3 relative">
+                <div className="flex items-center">
+                  <p>قهوه</p>
+                  <IoIosArrowDown className="text-sm" />
+                </div>
+                <div className="lg:absolute top-7 right-0 hidden lg:group-hover:flex group-hover:block bg-white border rounded-lg border-gray-300 p-3">
+                  <ul className="lg:border-l w-[11rem] px-2">
+                    <li className="font-bold text-black text-lg">
+                      <Link href="/product">قهوه تجاری</Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product">برشته کاری درکاپی</Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product">برشته کاری باکسونت</Link>
+                    </li>
+                  </ul>
+                  <ul className="lg:border-l w-[11rem] px-2">
+                    <li className="font-bold text-black text-lg">
+                      <Link
+                        href="/product?q=اسپشیالیتی"
+                        className="font-bold text-black"
+                      >
+                        قهوه اسپشیالیتی
+                      </Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      {" "}
+                      <Link
+                        href="/product?q=اسپشیالیتی"
+                        className="text-sm my-3"
+                      >
+                        برشته کاری درکاپی
+                      </Link>
+                    </li>
+                  </ul>
+                  <ul className="w-[11rem] px-2">
+                    <li className="font-bold text-black text-lg">
+                      <Link href="/product?q=اسپشیالیتی">قهوه سنتی</Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product?q=کرمانی">قهوه درکاپی سنتی</Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li className="lg:border-none border-b lg:p-0 group transition duration-300 p-3 relative">
+                <div className="flex items-center">
+                  <p>محصولات مصرفی</p>
+                  <IoIosArrowDown className="text-sm" />
+                </div>
+                <div className="lg:absolute top-7 right-0 hidden lg:group-hover:flex group-hover:block bg-white border rounded-lg border-gray-300 p-3">
+                  <ul className="w-[11rem] px-2">
+                    <li className="font-bold text-black text-lg">
+                      <Link href="/product?category=powder">
+                        پودرهای خوراکی
+                      </Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product">هات چاکلت</Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product?q=ماسالا">چای ماسالا</Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product؟?q=کاپوچینو">کاپوچینو</Link>
+                    </li>
+                  </ul>
+                </div>
               </li>
 
               <li className="lg:border-none border-b lg:p-0 group transition duration-300 p-3 relative">
@@ -61,27 +140,41 @@ const Header = () => {
                   <p>تجهیزات خانگی</p>
                   <IoIosArrowDown className="text-sm" />
                 </div>
-                <div className="absolute  top-5 left-0 hidden group-hover:flex bg-white border rounded-lg border-gray-300 p-3">
-                  <ul className="border-l pl-5">
-                    <li className="font-bold text-black">اسپرسوساز</li>
-                    <li className="text-sm my-3">مباشی</li>
-                    <li className="text-sm my-3">مباشی</li>
-                    <li className="text-sm my-3">مباشی</li>
-                    <li className="text-sm my-3">مباشی</li>
+                <div className="lg:absolute top-7 right-0 hidden lg:group-hover:flex group-hover:block bg-white border rounded-lg border-gray-300 p-3">
+                  <ul className="lg:border-l w-[11rem] px-2">
+                    <li className="font-bold text-black text-lg">
+                      <Link href="/product?category=espresso-maker">
+                        قهوه ساز ها
+                      </Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product?q=مباشی">مباشی</Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product?q=نوا">نوا</Link>
+                    </li>
                   </ul>
-                  <ul className="pr-5">
-                    <li className="font-bold text-black">اسپرسوساز</li>
-                    <li className="text-sm my-3">مباشی</li>
-                    <li className="text-sm my-3">مباشی</li>
-                    <li className="text-sm my-3">مباشی</li>
-                    <li className="text-sm my-3">مباشی</li>
+                  <ul className="w-[11rem] px-2">
+                    <li className="font-bold text-black text-lg">
+                      <Link
+                        href="/product?q=آسیاب"
+                        className="font-bold text-black"
+                      >
+                        آسیاب قهوه خانگی
+                      </Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product?q=برقی" className="text-sm my-3">
+                        آسیاب قهوه برقی
+                      </Link>
+                    </li>
+                    <li className="text-sm my-3">
+                      <Link href="/product?q=دستی" className="text-sm my-3">
+                        آسیاب قهوه دستی
+                      </Link>
+                    </li>
                   </ul>
                 </div>
-              </li>
-
-              <li className="flex items-center lg:border-none border-b lg:p-0 p-3">
-                <p>کافی شاپ</p>
-                <IoIosArrowDown className="text-sm" />
               </li>
             </ul>
           </div>
@@ -117,26 +210,20 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="min-w-full lg:hidden grid grid-cols-12">
-        <select
-          name=""
-          id=""
-          className="col-span-2 bg-gray-100 rounded-2xl border border-gray-300 mr-3"
-        >
-          <option value="">همه</option>
-          <option value="">1</option>
-          <option value="">1</option>
-          <option value="">1</option>
-          <option value="">1</option>
-        </select>
+      <div className="min-w-full lg:hidden">
+        
 
-        <div className="relative m-auto mx-3 col-span-10">
+        <div className="relative m-auto mx-3 mb-2">
           <input
             type="text"
             className="w-full pl-10 pr-3 bg-gray-100 py-2 rounded-2xl border border-gray-300 outline-none"
             placeholder="جستجو"
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <FaSearch className=" absolute left-2 top-2 text-xl" />
+          <FaSearch
+            className="absolute left-2 top-2 text-xl"
+            onClick={handleSearch}
+          />
         </div>
       </div>
     </div>
