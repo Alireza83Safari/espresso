@@ -1,11 +1,11 @@
-import { CoffeeType } from "@/app/types/coffee";
+import { ProductType } from "@/types/product";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 
-interface CoffeeFooterProps {
-  coffee: CoffeeType;
+interface ProductFooterProps {
+  product: ProductType;
 }
-const CoffeeFooter: React.FC<CoffeeFooterProps> = ({ coffee }) => {
+const ProductFooter: React.FC<ProductFooterProps> = ({ product }) => {
   const menuBtn = [
     { id: 1, title: "توضیحات", showMenuValue: "description" },
     { id: 2, title: "توضیحات تکمیلی", showMenuValue: "completDesc" },
@@ -43,7 +43,7 @@ const CoffeeFooter: React.FC<CoffeeFooterProps> = ({ coffee }) => {
       </div>
       <div className="border border-gray-200 sm:p-4 p-2 text-textGray leading-8">
         {showMenu === "description" ? (
-          coffee?.description
+          product?.description
         ) : showMenu === "completDesc" ? (
           <div className="grid grid-cols-4 font-extralight">
             <div className="col-span-1">
@@ -53,11 +53,11 @@ const CoffeeFooter: React.FC<CoffeeFooterProps> = ({ coffee }) => {
               <p className="py-2">ابزار دم آوری</p>
             </div>
             <div className="col-span-3">
-              <p className="py-2 border-b">{coffee?.weight}گرم</p>
+              <p className="py-2 border-b">{product?.weight}گرم</p>
               <p className="py-2 border-b">
                 اسپرسو خانگی, بدون آسیاب, دمی, صنعتی, فرنچ پرس, موکاپات
               </p>
-              <p className="py-2 border-b">{coffee?.caffeine}</p>
+              <p className="py-2 border-b">{product?.caffeine}</p>
               <p className="py-2">
                 اسپرسوساز, دمی, فرنچ پرس, کولد برو, موکاپات
               </p>
@@ -70,7 +70,7 @@ const CoffeeFooter: React.FC<CoffeeFooterProps> = ({ coffee }) => {
               <div>
                 <div className="border p-4 grid grid-cols-2">
                   <div className="col-span-2">
-                    <p>اولین کسی باشید که دیدگاهی می نویسد"{coffee?.name}"</p>
+                    <p>اولین کسی باشید که دیدگاهی می نویسد"{product?.name}"</p>
 
                     <div className="mt-5">
                       <label htmlFor="" className="block">
@@ -124,4 +124,4 @@ const CoffeeFooter: React.FC<CoffeeFooterProps> = ({ coffee }) => {
   );
 };
 
-export default CoffeeFooter;
+export default ProductFooter;

@@ -3,14 +3,15 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import Coffee from "./Coffee";
-import { CoffeeType } from "@/app/types/coffee";
-interface CoffeeSliderProps {
+import { ProductType } from "@/types/product";
+import Product from "./Product";
+
+interface ProductSlider {
   title: string;
-  coffees: CoffeeType[];
+  products: ProductType[];
 }
 
-const CoffeeSlider: React.FC<CoffeeSliderProps> = ({ title, coffees }) => {
+const ProductSlider: React.FC<ProductSlider> = ({ title, products }) => {
   const breakpoints = {
     1: {
       slidesPerView: 1,
@@ -45,9 +46,9 @@ const CoffeeSlider: React.FC<CoffeeSliderProps> = ({ title, coffees }) => {
         className="mySwiper"
         breakpoints={breakpoints}
       >
-        {coffees?.map((coffee) => (
+        {products?.map((product) => (
           <SwiperSlide>
-            <Coffee coffee={coffee} />
+            <Product product={product} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -55,4 +56,4 @@ const CoffeeSlider: React.FC<CoffeeSliderProps> = ({ title, coffees }) => {
   );
 };
 
-export default CoffeeSlider;
+export default ProductSlider;

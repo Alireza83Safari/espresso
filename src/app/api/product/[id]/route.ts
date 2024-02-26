@@ -1,6 +1,6 @@
 import isValidObjectId from "@/helper/isValidObjectId";
 import connectToDB from "@/libs/db";
-import Coffee from "@/models/coffee";
+import Product from "@/models/product";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
@@ -11,9 +11,9 @@ export async function GET(
     await connectToDB();
     isValidObjectId(params?.id);
 
-    const findCoffee = await Coffee.findById(params?.id);
-    if (findCoffee) {
-      return NextResponse.json(findCoffee);
+    const findProduct = await Product.findById(params?.id);
+    if (findProduct) {
+      return NextResponse.json(findProduct);
     } else {
       return NextResponse.json({ message: "قهوه یافت نشد!" }, { status: 404 });
     }
@@ -33,8 +33,8 @@ export async function DELETE(
     await connectToDB();
     isValidObjectId(params?.id);
 
-    const deleteCoffee = await Coffee.findByIdAndDelete(params?.id);
-    if (deleteCoffee) {
+    const deleteProduct = await Product.findByIdAndDelete(params?.id);
+    if (deleteProduct) {
       return NextResponse.json({ message: "حذف قهوه موفقیت آمیز بود" });
     } else {
       return NextResponse.json({ message: "قهوه یافت نشد!" }, { status: 404 });
@@ -56,10 +56,10 @@ export async function PUT(
     await connectToDB();
     isValidObjectId(params?.id);
 
-    const editCoffee = await Coffee.findByIdAndUpdate(params.id, data, {
+    const editProduct = await Product.findByIdAndUpdate(params.id, data, {
       new: true,
     });
-    if (editCoffee) {
+    if (editProduct) {
       return NextResponse.json({ messgae: "ویرایش قهوه موفقیت آمیز بود" });
     } else {
       return NextResponse.json({ message: "قهوه یافت نشد!" }, { status: 404 });

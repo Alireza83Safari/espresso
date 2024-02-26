@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const coffeeSchema = new mongoose.Schema(
+export const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -48,7 +48,7 @@ export const coffeeSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Coffee =
-  mongoose.models?.Coffee || mongoose.model("Coffee", coffeeSchema);
+const Product =
+  mongoose.models?.Product || mongoose.model("Product", productSchema);
 
-export default Coffee;
+export default Product;

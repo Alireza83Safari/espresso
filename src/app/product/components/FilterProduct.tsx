@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const FilterCoffee = () => {
+const FilterProduct = () => {
   const [filterValue, setFilterValue] = useState("");
   const { push } = useRouter();
 
@@ -33,4 +33,4 @@ const FilterCoffee = () => {
   );
 };
 
-export default FilterCoffee;
+export default FilterProduct;

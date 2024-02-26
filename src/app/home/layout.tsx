@@ -1,8 +1,8 @@
 import React from "react";
-import CoffeeSlider from "@/components/CoffeeSlider";
+import ProductSlider from "@/components/ProductSlider";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { getCoffeees } from "../actions/getCoffees";
+import { getProducts } from "../actions/getProducts";
 
 export default async function Layout(props: {
   banner: React.ReactNode;
@@ -12,9 +12,9 @@ export default async function Layout(props: {
   productCategory: React.ReactNode;
   brands: React.ReactNode;
 }) {
-  const expensiveCoffee = await getCoffeees();
-  const mixCoffee = await getCoffeees(`?order=mix`);
-  const pureCoffee = await getCoffeees(`?order=pure`);
+  const expensiveCoffee = await getProducts();
+  const mixCoffee = await getProducts(`?order=mix`);
+  const pureCoffee = await getProducts(`?order=pure`);
 
   return (
     <>
@@ -23,14 +23,14 @@ export default async function Layout(props: {
       {props.banner}
       {props.category}
 
-      <CoffeeSlider
+      <ProductSlider
         title="گران ترین قهوه های ترکیبی "
-        coffees={expensiveCoffee}
+        products={expensiveCoffee}
       />
-      <CoffeeSlider title="قهوه های عربیکا" coffees={pureCoffee} />
+      <ProductSlider title="قهوه های عربیکا" products={pureCoffee} />
       {props.subBanner}
-      <CoffeeSlider title="قهوه های میکس" coffees={mixCoffee} />
-      <CoffeeSlider title="محصولات پیشنهادی" coffees={expensiveCoffee} />
+      <ProductSlider title="قهوه های میکس" products={mixCoffee} />
+      <ProductSlider title="محصولات پیشنهادی" products={expensiveCoffee} />
       {props.possibilities}
       {props.productCategory}
       {props.brands}

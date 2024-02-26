@@ -1,4 +1,4 @@
-export interface CoffeeType {
+export interface ProductType {
   _id: string;
   name: string;
   price: number;

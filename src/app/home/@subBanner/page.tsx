@@ -6,7 +6,7 @@ const page = () => {
   return (
     <div className="grid xs:grid-cols-2 m-auto max-w-[1080px] my-16">
       <Link
-        href="/coffee?order=oldest"
+        href="/product?order=newset"
         className="transition-transform transform-gpu hover:scale-110 duration-1000 relative"
       >
         <Image
@@ -18,7 +18,7 @@ const page = () => {
         />
       </Link>
       <Link
-        href="/coffee?q=syrup"
+        href="/product?q=syrup"
         className="transition-transform transform-gpu hover:scale-110 duration-1000 relative"
       >
         <Image

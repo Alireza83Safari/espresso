@@ -1,24 +1,27 @@
 "use client";
-import { CoffeeType } from "@/app/types/coffee";
+import { ProductType } from "@/types/product";
 import Image from "next/image";
 import React, { useState } from "react";
 import { FaTruck } from "react-icons/fa";
-import CoffeeFooter from "./CoffeeFooter";
-import { useCoffeePriceCalculator } from "@/app/hooks/useCoffePrice";
+import ProductFooter from "./ProductFooter";
+import { useCoffeePriceCalculator } from "@/hooks/useCoffePrice";
+import { addToCart } from "@/app/actions/addToCart";
+import { useSession } from "next-auth/react";
 
-interface CoffeePageProps {
-  coffee: CoffeeType;
+interface ProductPageProps {
+  product: ProductType;
 }
 
-const CoffeePage: React.FC<CoffeePageProps> = ({ coffee }) => {
+const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
+  const { data: session } = useSession();
   const [weight, setWeight] = useState(250);
   const { calculatedPrice } = useCoffeePriceCalculator({
-    price: coffee?.price,
+    price: product?.price,
     coffeeWeight: weight,
   });
 
   const { calculatedPrice: minPrice } = useCoffeePriceCalculator({
-    price: coffee?.price,
+    price: product?.price,
     coffeeWeight: 250,
   });
 
@@ -26,22 +29,22 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ coffee }) => {
     <div className="grid md:grid-cols-5 lg:mt-32 mt-40 mx-auto max-w-[1080px]">
       <div className="md:col-span-2 flex justify-center">
         <Image
-          src={coffee?.image}
+          src={product?.image}
           width={500}
           height={500}
-          alt={coffee?.name}
+          alt={product?.name}
           className="object-contain min-w-full"
         />
       </div>
       <div className="md:col-span-3 flex justify-center text-center pb-12 md:mt-0 mt-10">
         <div className="max-w-[26rem md:px-12">
-          <h1 className="xs:text-3xl text-xl text-textGray">{coffee?.name}</h1>
+          <h1 className="xs:text-3xl text-xl text-textGray">{product?.name}</h1>
           <p className="xs:text-2xl text-lg mt-7 text-center">
             {minPrice?.toLocaleString()}تومان -{" "}
-            {coffee?.price?.toLocaleString()}
+            {product?.price?.toLocaleString()}
             تومان
           </p>
-          <p className="mt-4 text-lg">قهوه {coffee?.seedType}</p>
+          <p className="mt-4 text-lg">قهوه {product?.seedType}</p>
           <div className="flex justify-center mt-4">
             <FaTruck className="text-3xl mr-2 text-lime-600 ml-2" />
             <p className="xs:text-2xl text-lg text-lime-600 font-semibold">
@@ -82,7 +85,12 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ coffee }) => {
 
           <div className="flex items-center mt-10">
             <p className="xs:text-2xl text-lg ml-4">{calculatedPrice}تومان</p>
-            <button className="bg-green py-1 px-3 text-white rounded-sm">
+            <button
+              className="bg-green py-1 px-3 text-white rounded-sm"
+              onClick={() =>
+                addToCart({ product: product?._id, user: (session as any)?.id })
+              }
+            >
               افزودن به سبد خرید
             </button>
           </div>
@@ -100,16 +108,16 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ coffee }) => {
 
             <div className="flex mt-3 py-2">
               <p className="ml-1">برچسب:</p>
-              <p>{coffee?.label}</p>
+              <p>{product?.label}</p>
             </div>
           </div>
         </div>
       </div>
       <div className="md:col-span-5">
-        <CoffeeFooter coffee={coffee} />
+        <ProductFooter product={product} />
       </div>
     </div>
   );
 };
 
-export default CoffeePage;
+export default ProductPage;

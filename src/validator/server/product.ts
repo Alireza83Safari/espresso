@@ -2,7 +2,7 @@ const Validator = require("fastest-validator");
 
 const v = new Validator();
 
-const coffeeSchema = {
+const productSchema = {
   name: { type: "string", min: 2, max: 200, unique: true },
   price: { type: "number" },
   seed: { type: "string", min: 2, max: 200, enum: ["powdery", "mix", "pure"] },
@@ -14,6 +14,6 @@ const coffeeSchema = {
   weight: { type: "number" },
 };
 
-const coffeeValidator = v.compile(coffeeSchema);
+const productValidator = v.compile(productSchema);
 
-export default coffeeValidator;
+export default productValidator;

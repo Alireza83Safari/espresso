@@ -1,43 +1,43 @@
 import connectToDB from "@/libs/db";
-import Coffee from "@/models/coffee";
+import Product from "@/models/product";
 import Category from "@/models/category";
-import coffeeValidator from "@/validator/server/coffee";
+import productValidator from "@/validator/server/product";
 import { NextRequest, NextResponse } from "next/server";
 
 async function handleOrder(order: any, skip: number, limit: number) {
-  let carQuery;
+  let productQuery;
   switch (order) {
     case "expensive":
-      carQuery = await Coffee.find({}, "-__v")
+      productQuery = await Product.find({}, "-__v")
         .sort({ price: -1 })
         .skip(skip)
         .limit(limit);
       break;
     case "cheap":
-      carQuery = await Coffee.find({}, "-__v")
+      productQuery = await Product.find({}, "-__v")
         .sort({ price: 1 })
         .skip(skip)
         .limit(limit);
       break;
     case "newset":
-      carQuery = await Coffee.find({}, "-__v")
+      productQuery = await Product.find({}, "-__v")
         .sort({ createdAt: 1 })
         .skip(skip)
         .limit(limit);
       break;
     case "oldest":
-      carQuery = await Coffee.find({}, "-__v")
+      productQuery = await Product.find({}, "-__v")
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit);
       break;
     case "mix":
-      carQuery = await Coffee.find({ seed: "mix" }, "-__v")
+      productQuery = await Product.find({ seed: "mix" }, "-__v")
         .skip(skip)
         .limit(limit);
       break;
     case "pure":
-      carQuery = await Coffee.find({ seed: "pure" }, "-__v")
+      productQuery = await Product.find({ seed: "pure" }, "-__v")
         .skip(skip)
         .limit(limit);
       break;
@@ -48,7 +48,7 @@ async function handleOrder(order: any, skip: number, limit: number) {
         { status: 404 }
       );
   }
-  return carQuery;
+  return productQuery;
 }
 
 export async function POST(req: NextRequest) {
@@ -56,14 +56,14 @@ export async function POST(req: NextRequest) {
     await connectToDB();
     const data = await req.json();
 
-    const validationResult = await coffeeValidator(data);
+    const validationResult = await productValidator(data);
     console.log(validationResult);
 
     if (validationResult?.length) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 
-    const nameExist = await Coffee.find({ name: data?.name });
+    const nameExist = await Product.find({ name: data?.name });
 
     if (!!nameExist?.length) {
       return NextResponse.json(
@@ -72,9 +72,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const createCoffee = await Coffee.create(data);
+    const createProduct = await Product.create(data);
 
-    if (createCoffee) {
+    if (createProduct) {
       return NextResponse.json(
         { message: "قهوه با موفقیت ایجاد شد" },
         { status: 200 }
@@ -91,24 +91,33 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   try {
     await connectToDB();
-    const cate = await Category.find();
+    const category = await Category.find();
 
     const { searchParams } = new URL(req.url);
 
     const order = searchParams.get("order");
+    const q = searchParams.get("q");
     const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || String(Coffee.length));
+    const limit = parseInt(searchParams.get("limit") || String(Product.length));
     const skip = (page - 1) * limit;
 
-    let carQuery;
+    let productQuery;
+
     switch (true) {
       case !!order:
-        carQuery = await handleOrder(order, skip, limit);
-        return NextResponse.json(carQuery);
+        productQuery = await handleOrder(order, skip, limit);
+        return NextResponse.json(productQuery);
+
+      case !!q:
+        productQuery = await Product.find({ name: { $regex: q } })
+          .skip(skip)
+          .limit(limit)
+          .populate("category");
+        return NextResponse.json(productQuery);
 
       default:
-        const coffees = await Coffee.find({}).populate("category").exec();
-        return NextResponse.json(coffees);
+        const products = await Product.find({}).populate("category").exec();
+        return NextResponse.json(products);
     }
   } catch (error) {
     return NextResponse.json(

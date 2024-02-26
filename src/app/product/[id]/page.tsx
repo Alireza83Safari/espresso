@@ -1,15 +1,15 @@
-import { getCoffeees } from "@/app/actions/getCoffees";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Metadata } from "next";
-import CoffeePage from "./components/CoffeePage";
-import { CoffeeType } from "@/app/types/coffee";
+import ProductPage from "./components/ProductPage";
+import { ProductType } from "@/types/product";
+import { getProducts } from "@/app/actions/getProducts";
 
 export async function generateStaticParams() {
-  const coffees = await getCoffeees("");
+  const products = await getProducts();
 
-  return coffees?.map((coffee: CoffeeType) => ({
-    id: coffee?._id,
+  return products?.map((product: ProductType) => ({
+    id: product?._id,
   }));
 }
 
@@ -21,10 +21,10 @@ export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   try {
-    const coffee = await getCoffeees(`/${params.id}`);
+    const product = await getProducts(`/${params.id}`);
 
     return {
-      title: `${coffee?.name}`,
+      title: `${product?.name}`,
     };
   } catch (error) {
     return {
@@ -34,13 +34,13 @@ export const generateMetadata = async ({
 };
 
 export default async function page({ params }: { params: { id: string } }) {
-  const coffee = await getCoffeees(`/${params.id}`);
+  const product = await getProducts(`/${params.id}`);
 
   return (
     <>
       <Header />
       <div className="xl:container mx-auto px-4 ">
-        <CoffeePage coffee={coffee} />
+        <ProductPage product={product} />
       </div>
       <Footer />
     </>

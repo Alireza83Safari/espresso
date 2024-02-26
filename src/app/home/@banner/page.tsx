@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -21,19 +22,29 @@ const Banner = () => {
       }}
     >
       <SwiperSlide>
-        <div className="transition-transform transform-gpu hover:scale-110 duration-300 bg-banner-1 bg-center bg-cover h-[24rem] justify-center items-center -z-10 lg:mt-[92px] mt-[137px] flex">
+        <Link
+          href="/product"
+          className="transition-transform transform-gpu hover:scale-110 duration-300 bg-banner-1 bg-center bg-cover h-[24rem] justify-center items-center -z-10 lg:mt-[92px] mt-[137px] flex"
+        >
           <div className="text-white text-center mb-8">
-            <p className="md:text-[3.6rem] text-[2.4rem] font-bold">شروع روز خوب</p>
-            <p className="md:text-[3.6rem] text-[2.4rem] font-bold mt-5">با یک قهوه خوب</p>
+            <p className="md:text-[3.6rem] text-[2.4rem] font-bold">
+              شروع روز خوب
+            </p>
+            <p className="md:text-[3.6rem] text-[2.4rem] font-bold mt-5">
+              با یک قهوه خوب
+            </p>
             <button className="border-2 border-white py-3 px-10 text-lg font-semibold hover:bg-white duration-300 hover:text-green rounded-3xl mt-12">
               مشاهده محصولات
             </button>
           </div>
-        </div>
+        </Link>
       </SwiperSlide>
 
       <SwiperSlide>
-        <div className="transition-transform transform-gpu hover:scale-110 duration-300 flex items-center relative">
+        <Link
+          href={"/product?q=باکسونت"}
+          className="transition-transform transform-gpu hover:scale-110 duration-300 flex items-center relative"
+        >
           <div className="absolute top-0 right-0 left-0 bg-banner-2 bg-center bg-cover lg:mt-[93px] mt-[140px] lg:min-h-[24rem] sm:flex items-center">
             <div className="text-white mb-8 lg::pr-16 md:pr-10 sm:pr-4 mt-8">
               <p className="lg:text-[3.3rem] sm:text-[2.2rem] text-[1.7rem] font-bold">
@@ -47,7 +58,7 @@ const Banner = () => {
               </button>
             </div>
           </div>
-        </div>
+        </Link>
       </SwiperSlide>
     </Swiper>
   );
