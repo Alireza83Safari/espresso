@@ -205,14 +205,14 @@ const Header = () => {
             <div className="p-3 rounded-full bg-green hover:bg-[#0A5B01] lg:flex hidden">
               <FaSearch className="text-white" />
             </div>
-            <TfiShoppingCart className="text-3xl ml-2" />
+            <Link href='/cart'>
+              <TfiShoppingCart className="text-3xl ml-2" />
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="min-w-full lg:hidden">
-        
-
         <div className="relative m-auto mx-3 mb-2">
           <input
             type="text"
