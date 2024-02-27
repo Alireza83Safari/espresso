@@ -1,13 +1,12 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { Metadata } from "next";
 import ProductPage from "./components/ProductPage";
 import { ProductType } from "@/types/product";
-import { getProducts } from "@/app/actions/getProducts";
+import { getProducts } from "@/actions/getProducts";
+import { getProduct } from "@/actions/getProduct";
 
 export async function generateStaticParams() {
   const products = await getProducts();
-
   return products?.map((product: ProductType) => ({
     id: product?._id,
   }));
@@ -17,7 +16,7 @@ type Props = {
   params: { id: string };
 };
 
-export const generateMetadata = async ({
+/* export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   try {
@@ -31,10 +30,10 @@ export const generateMetadata = async ({
       title: "صفحه قهوه",
     };
   }
-};
+}; */
 
 export default async function page({ params }: { params: { id: string } }) {
-  const product = await getProducts(`/${params.id}`);
+  const product = await getProduct(params.id);
 
   return (
     <>

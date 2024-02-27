@@ -48,6 +48,12 @@ export const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+productSchema.virtual("comments", {
+  ref: "Comment",
+  localField: "_id",
+  foreignField: "product",
+});
+
 const Product =
   mongoose.models?.Product || mongoose.model("Product", productSchema);
 

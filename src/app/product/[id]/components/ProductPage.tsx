@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { FaTruck } from "react-icons/fa";
 import ProductFooter from "./ProductFooter";
 import { useCoffeePriceCalculator } from "@/hooks/useCoffePrice";
-import { addToCart } from "@/app/actions/addToCart";
+import { addToCart } from "@/actions/addToCart";
 import { useSession } from "next-auth/react";
 
 interface ProductPageProps {
@@ -45,11 +45,9 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
             تومان
           </p>
           <p className="mt-4 text-lg">قهوه {product?.seedType}</p>
-          <div className="flex justify-center mt-4">
-            <FaTruck className="text-3xl mr-2 text-lime-600 ml-2" />
-            <p className="xs:text-2xl text-lg text-lime-600 font-semibold">
-              ارسال رایگان
-            </p>
+          <div className="flex justify-center mt-4 text-lime-600">
+            <FaTruck className="text-3xl mr-2 ml-2" />
+            <p className="xs:text-2xl text-lg font-semibold">ارسال رایگان</p>
           </div>
 
           <div className="mt-12 xs:text-base text-sm">

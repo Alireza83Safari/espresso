@@ -3,6 +3,7 @@ import Product from "@/models/product";
 import Category from "@/models/category";
 import productValidator from "@/validator/server/product";
 import { NextRequest, NextResponse } from "next/server";
+import Comment from "@/models/comment";
 
 async function handleOrder(order: any, skip: number, limit: number) {
   let productQuery;
@@ -116,7 +117,10 @@ export async function GET(req: NextRequest) {
         return NextResponse.json(productQuery);
 
       default:
-        const products = await Product.find({}).populate("category").exec();
+        const products = await Product.find({})
+          .populate("category")
+          .exec();
+
         return NextResponse.json(products);
     }
   } catch (error) {

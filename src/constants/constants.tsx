@@ -5,3 +5,9 @@ export const productCategory = [
   { id: 4, titel: "قهوه", image: "/image/ghahve.webp" },
   { id: 5, titel: "بار سرد", image: "/image/mohoto.png" },
 ];
+
+export const productFooterBtn = [
+  { id: 1, title: "توضیحات", showMenuValue: "description" },
+  { id: 2, title: "توضیحات تکمیلی", showMenuValue: "completDesc" },
+  { id: 3, title: "نظرات", showMenuValue: "comments" },
+];

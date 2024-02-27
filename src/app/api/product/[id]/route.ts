@@ -2,7 +2,8 @@ import isValidObjectId from "@/helper/isValidObjectId";
 import connectToDB from "@/libs/db";
 import Product from "@/models/product";
 import { NextRequest, NextResponse } from "next/server";
-
+import Comment from "@/models/comment";
+import Category from "@/models/category";
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
@@ -10,8 +11,19 @@ export async function GET(
   try {
     await connectToDB();
     isValidObjectId(params?.id);
+    const comment = await Comment.find({});
+    const category = await Category.find({});
 
-    const findProduct = await Product.findById(params?.id);
+    const findProduct = await Product.findById(params?.id)
+      .populate("category")
+      .populate({
+        path: "comments",
+        populate: {
+          path: "user",
+        },
+      })
+      .lean()
+      .exec();
     if (findProduct) {
       return NextResponse.json(findProduct);
     } else {
