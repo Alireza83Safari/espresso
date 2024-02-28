@@ -1,3 +1,5 @@
+import { CommentType } from "./comment";
+
 export interface ProductType {
   _id: string;
   name: string;
@@ -9,6 +11,7 @@ export interface ProductType {
   description: string;
   caffeine: string;
   weight: number;
+  comments: CommentType[];
   createdAt: string;
   updatedAt: string;
 }
