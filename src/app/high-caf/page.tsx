@@ -1,12 +1,14 @@
 import Image from "next/image";
-import React from "react";
-import { getProducts } from "../actions/getProducts";
+import { getProducts } from "../../actions/getProducts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductSlider from "@/components/ProductSlider";
 
-const page = async () => {
+export const dynamic = "force-dynamic";
+
+export default async function page() {
   const coffees = await getProducts();
+
   return (
     <>
       <Header />
@@ -48,6 +50,4 @@ const page = async () => {
       <Footer />
     </>
   );
-};
-
-export default page;
+}

@@ -15,7 +15,7 @@ export async function PUT(
 
     const validationResult = categoryValidator(data);
 
-    if (validationResult?.length) {
+    if (validationResult) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 

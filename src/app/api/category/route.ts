@@ -1,4 +1,3 @@
-import isValidObjectId from "@/helper/isValidObjectId";
 import connectToDB from "@/libs/db";
 import Category from "@/models/category";
 import categoryValidator from "@/validator/server/category";
@@ -10,7 +9,7 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
     const validationResult = categoryValidator(data);
 
-    if (validationResult?.length) {
+    if (validationResult) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 

@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     const validationResult = await productValidator(data);
     console.log(validationResult);
 
-    if (validationResult?.length) {
+    if (validationResult) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 

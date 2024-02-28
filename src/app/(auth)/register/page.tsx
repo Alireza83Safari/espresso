@@ -5,8 +5,9 @@ import { useRouter } from "next/navigation";
 import FormSpinner from "@/components/FormSpinner/FormSpinner";
 import { registerSchema } from "@/validator/client/register";
 import toast from "react-hot-toast";
+import { apiUrl } from "@/services/apiUrl";
 
-const Register: React.FC = () => {
+export default function page() {
   const { push } = useRouter();
   const initialState = {
     username: "",
@@ -18,7 +19,6 @@ const Register: React.FC = () => {
   };
 
   const [registerInfos, setRegisterInfos] = useState(initialState);
-  const [serverError, setServerError] = useState("");
   const [errors, setErrors] = useState(initialState);
   const [isLoading, setLoading] = useState(false);
 
@@ -32,6 +32,9 @@ const Register: React.FC = () => {
 
   const handleRegister = async () => {
     setLoading(true);
+    if (!apiUrl) {
+      return null;
+    }
     try {
       const res = await fetch(`/api/register`, {
         method: "POST",
@@ -41,14 +44,15 @@ const Register: React.FC = () => {
       if (res.status === 200) {
         toast.success("ساخت حساب موفقیت آمیز بود");
         push("/login");
-        setLoading(false);
-      }
-      if (res.status !== 200) {
-        toast.error("Invalid credentials!");
-        setLoading(false);
+      } else if (res.status === 422) {
+        toast.error("محصول از قبل وجود دارد");
+      } else {
+        toast.error("خطا در ساخت حساب");
       }
     } catch (error) {
-      setServerError((error as any)?.response?.data?.message);
+      console.error("Registration Error:", error);
+      toast.error("خطا در ارسال درخواست");
+    } finally {
       setLoading(false);
     }
   };
@@ -76,7 +80,6 @@ const Register: React.FC = () => {
       setLoading(false);
     }
   };
-
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
       <div className="max-w-[40rem] sm:min-w-[28rem] min-w-[95vw] sm:px-0 px-4 py-3 rounded-xl shadow-2xl">
@@ -84,7 +87,6 @@ const Register: React.FC = () => {
           <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             ساخت حساب کاربری{" "}
           </h2>
-          <p className="text-center text-red-600 mt-4 text-sm">{serverError}</p>
         </div>
 
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -206,6 +208,4 @@ const Register: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Register;
+}

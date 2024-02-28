@@ -1,10 +1,10 @@
 import ProductSlider from "@/components/ProductSlider";
 import Image from "next/image";
-import React from "react";
-import { getProducts } from "../actions/getProducts";
+import { getProducts } from "../../actions/getProducts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+export const dynamic = "force-dynamic";
 
 export default async function page() {
   const coffees = await getProducts();
@@ -38,7 +38,9 @@ export default async function page() {
           افزایش پیدا کنه.
         </p>
 
-        <h2 className="text-lg mt-10">خب چطوری بفهمیم چه قهوه برای ورزش مناسبه؟</h1>
+        <h2 className="text-lg mt-10">
+          خب چطوری بفهمیم چه قهوه برای ورزش مناسبه؟
+        </h2>
         <p className="mt-10 text-sm leading-7 text-textGray">
           قهوه های مناسب ورزش معمولا کافئین متوسط رو به بالایی دارند و شما با
           خوردن اون ها احساس سر زندگی میکنید. اما پیدا کردن قهوه مناسب برای
@@ -65,5 +67,3 @@ export default async function page() {
     </>
   );
 }
-
-

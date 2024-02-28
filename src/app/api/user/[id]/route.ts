@@ -1,6 +1,5 @@
 import User from "@/models/user";
 import connectToDB from "@/libs/db";
-import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 import isValidObjectId from "@/helper/isValidObjectId";
 

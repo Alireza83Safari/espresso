@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
 
     const validationResult = commentValidator(data);
 
-    if (validationResult?.length) {
+    if (validationResult) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 

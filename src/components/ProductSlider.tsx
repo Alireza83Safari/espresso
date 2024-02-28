@@ -46,11 +46,12 @@ const ProductSlider: React.FC<ProductSlider> = ({ title, products }) => {
         className="mySwiper"
         breakpoints={breakpoints}
       >
-        {products?.map((product) => (
-          <SwiperSlide>
-            <Product product={product} />
-          </SwiperSlide>
-        ))}
+        {!!products?.length &&
+          products.map((product) => (
+            <SwiperSlide>
+              <Product product={product} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

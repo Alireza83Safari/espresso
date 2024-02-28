@@ -1,7 +1,8 @@
 import Image from "next/image";
-import React from "react";
 
-export default function page() {
+export const dynamic = "force-dynamic";
+
+export default async function page() {
   return (
     <div className="m-auto max-w-[1080px] flex justify-center items-center gap-x-10 my-20">
       <div className="mx">
@@ -15,7 +16,7 @@ export default function page() {
       </div>
       <div>
         <Image
-          src="/image/starbox.png"
+          src="/image/starbox.WEBP"
           width={120}
           height={120}
           alt=""

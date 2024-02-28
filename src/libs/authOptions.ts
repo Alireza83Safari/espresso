@@ -54,7 +54,7 @@ export const authOptions: AuthOptions = {
         return {
           ...token,
           id: user?.id,
-          username: user?.username,
+          username: (user as any)?.username,
           accessToken: token.accessToken,
         };
       }

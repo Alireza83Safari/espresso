@@ -5,7 +5,10 @@ import FilterProduct from "./components/FilterProduct";
 import { getProducts } from "../../actions/getProducts";
 import Product from "@/components/Product";
 
-export default async function page({ searchParams }: any) {
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
+export default async function page(searchParams: any) {
   const { order, q } = searchParams;
   let APIURL = `?`;
   if (order) APIURL += `order=${order}&`;

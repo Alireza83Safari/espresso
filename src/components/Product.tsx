@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { addToCart } from "@/app/actions/addToCart";
+import { addToCart } from "@/actions/addToCart";
 import { ProductType } from "@/types/product";
 import { useSession } from "next-auth/react";
 import Image from "next/image";

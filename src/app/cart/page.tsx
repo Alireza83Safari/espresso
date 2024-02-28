@@ -1,17 +1,16 @@
-import React from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { authOptions } from "@/libs/authOptions";
 import { getServerSession } from "next-auth";
 import CartTable from "./components/CartTable";
-import { getCartItem } from "../actions/getCartItem";
+import { getCartItem } from "../../actions/getCartItem";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 export default async function page() {
   const session = await getServerSession(authOptions);
-  const cartItem = await getCartItem(session?.id);
+  const cartItem = await getCartItem((session as any)?.id);
 
   return (
     <>

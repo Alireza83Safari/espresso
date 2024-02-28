@@ -2,7 +2,7 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaInstagram, FaSearch, FaTelegram, FaUser } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -123,13 +123,13 @@ const Header = () => {
                       </Link>
                     </li>
                     <li className="text-sm my-3">
-                      <Link href="/product">هات چاکلت</Link>
+                      <Link href="/product?q=چاکلت">هات چاکلت</Link>
                     </li>
                     <li className="text-sm my-3">
                       <Link href="/product?q=ماسالا">چای ماسالا</Link>
                     </li>
                     <li className="text-sm my-3">
-                      <Link href="/product؟?q=کاپوچینو">کاپوچینو</Link>
+                      <Link href="/product?q=کاپوچینو">کاپوچینو</Link>
                     </li>
                   </ul>
                 </div>
@@ -182,8 +182,12 @@ const Header = () => {
 
         <div className="flex items-center justify-end">
           <div className="flex items-center text-lg mx-2 gap-x-2">
-            <FaInstagram />
-            <FaTelegram />
+            <Link href="https://t.me/alirezasafari83">
+              <FaInstagram />
+            </Link>
+            <Link href="https://t.me/alirezasafari83">
+              <FaTelegram />
+            </Link>
           </div>
           {!session ? (
             <Link
@@ -205,7 +209,7 @@ const Header = () => {
             <div className="p-3 rounded-full bg-green hover:bg-[#0A5B01] lg:flex hidden">
               <FaSearch className="text-white" />
             </div>
-            <Link href='/cart'>
+            <Link href="/cart">
               <TfiShoppingCart className="text-3xl ml-2" />
             </Link>
           </div>
