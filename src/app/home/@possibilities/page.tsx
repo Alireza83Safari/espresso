@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 const page = () => {
   return (
@@ -8,7 +7,7 @@ const page = () => {
         <div className="border-l border-dashed border-white flex justify-center items-center">
           <div>
             <Image
-              src="/image/Asset-1.png"
+              src="/image/Asset-1.WEBP"
               width={200}
               height={200}
               alt=""
@@ -21,7 +20,7 @@ const page = () => {
         <div className="border-l border-dashed border-white flex justify-center items-center">
           <div>
             <Image
-              src="/image/Asset-2.png"
+              src="/image/Asset-2.WEBP"
               width={200}
               height={200}
               alt=""
@@ -34,7 +33,7 @@ const page = () => {
         <div className="md:border-l md:border-dashed md:border-white flex justify-center items-center">
           <div>
             <Image
-              src="/image/Asset-3.png"
+              src="/image/Asset-3.WEBP"
               width={200}
               height={200}
               alt=""
@@ -47,7 +46,7 @@ const page = () => {
         <div className="md:flex hidden justify-center items-center">
           <div>
             <Image
-              src="/image/Asset-4.png"
+              src="/image/Asset-4.WEBP"
               width={200}
               height={200}
               alt=""
