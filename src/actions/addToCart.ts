@@ -1,3 +1,4 @@
+import { clientRevalidateTag } from "@/helper/clientRevalidateTag";
 import { apiUrl } from "@/services/apiUrl";
 import toast from "react-hot-toast";
 
@@ -17,6 +18,7 @@ export const addToCart = async ({ product, user }: addToCartProps) => {
   });
 
   if (res.status === 200) {
+    clientRevalidateTag("cart");
     toast.success("محصول با موفقیت به سبد خرید اضافه شد");
   } else if (res.status === 422) {
     toast.error("محصول از قبل در سبد خرید وجود دارد");

@@ -5,10 +5,11 @@ import { getServerSession } from "next-auth";
 import CartTable from "./components/CartTable";
 import { getCartItem } from "../../actions/getCartItem";
 import Link from "next/link";
+import { withAuth } from "@/HOCs/withAuth";
 
 export const dynamic = "force-dynamic";
 
-export default async function page() {
+const page = async () => {
   const session = await getServerSession(authOptions);
   const cartItem = await getCartItem((session as any)?.id);
 
@@ -28,9 +29,11 @@ export default async function page() {
               <p>مجموع</p>
               <p>۳۰۵,۰۰۰ تومان</p>
             </div>
-            <button className="bg-green min-w-full py-2 text-white mt-5">
-              ادامه جهت تسویه حساب
-            </button>
+            <Link href="/cart/order">
+              <button className="bg-green min-w-full py-2 text-white mt-5">
+                ادامه جهت تسویه حساب
+              </button>
+            </Link>
           </div>
         </div>
       ) : (
@@ -46,4 +49,6 @@ export default async function page() {
       <Footer />
     </>
   );
-}
+};
+
+export default withAuth(page);
