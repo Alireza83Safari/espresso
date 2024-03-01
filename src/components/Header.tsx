@@ -29,6 +29,7 @@ const Header = () => {
       push(`/product?q=${searchQuery}`);
     }
   };
+
   const searchParams = useSearchParams();
   const query = searchParams.get("q");
   useEffect(() => {
@@ -212,7 +213,7 @@ const Header = () => {
               </Link>
             ) : (
               <Link
-                href="/login"
+                href="/my-account/dashboard"
                 className="bg-green hover:bg-[#0A5B01] w-10 h-10 rounded-full text-white flex justify-center items-center text-lg ml-3"
               >
                 <FaUser className="" />

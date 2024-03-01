@@ -1,5 +1,5 @@
-import isValidObjectId from "@/helper/isValidObjectId";
 import connectToDB from "@/libs/db";
+import Address from "@/models/address";
 import Order from "@/models/order";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -8,12 +8,13 @@ export async function GET(
   { params }: { params: { userId: string } }
 ) {
   try {
+    const address = await Address.find({});
     await connectToDB();
-    if (!isValidObjectId(params?.userId)) {
-      return NextResponse.json({ messgae: "آی دی معتبر نیست" });
-    }
 
-    const findUserOrders = await Order.findById({ user: params?.userId });
+    const findUserOrders = await Order.find({ user: params?.userId }).populate(
+      "address"
+    );
+    console.log("findUserOrders", findUserOrders);
 
     if (findUserOrders) {
       return NextResponse.json(findUserOrders);

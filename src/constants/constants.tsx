@@ -11,3 +11,9 @@ export const productFooterBtn = [
   { id: 2, title: "توضیحات تکمیلی", showMenuValue: "completDesc" },
   { id: 3, title: "نظرات", showMenuValue: "comments" },
 ];
+
+export const accountSidebarItem = [
+  { id: 1, title: "پیشخوان", href: "/my-account/dashboard" },
+  { id: 2, title: "سفارش‌ها", href: "/my-account/orders" },
+  { id: 3, title: "آدرس", href: "/my-account/address" },
+];
