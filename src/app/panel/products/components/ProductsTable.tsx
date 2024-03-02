@@ -23,54 +23,60 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
     }
   };
   return (
-    <table className="max-w-[86vw] shadow-lg rounded-xl bg-slate-50 sm:mx-10 mx-2 overflow-auto">
-      <thead>
-        <tr className="md:text-sm sm:text-xs text-[10px] text-center border-b grid sm:grid-cols-6 grid-cols-5 py-4">
-          <th className="sm:inline hidden">#</th>
-          <th>نام</th>
-          <th>قیمت</th>
-          <th>عکس</th>
-          <th>تاریخ</th>
-          <th>#</th>
-        </tr>
-      </thead>
+    <div className="overflow-x-auto md:mx-10 mx-4">
+      <table className="max-w-[86vw] shadow-lg rounded-xl bg-slate-50 overflow-auto">
+        <thead>
+          <tr className="text-sm text-center border-b md:grid grid-cols-6 py-4">
+            <th className="min-w-[3rem] md:py-0 py-4">#</th>
+            <th className="min-w-[6rem]">نام</th>
+            <th className="min-w-[6rem]">قیمت</th>
+            <th className="min-w-[6rem]">عکس</th>
+            <th className="min-w-[6rem]">تاریخ</th>
+            <th className="min-w-[6rem]">#</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {!!products?.length ? (
-          products?.map((product, index) => (
-            <tr
-              className="2xl:text-base md:text-sm sm:text-xs 2xl:py-4 py-3 text-[10px] text-center grid sm:grid-cols-6 grid-cols-5 px-2"
-              key={product?._id}
-            >
-              <td className="sm:inline hidden">{index + 1}</td>
-              <td className=" whitespace-nowrap truncate text-ellipsis">
-                {product?.name}
-              </td>
-              <td>{product?.price}</td>
-              <td className="flex justify-center">
-                <Image width={40} height={40} src={product?.image} alt="" />
-              </td>
-              <td>{product?.updatedAt?.slice(0, 10)}</td>
-              <td className="flex justify-center gap-x-3">
-                <FaTrashAlt
-                  className="text-red-500 cursor-pointer"
-                  onClick={() => deleteProduct(product?._id)}
-                />
-                <FaEdit className="text-orange-600 cursor-pointer" />
+        <tbody>
+          {!!products?.length ? (
+            products?.map((product, index) => (
+              <tr
+                className="sm:text-sm text-xs 2xl:py-4 py-3 text-[10px] text-center md:grid grid-cols-6 px-2"
+                key={product?._id}
+              >
+                <td className="min-w-[3rem] md:py-0 py-4">{index + 1}</td>
+                <td className=" whitespace-nowrap truncate text-ellipsis min-w-[6rem]">
+                  {product?.name}
+                </td>
+                <td className="min-w-[6rem]">
+                  {product?.price?.toLocaleString()}
+                </td>
+                <td className="flex justify-center min-w-[6rem]">
+                  <Image width={40} height={40} src={product?.image} alt="" />
+                </td>
+                <td className="min-w-[6rem]">
+                  {product?.updatedAt?.slice(0, 10)}
+                </td>
+                <td className="flex justify-center items-center gap-x-3 min-w-[6rem]">
+                  <FaTrashAlt
+                    className="text-red-500 cursor-pointer"
+                    onClick={() => deleteProduct(product?._id)}
+                  />
+                  <FaEdit className="text-orange-600 cursor-pointer" />
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={6}>
+                <div className="flex justify-center items-center mt-32 text-xl">
+                  سفارشی یافت نشد
+                </div>
               </td>
             </tr>
-          ))
-        ) : (
-          <tr>
-            <td colSpan={6}>
-              <div className="flex justify-center items-center mt-32 text-xl">
-                سفارشی یافت نشد
-              </div>
-            </td>
-          </tr>
-        )}
-      </tbody>
-    </table>
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
