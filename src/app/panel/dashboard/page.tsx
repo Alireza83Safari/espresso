@@ -4,7 +4,7 @@ import { getProducts } from "@/actions/getProducts";
 import { getUsers } from "@/actions/getUsers";
 import Link from "next/link";
 
-export const dynamic = "no-cache";
+export const dynamic = "force-dynamic";
 
 export default async function page() {
   const comments = await getComments();

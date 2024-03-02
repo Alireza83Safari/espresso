@@ -3,7 +3,7 @@ import ProductsTable from "./components/ProductsTable";
 import ProductsOptions from "./components/Options";
 import AddProduct from "./components/AddProduct";
 
-export const dynamic = "no-cache";
+export const dynamic = "force-dynamic";
 
 export default async function page() {
   const products = await getProducts();
