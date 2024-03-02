@@ -10,7 +10,7 @@ export default function Sidebar() {
   return (
     <section className="fixed top-0 right-0 bottom-0 lg:max-w-[130px] md:max-w-[110px] xs:max-w-[60px] max-w-[50px] font-bold overflow-auto bg-green text-white">
       <Link href="dashboard">
-        <p className="w-full hidden lg:flex mt-4 text-white font-bold text-center">
+        <p className="w-full invisible lg:visible mt-4 text-white font-bold text-center">
           اسپرسوگرام
         </p>
       </Link>

@@ -15,3 +15,15 @@ export interface ProductType {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface CreateProductType {
+  name: string;
+  price: number;
+  seed: string;
+  seedType: string;
+  image: string;
+  label: string;
+  description: string;
+  caffeine: string;
+  weight: number;
+}
