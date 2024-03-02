@@ -6,7 +6,6 @@ import { getProducts } from "../../actions/getProducts";
 import Product from "@/components/Product";
 
 export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
 
 export default async function page(searchParams: any) {
   const { order, q } = searchParams;

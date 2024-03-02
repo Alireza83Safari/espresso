@@ -58,9 +58,8 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
 
     const validationResult = await productValidator(data);
-    console.log(validationResult);
 
-    if (validationResult) {
+    if (validationResult !== true) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 
@@ -117,9 +116,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json(productQuery);
 
       default:
-        const products = await Product.find({})
-          .populate("category")
-          .exec();
+        const products = await Product.find({}).populate("category").exec();
 
         return NextResponse.json(products);
     }

@@ -15,11 +15,10 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
     const res = await fetch(`${apiUrl}/api/user/${id}`, {
       method: "DELETE",
     });
-    console.log(res);
 
     if (res.status === 200) {
       toast.success("کاربر با موفقیت حذف شد");
-      clientRevalidateTag("user");
+      clientRevalidateTag("users");
     }
   };
   return (
@@ -49,7 +48,9 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
                 <td className="min-w-[6rem]">{user?.firstname}</td>
                 <td className="min-w-[6rem]">{user?.lastname}</td>
                 <td className="min-w-[4rem]">{user?.role}</td>
-                <td className="min-w-[5rem]">{user?.updatedAt?.slice(0, 10)}</td>
+                <td className="min-w-[5rem]">
+                  {user?.updatedAt?.slice(0, 10)}
+                </td>
 
                 <td className="space-x-2 flex justify-center items-center sm:mt-0 mt-4 gap-x-3 min-w-[5rem]">
                   <FaTrashAlt

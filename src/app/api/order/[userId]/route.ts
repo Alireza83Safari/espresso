@@ -14,7 +14,6 @@ export async function GET(
     const findUserOrders = await Order.find({ user: params?.userId }).populate(
       "address"
     );
-    console.log("findUserOrders", findUserOrders);
 
     if (findUserOrders) {
       return NextResponse.json(findUserOrders);

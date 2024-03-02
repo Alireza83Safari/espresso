@@ -50,7 +50,7 @@ const Comment: React.FC<CommentPrice> = ({ product }) => {
       if (res.status === 200) {
         setCommentValue({ ...commentValue, body: "", rate: 0 });
         toast.success("ساخت نظر موفقیت آمیز بود");
-        clientRevalidateTag(`/product/${product?._id}`);
+        clientRevalidateTag("comment");
       } else {
         toast.error("ابتدا وارد حساب خود شوید");
       }

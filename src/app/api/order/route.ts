@@ -1,11 +1,11 @@
 import connectToDB from "@/libs/db";
 import Order from "@/models/order";
-import orderValidator from "@/validator/server/order";
+import User from "@/models/user";
+import Address from "@/models/address";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    console.log("run");
     await connectToDB();
 
     const data = await req.json();
@@ -33,7 +33,9 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   try {
     await connectToDB();
-    const orders = await Order.find();
+    const address = await Address.find({});
+    const user = await User.find({});
+    const orders = await Order.find({}).populate("user").populate("address");
     return NextResponse.json(orders);
   } catch (error) {
     return NextResponse.json(

@@ -16,13 +16,13 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
     const res = await fetch(`${apiUrl}/api/comment/${id}`, {
       method: "DELETE",
     });
-    console.log(res);
 
     if (res.status === 200) {
       toast.success("نظر با موفقیت حذف شد");
       clientRevalidateTag("comment");
     }
   };
+
   return (
     <div className="overflow-x-auto md:mx-10 mx-4">
       <table className="w-full md:w-[83.3vw] shadow-lg rounded-xl bg-slate-50">

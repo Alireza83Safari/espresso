@@ -19,7 +19,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
 
     if (res.status === 200) {
       toast.success("نظر با موفقیت حذف شد");
-      clientRevalidateTag("product");
+      clientRevalidateTag("products");
     }
   };
   return (

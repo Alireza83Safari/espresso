@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import CreateAddress from "@/app/my-account/address/components/CreateAddress";
 import { FaX } from "react-icons/fa6";
 import { deleteAddress } from "@/actions/deleteAddress";
+import { clientRevalidateTag } from "@/helper/clientRevalidateTag";
 
 interface OrderPageProps {
   cartItem: any;
@@ -64,6 +65,7 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
         await fetch(`${apiUrl}/api/cart/clear-cart/${userId}`, {
           method: "DELETE",
         });
+        clientRevalidateTag("order");
         push("/home");
       }
     } catch (error) {}

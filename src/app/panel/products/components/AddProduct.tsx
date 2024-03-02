@@ -37,7 +37,7 @@ const AddProduct = () => {
       setValue("image", "");
       setValue("description", "");
       toast.success("ساخت محصول موفقیت آمیز بود");
-      clientRevalidateTag("product");
+      clientRevalidateTag("products");
     }
   };
 

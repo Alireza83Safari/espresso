@@ -6,6 +6,7 @@ import FormSpinner from "@/components/FormSpinner/FormSpinner";
 import { registerSchema } from "@/validator/client/register";
 import toast from "react-hot-toast";
 import { apiUrl } from "@/services/apiUrl";
+import { clientRevalidateTag } from "@/helper/clientRevalidateTag";
 
 export default function page() {
   const { push } = useRouter();
@@ -43,6 +44,7 @@ export default function page() {
 
       if (res.status === 200) {
         toast.success("ساخت حساب موفقیت آمیز بود");
+        clientRevalidateTag("users");
         push("/login");
       } else if (res.status === 422) {
         toast.error("محصول از قبل وجود دارد");
@@ -199,7 +201,7 @@ export default function page() {
             حساب دارید؟{" "}
             <Link
               href="/login"
-              className="font-semibold leading-6 text-green hover:[#0A5B01]"
+              className="font-semibold leading-6 text-green hover:bg-[#0A5B01]"
             >
               ورود به حساب
             </Link>
