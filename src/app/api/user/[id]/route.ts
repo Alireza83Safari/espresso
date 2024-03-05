@@ -10,7 +10,7 @@ export async function GET(
   try {
     await connectToDB();
     isValidObjectId(params?.id);
-    const findUser = await User.find({ _id: params.id });
+    const findUser = await User.findOne({ _id: params.id });
 
     if (!findUser) {
       return NextResponse.json({ error: " کاربر وجود ندارد" }, { status: 404 });

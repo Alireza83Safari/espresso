@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import { authOptions } from "@/libs/authOptions";
 import { getServerSession } from "next-auth";
 import OrderPage from "./components/OrderPage";
-import { withAuth } from "@/HOCs/withAuth";
 
 const page = async () => {
   const session = await getServerSession(authOptions);
@@ -14,16 +13,14 @@ const page = async () => {
   return (
     <>
       <Header />
-
       <OrderPage
         address={address}
         cartItem={cartItem}
         userId={(session as any)?.id}
       />
-
       <Footer />
     </>
   );
 };
 
-export default withAuth(page);
+export default page;

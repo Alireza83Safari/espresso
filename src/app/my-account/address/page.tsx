@@ -3,7 +3,6 @@ import { getAddress } from "@/actions/getAddress";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/libs/authOptions";
 import { AddressList } from "./components/AddressList";
-import { withAuth } from "@/HOCs/withAuth";
 
 const page = async () => {
   const session = await getServerSession(authOptions);
@@ -17,4 +16,4 @@ const page = async () => {
   );
 };
 
-export default withAuth(page);
+export default page;

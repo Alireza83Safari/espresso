@@ -2,7 +2,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/libs/authOptions";
 import { getOrders } from "@/actions/getOrders";
 import { OrderType } from "@/types/order";
-import { withAuth } from "@/HOCs/withAuth";
 
 const page = async () => {
   const session = await getServerSession(authOptions);
@@ -38,4 +37,5 @@ const page = async () => {
     </div>
   );
 };
-export default withAuth(page);
+
+export default page;

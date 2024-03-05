@@ -1,7 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/libs/authOptions";
 import Link from "next/link";
-import { withAuth } from "@/HOCs/withAuth";
 
 const page = () => {
   const session = getServerSession(authOptions);
@@ -31,4 +30,4 @@ const page = () => {
   );
 };
 
-export default withAuth(page);
+export default page;

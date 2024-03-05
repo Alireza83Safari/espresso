@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 import CartTable from "./components/CartTable";
 import { getCartItem } from "../../actions/getCartItem";
 import Link from "next/link";
-import { withAuth } from "@/HOCs/withAuth";
 
 export const dynamic = "force-dynamic";
 
@@ -51,4 +50,4 @@ const page = async () => {
   );
 };
 
-export default withAuth(page);
+export default page;

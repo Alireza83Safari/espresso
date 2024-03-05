@@ -7,13 +7,14 @@ import Product from "@/components/Product";
 
 export const dynamic = "force-dynamic";
 
-export default async function page(searchParams: any) {
+export default async function page({ searchParams }: any) {
   const { order, q } = searchParams;
+
   let APIURL = `?`;
   if (order) APIURL += `order=${order}&`;
   if (q) APIURL += `q=${q}&`;
 
-  const products = await getProducts(APIURL.length > 2 ? APIURL : "");
+  const products = await getProducts(APIURL !== `?` ? APIURL : "");
 
   return (
     <>
