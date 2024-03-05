@@ -9,6 +9,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosArrowDown } from "react-icons/io";
 import { TfiShoppingCart } from "react-icons/tfi";
 import Modal from "./Modal";
+import isAdmin from "@/helper/isAdmin";
 
 const Header = () => {
   const { push } = useRouter();
@@ -27,6 +28,7 @@ const Header = () => {
   const handleSearch = () => {
     if (searchQuery) {
       push(`/product?q=${searchQuery}`);
+      setOpenSearch(false);
     }
   };
 
@@ -37,6 +39,19 @@ const Header = () => {
       setSearchQuery(query);
     }
   }, [query]);
+
+  const [isAdminBool, setIsAdminBool] = useState(false);
+
+  useEffect(() => {
+    const fetchIsAdmin = async () => {
+      const { isAdminBool } = await isAdmin((session as any)?.id);
+      setIsAdminBool(isAdminBool);
+    };
+
+    if (session) {
+      fetchIsAdmin();
+    }
+  }, [session]);
 
   return (
     <>
@@ -112,6 +127,10 @@ const Header = () => {
                         >
                           برشته کاری درکاپی
                         </Link>
+                      </li>
+
+                      <li className="font-bold text-black text-lg">
+                        <Link href="/product">قهوه تجاری</Link>
                       </li>
                     </ul>
                     <ul className="w-[11rem] px-2">
@@ -191,6 +210,12 @@ const Header = () => {
                     </ul>
                   </div>
                 </li>
+
+                {isAdminBool && (
+                  <li className="lg:border-none border-b lg:p-0 p-3 font-bold text-black">
+                    <Link href="/panel/dashboard">پنل</Link>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

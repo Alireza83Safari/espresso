@@ -2,8 +2,8 @@ import React from "react";
 import Sidebar from "./components/Sidebar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/libs/authOptions";
-import User from "@/models/user";
 import { redirect } from "next/navigation";
+import { getUser } from "@/actions/getUser";
 
 export default async function layout({
   children,
@@ -11,10 +11,10 @@ export default async function layout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession(authOptions);
-  var isAuthenticated = false;
+  var isAuthenticated = true;
 
   if ((session as any)?.id) {
-    const user = await User.findOne({ _id: (session as any)?.id });
+    const user = await getUser((session as any)?.id);
     isAuthenticated = user?.role === "ADMIN" ? true : false;
   }
 
