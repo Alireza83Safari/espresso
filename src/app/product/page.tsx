@@ -1,9 +1,8 @@
-import { ProductType } from "../../types/product";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FilterProduct from "./components/FilterProduct";
 import { getProducts } from "../../actions/getProducts";
-import Product from "@/components/Product";
+import ProductsPage from "./components/ProductsPage";
 
 export const dynamic = "force-dynamic";
 
@@ -20,20 +19,8 @@ export default async function page({ searchParams }: any) {
     <>
       <Header />
       <div className="lg:mt-32 mt-40 mx-auto max-w-[1080px] mb-16">
-        {!!products?.length ? (
-          <>
-            <FilterProduct />
-            <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1">
-              {products?.map((product: ProductType) => (
-                <Product product={product} />
-              ))}
-            </div>
-          </>
-        ) : (
-          <h1 className="sm:text-4xl text-3xl text-center text-green my-52">
-            محصولی یافت نشد
-          </h1>
-        )}
+        <FilterProduct />
+        <ProductsPage products={products} />
       </div>
       <Footer />
     </>

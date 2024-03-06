@@ -8,8 +8,12 @@ const FilterProduct = () => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams();
+    const page = searchParams.get("page");
     if (filterValue) {
       searchParams.set("order", filterValue);
+      push(`?${searchParams.toString()}&page=${!!page ? page : 1}`);
+    } else {
+      searchParams.delete("order");
       push(`?${searchParams.toString()}`);
     }
   }, [filterValue]);
@@ -21,6 +25,7 @@ const FilterProduct = () => {
           className="border px-10 outline-none"
           onChange={(e) => setFilterValue(e.target.value)}
         >
+          <option value="">فیلتر بر اساس</option>
           <option value="expensive">گران ترین</option>
           <option value="cheap">ارزان ترین</option>
           <option value="mix">میکس</option>
