@@ -5,42 +5,26 @@ import productValidator from "@/validator/server/product";
 import { NextRequest, NextResponse } from "next/server";
 import Comment from "@/models/comment";
 
-async function handleOrder(order: any, skip: number, limit: number) {
+async function handleOrder(order: any) {
   let productQuery;
   switch (order) {
     case "expensive":
-      productQuery = await Product.find({}, "-__v")
-        .sort({ price: -1 })
-        .skip(skip)
-        .limit(limit);
+      productQuery = await Product.find({}, "-__v").sort({ price: -1 });
       break;
     case "cheap":
-      productQuery = await Product.find({}, "-__v")
-        .sort({ price: 1 })
-        .skip(skip)
-        .limit(limit);
+      productQuery = await Product.find({}, "-__v").sort({ price: 1 });
       break;
     case "newset":
-      productQuery = await Product.find({}, "-__v")
-        .sort({ createdAt: 1 })
-        .skip(skip)
-        .limit(limit);
+      productQuery = await Product.find({}, "-__v").sort({ createdAt: 1 });
       break;
     case "oldest":
-      productQuery = await Product.find({}, "-__v")
-        .sort({ createdAt: -1 })
-        .skip(skip)
-        .limit(limit);
+      productQuery = await Product.find({}, "-__v").sort({ createdAt: -1 });
       break;
     case "mix":
-      productQuery = await Product.find({ seed: "mix" }, "-__v")
-        .skip(skip)
-        .limit(limit);
+      productQuery = await Product.find({ seed: "mix" }, "-__v");
       break;
     case "pure":
-      productQuery = await Product.find({ seed: "pure" }, "-__v")
-        .skip(skip)
-        .limit(limit);
+      productQuery = await Product.find({ seed: "pure" }, "-__v");
       break;
 
     default:
@@ -97,22 +81,18 @@ export async function GET(req: NextRequest) {
 
     const order = searchParams.get("order");
     const q = searchParams.get("q");
-    const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || String(Product.length));
-    const skip = (page - 1) * limit;
 
     let productQuery;
 
     switch (true) {
       case !!order:
-        productQuery = await handleOrder(order, skip, limit);
+        productQuery = await handleOrder(order);
         return NextResponse.json(productQuery);
 
       case !!q:
-        productQuery = await Product.find({ name: { $regex: q } })
-          .skip(skip)
-          .limit(limit)
-          .populate("category");
+        productQuery = await Product.find({ name: { $regex: q } }).populate(
+          "category"
+        );
         return NextResponse.json(productQuery);
 
       default:
