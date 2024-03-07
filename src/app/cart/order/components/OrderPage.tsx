@@ -72,7 +72,7 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
   };
 
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 lg:mt-36 mt-44 mb-20 m-auto max-w-[1080px] px-2">
+    <section className="grid lg:grid-cols-2 grid-cols-1 lg:mt-36 mt-44 mb-20 m-auto max-w-[1080px] px-2">
       <div className="sm:text-base text-sm">
         <div className="grid grid-cols-4">
           <div className="col-span-2">محصول</div>
@@ -153,7 +153,7 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
       >
         ثبت سفارش
       </button>
-    </div>
+    </section>
   );
 };
 

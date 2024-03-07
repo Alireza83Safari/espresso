@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import { authOptions } from "@/libs/authOptions";
 import { getServerSession } from "next-auth";
 import CartTable from "./components/CartTable";
@@ -13,8 +11,7 @@ const page = async () => {
   const cartItem = await getCartItem((session as any)?.id);
 
   return (
-    <>
-      <Header />
+    <section>
       {!!cartItem?.length ? (
         <div className="grid md:grid-cols-5 lg:mt-36 mt-48 mb-20 sm:px-3 px-1 pb-10 m-auto max-w-[1080px] relative">
           <CartTable cartItem={cartItem} />
@@ -45,8 +42,7 @@ const page = async () => {
           </div>
         </div>
       )}
-      <Footer />
-    </>
+    </section>
   );
 };
 

@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import ProductPage from "./components/ProductPage";
 import { ProductType } from "@/types/product";
 import { getProducts } from "@/actions/getProducts";
@@ -36,12 +34,8 @@ export default async function page({ params }: { params: { id: string } }) {
   const product = await getProduct(params.id);
 
   return (
-    <>
-      <Header />
-      <div className="xl:container mx-auto px-4 ">
-        <ProductPage product={product} />
-      </div>
-      <Footer />
-    </>
+    <section className="xl:container mx-auto px-4 ">
+      <ProductPage product={product} />
+    </section>
   );
 }

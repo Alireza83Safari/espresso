@@ -83,7 +83,7 @@ export default function page() {
     }
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white">
+    <section className="flex justify-center items-center min-h-screen bg-white">
       <div className="max-w-[40rem] sm:min-w-[28rem] min-w-[95vw] sm:px-0 px-4 py-3 rounded-xl shadow-2xl">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -208,6 +208,6 @@ export default function page() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

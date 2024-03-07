@@ -23,9 +23,9 @@ export default async function layout({
       {isAuthenticated ? (
         <div className="relative">
           <Sidebar />
-          <div className="lg:pr-[130px] md:pr-[110px] xs:pr-[60px] pr-[50px] mt-12">
+          <section className="lg:pr-[130px] md:pr-[110px] xs:pr-[60px] pr-[50px] mt-12">
             {children}
-          </div>
+          </section>
         </div>
       ) : (
         redirect("/login")

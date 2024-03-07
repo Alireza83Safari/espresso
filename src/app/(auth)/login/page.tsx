@@ -96,7 +96,7 @@ const Login: React.FC = () => {
   }, [session]);
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white">
+    <section className="flex justify-center items-center min-h-screen bg-white">
       <div className="max-w-[40rem] sm:min-w-[28rem] min-w-[95vw] sm:px-0 px-4 py-3 rounded-xl shadow-2xl">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -182,7 +182,7 @@ const Login: React.FC = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

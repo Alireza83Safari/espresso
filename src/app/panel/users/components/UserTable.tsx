@@ -25,14 +25,14 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
     <div className="overflow-x-auto md:mx-10 mx-4">
       <table className="min-w-[83.3vw] shadow-lg rounded-xl bg-slate-50">
         <thead>
-          <tr className="md:text-sm text-xs text-center border-b sm:grid grid-cols-7 2xl:py-4 py-3">
+          <tr className="md:text-sm text-xs [&>th]:min-w-[5rem] text-center border-b sm:grid grid-cols-7 2xl:py-4 py-3">
             <th className="min-w-[3rem] sm:py-0 py-4">#</th>
-            <th className="min-w-[6rem]">نام کاربری</th>
-            <th className="min-w-[6rem]">نام</th>
-            <th className="min-w-[6rem]">نام خانوادگی</th>
-            <th className="min-w-[4rem]">دسترسی</th>
-            <th className="min-w-[5rem]">تاریخ</th>
-            <th className="min-w-[5rem]">#</th>
+            <th>نام کاربری</th>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>دسترسی</th>
+            <th>تاریخ</th>
+            <th>#</th>
           </tr>
         </thead>
 
@@ -40,19 +40,17 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
           {!!users?.length ? (
             users?.map((user, index) => (
               <tr
-                className="2xl:text-base md:text-sm text-xs text-center sm:grid grid-cols-7 2xl:py-4 py-3 "
+                className="2xl:text-base md:text-sm text-xs text-center sm:grid grid-cols-7 2xl:py-4 py-3 [&>th]:min-w-[5rem]"
                 key={user?._id}
               >
-                <td className="min-w-[3rem] sm:py-0 py-4">{index + 1}</td>
-                <td className="min-w-[6rem]">{user?.username}</td>
-                <td className="min-w-[6rem]">{user?.firstname}</td>
-                <td className="min-w-[6rem]">{user?.lastname}</td>
-                <td className="min-w-[4rem]">{user?.role}</td>
-                <td className="min-w-[5rem]">
-                  {user?.updatedAt?.slice(0, 10)}
-                </td>
+                <td className="sm:py-0 py-4">{index + 1}</td>
+                <td>{user?.username}</td>
+                <td>{user?.firstname}</td>
+                <td>{user?.lastname}</td>
+                <td>{user?.role}</td>
+                <td>{user?.updatedAt?.slice(0, 10)}</td>
 
-                <td className="space-x-2 flex justify-center items-center sm:mt-0 mt-4 gap-x-3 min-w-[5rem]">
+                <td className="space-x-2 flex justify-center items-center sm:mt-0 mt-4 gap-x-3">
                   <FaTrashAlt
                     className="text-red-500"
                     onClick={() => deleteUser(user?._id)}

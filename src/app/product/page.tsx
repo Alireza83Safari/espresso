@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import FilterProduct from "./components/FilterProduct";
 import { getProducts } from "../../actions/getProducts";
 import ProductsPage from "./components/ProductsPage";
@@ -16,13 +14,9 @@ export default async function page({ searchParams }: any) {
   const products = await getProducts(APIURL !== `?` ? APIURL : "");
 
   return (
-    <>
-      <Header />
-      <div className="lg:mt-32 mt-40 mx-auto max-w-[1080px] mb-16">
-        <FilterProduct />
-        <ProductsPage products={products} />
-      </div>
-      <Footer />
-    </>
+    <section className="lg:mt-32 mt-40 mx-auto max-w-[1080px] mb-16">
+      <FilterProduct />
+      <ProductsPage products={products} />
+    </section>
   );
 }

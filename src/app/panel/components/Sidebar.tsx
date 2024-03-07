@@ -8,7 +8,7 @@ export default function Sidebar() {
   const location = usePathname();
 
   return (
-    <section className="fixed top-0 right-0 bottom-0 lg:min-w-[130px] md:min-w-[110px] xs:min-w-[60px] min-w-[50px] font-bold overflow-auto bg-green text-white">
+    <aside className="fixed top-0 right-0 bottom-0 lg:min-w-[130px] md:min-w-[110px] xs:min-w-[60px] min-w-[50px] font-bold overflow-auto bg-green text-white">
       <Link href="dashboard" className="text-center">
         <p className="w-full hidden lg:flex mt-4 text-white font-bold text-center">
           اسپرسوگرام
@@ -34,6 +34,6 @@ export default function Sidebar() {
           </div>
         ))}
       </div>
-    </section>
+    </aside>
   );
 }
