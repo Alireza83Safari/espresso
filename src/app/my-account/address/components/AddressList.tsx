@@ -6,9 +6,9 @@ interface AddressListProps {
 
 export const AddressList: React.FC<AddressListProps> = ({ address }) => {
   return (
-    <div className="mb-16">
+    <div className="md:mb-16 mb-8">
       {address?.map((item) => (
-        <div className="grid grid-cols-2 border p-3 gap-y-5 mb-7 rounded-lg mx-4 bg-gray-50 hover:bg-white duration-300">
+        <div className="grid grid-cols-2 border p-3 gap-y-5 mb-7 rounded-lg mx-4 bg-gray-50 hover:bg-white duration-300 xs:text-base text-sm">
           <div className="flex">
             <p className="ml-2 text-textGray">نام:</p>
             <p>{item?.firstname}</p>

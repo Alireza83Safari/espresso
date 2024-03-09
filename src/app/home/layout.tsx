@@ -1,8 +1,8 @@
 import React from "react";
 import ProductSlider from "@/components/ProductSlider";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import { getProducts } from "../../actions/getProducts";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default async function Layout(props: {
   banner: React.ReactNode;
@@ -19,7 +19,6 @@ export default async function Layout(props: {
   return (
     <>
       <Header />
-      <div className="max-w-[1080px] mx-auto container"></div>
       {props.banner}
       {props.category}
 

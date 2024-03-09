@@ -4,6 +4,7 @@ import Product from "@/models/product";
 import { NextRequest, NextResponse } from "next/server";
 import Comment from "@/models/comment";
 import Category from "@/models/category";
+
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }

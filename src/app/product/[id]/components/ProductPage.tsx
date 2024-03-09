@@ -1,7 +1,7 @@
 "use client";
+import React, { useState } from "react";
 import { ProductType } from "@/types/product";
 import Image from "next/image";
-import React, { useState } from "react";
 import { FaTruck } from "react-icons/fa";
 import ProductFooter from "./ProductFooter";
 import { useCoffeePriceCalculator } from "@/hooks/useCoffePrice";

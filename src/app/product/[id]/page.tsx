@@ -2,6 +2,8 @@ import ProductPage from "./components/ProductPage";
 import { ProductType } from "@/types/product";
 import { getProducts } from "@/actions/getProducts";
 import { getProduct } from "@/actions/getProduct";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export async function generateStaticParams() {
   const products = await getProducts();
@@ -9,7 +11,7 @@ export async function generateStaticParams() {
     id: product?._id,
   }));
 }
-
+ 
 type Props = {
   params: { id: string };
 };
@@ -34,8 +36,14 @@ export default async function page({ params }: { params: { id: string } }) {
   const product = await getProduct(params.id);
 
   return (
-    <section className="xl:container mx-auto px-4 ">
-      <ProductPage product={product} />
-    </section>
+    <>
+      <Header />
+
+      <section className="xl:container mx-auto px-4 ">
+        <ProductPage product={product} />
+      </section>
+
+      <Footer />
+    </>
   );
 }

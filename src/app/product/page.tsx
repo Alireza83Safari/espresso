@@ -1,6 +1,8 @@
 import FilterProduct from "./components/FilterProduct";
 import { getProducts } from "../../actions/getProducts";
 import ProductsPage from "./components/ProductsPage";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const dynamic = "force-dynamic";
 
@@ -14,9 +16,15 @@ export default async function page({ searchParams }: any) {
   const products = await getProducts(APIURL !== `?` ? APIURL : "");
 
   return (
-    <section className="lg:mt-32 mt-40 mx-auto max-w-[1080px] mb-16">
-      <FilterProduct />
-      <ProductsPage products={products} />
-    </section>
+    <>
+      <Header />
+
+      <section className="lg:mt-32 mt-40 mx-auto max-w-[1080px] mb-16">
+        <FilterProduct />
+        <ProductsPage products={products} />
+      </section>
+
+      <Footer />
+    </>
   );
 }

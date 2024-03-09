@@ -38,9 +38,9 @@ export default function CreateAddress() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="grid grid-cols-2 gap-y-4 px-4"
+      className="xs:grid xs:grid-cols-2 gap-y-4 px-4"
     >
-      <div className="px-2">
+      <div className="xs:px-2">
         <label htmlFor="firstname" className="block">
           نام
         </label>
@@ -58,7 +58,7 @@ export default function CreateAddress() {
         )}
       </div>
 
-      <div className="px-2">
+      <div className="xs:px-2">
         <label htmlFor="lastname" className="block">
           نام خانوادگی
         </label>
@@ -76,7 +76,7 @@ export default function CreateAddress() {
         )}
       </div>
 
-      <div className="px-2">
+      <div className="xs:px-2">
         <label htmlFor="phone" className="block">
           شماره
         </label>
@@ -92,7 +92,7 @@ export default function CreateAddress() {
         )}
       </div>
 
-      <div className="px-2">
+      <div className="xs:px-2">
         <label htmlFor="plaque" className="block">
           پلاک
         </label>
@@ -108,7 +108,7 @@ export default function CreateAddress() {
         )}
       </div>
 
-      <div className="px-2">
+      <div className="xs:px-2">
         <label htmlFor="city" className="block">
           شهر
         </label>
@@ -124,7 +124,7 @@ export default function CreateAddress() {
         )}
       </div>
 
-      <div className="px-2">
+      <div className="xs:px-2">
         <label htmlFor="address" className="block">
           آدرس
         </label>
@@ -140,7 +140,7 @@ export default function CreateAddress() {
         )}
       </div>
       <button
-        className="col-span-2 bg-green text-white py-2 rounded-lg mx-1"
+        className="col-span-2 bg-green text-white py-2 rounded-lg xs:mx-1 xs:w-auto w-full xs:mt-0 mt-5"
         type="submit"
       >
         افزودن آدرس
