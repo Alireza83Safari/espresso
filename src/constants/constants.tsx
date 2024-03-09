@@ -19,6 +19,7 @@ export const productFooterBtn = [
 export const accountSidebarItem = [
   { id: 1, title: "پیشخوان", href: "/my-account/dashboard" },
   { id: 2, title: "سفارش‌ها", href: "/my-account/orders" },
+  { id: 2, title: "نظرات", href: "/my-account/comments" },
   { id: 3, title: "آدرس", href: "/my-account/address" },
 ];
 

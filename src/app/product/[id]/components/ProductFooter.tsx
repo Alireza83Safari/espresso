@@ -1,6 +1,6 @@
 "use client";
-import { ProductType } from "@/types/product";
 import React, { useState } from "react";
+import { ProductType } from "@/types/product";
 import Comment from "./Comment";
 import { productFooterBtn } from "@/constants/constants";
 
@@ -24,7 +24,11 @@ const ProductFooter: React.FC<ProductFooterProps> = ({ product }) => {
             onClick={() => setShowMenu(item?.showMenuValue)}
           >
             {item?.title === "نظرات"
-              ? `${item?.title} (${product?.comments?.length})`
+              ? `${item?.title} (${
+                  product?.comments.filter(
+                    (comment) => comment?.status === "accept"
+                  )?.length
+                })`
               : item?.title}
           </div>
         ))}

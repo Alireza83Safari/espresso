@@ -26,3 +26,50 @@ export async function DELETE(
     );
   }
 }
+
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    await connectToDB();
+    const data = await req.json();
+    isValidObjectId(params?.id);
+    console.log(data);
+
+    const comment = await Comment.findByIdAndUpdate(params.id, data, {
+      new: true,
+    });
+
+    if (comment) {
+      return NextResponse.json(
+        { message: "ویرایش نظر موفقیت آمیز بود" },
+        { status: 200 }
+      );
+    }
+  } catch (error) {
+    return NextResponse.json(
+      { error: "خطا در پردازش درخواست" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    await connectToDB();
+
+    const comments = await Comment.find({ user: params.id }).populate(
+      "product"
+    );
+    return NextResponse.json(comments);
+  } catch (error) {
+    return NextResponse.json(
+      { error: "خطا در پردازش درخواست" },
+      { status: 500 }
+    );
+  }
+}

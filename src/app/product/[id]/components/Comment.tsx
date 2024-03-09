@@ -60,34 +60,36 @@ const Comment: React.FC<CommentPrice> = ({ product }) => {
   const comments = product?.comments;
   return (
     <>
-      {comments?.map((comment) => (
-        <div>
-          <div className="mt-4 flex items-center">
-            <div className="ml-3">
-              <Image
-                src="/image/user.png"
-                width={40}
-                height={40}
-                alt=""
-                className=" rounded-full w-12 h-12"
-              />
-            </div>
-            <div>
-              <div className="flex items-center mt-2">
-                <div className="flex items-center">
-                  <i data-star={comment?.rate}></i>
+      {comments
+        .filter((comment) => comment?.status === "accept")
+        ?.map((comment) => (
+          <div>
+            <div className="mt-4 flex items-center">
+              <div className="ml-3">
+                <Image
+                  src="/image/user.png"
+                  width={40}
+                  height={40}
+                  alt=""
+                  className=" rounded-full w-12 h-12"
+                />
+              </div>
+              <div>
+                <div className="flex items-center mt-2">
+                  <div className="flex items-center">
+                    <i data-star={comment?.rate}></i>
+                  </div>
+                </div>
+                <div className="flex text-black">
+                  <p>{comment?.createdAt?.slice(11, 16)} </p>-
+                  <p> {comment?.user?.username}</p>
                 </div>
               </div>
-              <div className="flex text-black">
-                <p>{comment?.createdAt?.slice(11, 16)} </p>-
-                <p> {comment?.user?.username}</p>
-              </div>
             </div>
-          </div>
 
-          <div>{comment?.body}</div>
-        </div>
-      ))}
+            <div>{comment?.body}</div>
+          </div>
+        ))}
 
       <div className="mt-14">
         <h2 className="text-xl text-black">نقد و بررسی‌ها</h2>

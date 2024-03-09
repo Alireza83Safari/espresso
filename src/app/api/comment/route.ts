@@ -7,18 +7,18 @@ import User from "@/models/user";
 
 export async function POST(req: NextRequest) {
   try {
+    await connectToDB();
     const user = await User.find({});
     const product = await Product.find({});
-    await connectToDB();
     const data = await req.json();
 
     const validationResult = commentValidator(data);
 
-    if (validationResult) {
+    if (validationResult !== true) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 
-    await Comment.create(data);
+    await Comment.create({ ...data, status: "pending" });
     return NextResponse.json(
       { message: "ساخت کامنت موفقیت آمیز بود" },
       { status: 200 }

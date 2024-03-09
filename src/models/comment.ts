@@ -8,6 +8,12 @@ export const schema = mongoose.Schema(
       required: true,
     },
 
+    status: {
+      type: String,
+      enum: ["pending", "accept", "reject"],
+      required: true,
+    },
+
     rate: {
       type: Number,
       required: true,

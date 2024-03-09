@@ -4,6 +4,7 @@ import { UserType } from "./user";
 export interface CommentType {
   _id: string;
   body: string;
+  status: string;
   rate: number;
   product: ProductType;
   user: UserType;
