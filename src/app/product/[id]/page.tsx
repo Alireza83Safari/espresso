@@ -11,7 +11,7 @@ export async function generateStaticParams() {
     id: product?._id,
   }));
 }
- 
+
 type Props = {
   params: { id: string };
 };
@@ -39,7 +39,7 @@ export default async function page({ params }: { params: { id: string } }) {
     <>
       <Header />
 
-      <section className="xl:container mx-auto px-4 ">
+      <section className="mx-auto px-4 xl:container ">
         <ProductPage product={product} />
       </section>
 

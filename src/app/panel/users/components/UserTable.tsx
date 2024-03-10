@@ -22,11 +22,11 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
     }
   };
   return (
-    <div className="overflow-x-auto md:mx-10 mx-4">
-      <table className="min-w-[83.3vw] shadow-lg rounded-xl bg-slate-50">
+    <div className="mx-4 overflow-x-auto md:mx-10">
+      <table className="min-w-[83.3vw] rounded-xl bg-slate-50 shadow-lg">
         <thead>
-          <tr className="md:text-sm text-xs [&>th]:min-w-[5rem] text-center border-b sm:grid grid-cols-7 2xl:py-4 py-3">
-            <th className="min-w-[3rem] sm:py-0 py-4">#</th>
+          <tr className="grid-cols-7 border-b py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem]">
+            <th className="min-w-[3rem] py-4 sm:py-0">#</th>
             <th>نام کاربری</th>
             <th>نام</th>
             <th>نام خانوادگی</th>
@@ -40,17 +40,17 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
           {!!users?.length ? (
             users?.map((user, index) => (
               <tr
-                className="2xl:text-base md:text-sm text-xs text-center sm:grid grid-cols-7 2xl:py-4 py-3 [&>th]:min-w-[5rem]"
+                className="grid-cols-7 py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 2xl:text-base [&>th]:min-w-[5rem]"
                 key={user?._id}
               >
-                <td className="sm:py-0 py-4">{index + 1}</td>
+                <td className="py-4 sm:py-0">{index + 1}</td>
                 <td>{user?.username}</td>
                 <td>{user?.firstname}</td>
                 <td>{user?.lastname}</td>
                 <td>{user?.role}</td>
                 <td>{user?.updatedAt?.slice(0, 10)}</td>
 
-                <td className="space-x-2 flex justify-center items-center sm:mt-0 mt-4 gap-x-3">
+                <td className="mt-4 flex items-center justify-center gap-x-3 space-x-2 sm:mt-0">
                   <FaTrashAlt
                     className="text-red-500"
                     onClick={() => deleteUser(user?._id)}
@@ -62,7 +62,7 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
           ) : (
             <tr>
               <td colSpan={6}>
-                <div className="flex justify-center items-center mt-32 text-xl">
+                <div className="mt-32 flex items-center justify-center text-xl">
                   سفارشی یافت نشد
                 </div>
               </td>

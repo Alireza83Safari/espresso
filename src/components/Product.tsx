@@ -14,21 +14,21 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   const { data: session } = useSession();
 
   return (
-    <div className="border-l border-gray-200 text-center my-5">
+    <div className="my-5 border-l border-gray-200 text-center">
       <div className="text-center">
-        <div className="flex justify-center group relative">
+        <div className="group relative flex justify-center">
           <Link href={`/product/${product?._id}`}>
             <Image
               width={300}
               height={300}
               alt="Product"
               src={product?.image}
-              className="transition-transform ease-in-out duration-1000 transform-gpu hover:scale-75"
+              className="transform-gpu transition-transform duration-1000 ease-in-out hover:scale-75"
             />
           </Link>
 
           <div
-            className="absolute bottom-0 right-0 left-0 bg-green text-white w-full py-2 text-sm group-hover:block hidden cursor-pointer"
+            className="absolute bottom-0 left-0 right-0 hidden w-full cursor-pointer bg-green py-2 text-sm text-white group-hover:block"
             onClick={() =>
               addToCart({ product: product?._id, user: (session as any)?.id })
             }
@@ -37,7 +37,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
           </div>
         </div>
         <Link href={`/product/${product?._id}`}>
-          <h1 className="px-1 truncate text-nowrap">{product?.name}</h1>
+          <h1 className="truncate text-nowrap px-1">{product?.name}</h1>
           <p className="mt-3">{product?.price?.toLocaleString()}</p>
         </Link>
       </div>

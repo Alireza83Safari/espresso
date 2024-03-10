@@ -43,39 +43,39 @@ const AddProduct = () => {
 
   return (
     <form
-      className="sm:grid md:grid-cols-2 lg:gap-x-7 sm:gap-x-3 mb-12 gap-y-6 sm:mx-10 mx-2 sm:p-4 p-2 rounded-lg bg-slate-50 shadow-lg"
+      className="mx-2 mb-12 gap-y-6 rounded-lg bg-slate-50 p-2 shadow-lg sm:mx-10 sm:grid sm:gap-x-3 sm:p-4 md:grid-cols-2 lg:gap-x-7"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
         <label className="block text-sm">نام</label>
         <input
           type="text"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="نام"
           {...register("name")}
         />
         {errors.name && (
-          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
         )}
       </div>
 
-      <div className="sm:mt-0 mt-4">
+      <div className="mt-4 sm:mt-0">
         <label className="block text-sm">دانه</label>
         <input
           type="text"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="دانه"
           {...register("seedType")}
         />
         {errors.seedType && (
-          <p className="text-red-500 text-sm mt-1">{errors.seedType.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.seedType.message}</p>
         )}
       </div>
 
-      <div className="sm:mt-0 mt-4">
+      <div className="mt-4 sm:mt-0">
         <label className="block text-sm">نوع دانه</label>
         <select
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           {...register("seed")}
         >
           <option value="mix"></option>
@@ -84,65 +84,65 @@ const AddProduct = () => {
           <option value="powdery">پودری</option>
         </select>
         {errors.seed && (
-          <p className="text-red-500 text-sm mt-1">{errors.seed.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.seed.message}</p>
         )}
       </div>
 
-      <div className="sm:mt-0 mt-4">
+      <div className="mt-4 sm:mt-0">
         <label className="block text-sm">کافین</label>
         <input
           type="text"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="کافین"
           {...register("caffeine")}
         />
         {errors.caffeine && (
-          <p className="text-red-500 text-sm mt-1">{errors.caffeine.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.caffeine.message}</p>
         )}
       </div>
 
-      <div className="sm:mt-0 mt-4">
+      <div className="mt-4 sm:mt-0">
         <label className="block text-sm">قیمت</label>
         <input
           type="number"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="قیمت"
           {...register("price")}
         />
         {errors.price && (
-          <p className="text-red-500 text-sm mt-1">{errors.price.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.price.message}</p>
         )}
       </div>
 
-      <div className="sm:mt-0 mt-4">
+      <div className="mt-4 sm:mt-0">
         <label className="block text-sm">عکس</label>
         <input
           type="text"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="عکس"
           {...register("image")}
         />
         {errors.image && (
-          <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.image.message}</p>
         )}
       </div>
 
-      <div className="col-span-2 sm:mt-0 mt-4">
+      <div className="col-span-2 mt-4 sm:mt-0">
         <label className="block text-sm">توضیحات</label>
         <textarea
-          className="border min-w-full py-1 min-h-[8rem] rounded-md outline-none focus:border-green px-2"
+          className="min-h-[8rem] min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="توضیحات"
           {...register("description")}
         />
         {errors.description && (
-          <p className="text-red-500 text-sm mt-1">
+          <p className="mt-1 text-sm text-red-500">
             {errors.description.message}
           </p>
         )}
       </div>
 
       <button
-        className="min-w-full bg-green py-2 rounded-lg text-white col-span-2"
+        className="col-span-2 min-w-full rounded-lg bg-green py-2 text-white"
         type="submit"
       >
         ساخت محصول

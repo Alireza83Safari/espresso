@@ -22,11 +22,11 @@ const OrderTable: React.FC<OrdersTableProps> = ({ orders }) => {
     }
   };
   return (
-    <div className="overflow-x-auto md:mx-10 mx-4">
-      <table className="min-w-full shadow-xl rounded-xl bg-slate-50">
+    <div className="mx-4 overflow-x-auto md:mx-10">
+      <table className="min-w-full rounded-xl bg-slate-50 shadow-xl">
         <thead>
-          <tr className="md:text-sm text-xs text-center border-b xs:grid grid-cols-5 2xl:py-4 py-4">
-            <th className="min-w-[3rem] xs:py-0 py-4">ردیف</th>
+          <tr className="grid-cols-5 border-b py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4">
+            <th className="min-w-[3rem] py-4 xs:py-0">ردیف</th>
             <th className="min-w-[5rem]">مبلغ</th>
             <th className="min-w-[7rem]">کاربر</th>
             <th className="min-w-[6rem]">تاریخ</th>
@@ -38,18 +38,18 @@ const OrderTable: React.FC<OrdersTableProps> = ({ orders }) => {
           {!!orders?.length ? (
             orders?.map((order, index) => (
               <tr
-                className="2xl:text-base md:text-sm text-xs text-center xs:grid grid-cols-5 2xl:py-4 py-4"
+                className="grid-cols-5 py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4 2xl:text-base"
                 key={order?._id}
               >
-                <td className="min-w-[3rem] xs:py-0 py-4">{index + 1}</td>
+                <td className="min-w-[3rem] py-4 xs:py-0">{index + 1}</td>
                 <td className="min-w-[5rem]">{order?.totalPrice}</td>
                 <td className="min-w-[7rem]">{order?.user?.username}</td>
                 <td className="min-w-[6rem]">
                   {order?.createdAt?.slice(0, 10)}
                 </td>
-                <td className="flex justify-center items-center gap-x-3 ">
+                <td className="flex items-center justify-center gap-x-3 ">
                   <FaTrashAlt
-                    className="text-red-500 cursor-pointer"
+                    className="cursor-pointer text-red-500"
                     onClick={() => deleteOrder(order?._id)}
                   />
                 </td>
@@ -58,7 +58,7 @@ const OrderTable: React.FC<OrdersTableProps> = ({ orders }) => {
           ) : (
             <tr>
               <td colSpan={6}>
-                <div className="flex justify-center items-center mt-32 text-xl">
+                <div className="mt-32 flex items-center justify-center text-xl">
                   سفارشی یافت نشد
                 </div>
               </td>

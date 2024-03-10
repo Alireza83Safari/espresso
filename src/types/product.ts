@@ -7,6 +7,7 @@ export interface ProductType {
   seed: string;
   seedType: string;
   image: string;
+  isFavorite: boolean;
   label: string;
   description: string;
   caffeine: string;

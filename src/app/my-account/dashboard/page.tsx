@@ -17,14 +17,14 @@ const page = () => {
           کاربری و کلمه عبور خود را ویرایش کنید.
         </p>
 
-        <div className="grid xs:grid-cols-3 gap-y-5 mt-5">
-          <div className="xs:w-[150px] border text-xl p-4 hover:bg-gray-50 flex justify-center items-center">
+        <div className="mt-5 grid gap-y-5 xs:grid-cols-3">
+          <div className="flex items-center justify-center border p-4 text-xl hover:bg-gray-50 xs:w-[150px]">
             <Link href="/my-account/orders">سفارش ها</Link>
           </div>
-          <div className="xs:w-[150px] border text-xl p-4 hover:bg-gray-50 flex justify-center items-center">
+          <div className="flex items-center justify-center border p-4 text-xl hover:bg-gray-50 xs:w-[150px]">
             <Link href="/my-account/address">آدرس</Link>
           </div>
-          <div className="xs:w-[150px] border text-xl p-4 hover:bg-gray-50 flex justify-center items-center">
+          <div className="flex items-center justify-center border p-4 text-xl hover:bg-gray-50 xs:w-[150px]">
             <Link href="/my-account/comments">نظرات</Link>
           </div>
         </div>

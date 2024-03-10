@@ -32,10 +32,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div id="modal-content" className="bg-white rounded relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div id="modal-content" className="relative rounded bg-white">
             <span
-              className="absolute top-2 right-2 text-gray-600 cursor-pointer"
+              className="absolute right-2 top-2 cursor-pointer text-gray-600"
               onClick={onClose}
             >
               &times;

@@ -78,7 +78,7 @@ export default function page() {
           ...acc,
           [error.path]: error.message,
         }),
-        {}
+        {},
       );
       setErrors(errors);
       setLoading(false);
@@ -88,8 +88,8 @@ export default function page() {
     <>
       <Header />
 
-      <section className="flex justify-center items-center min-h-screen bg-white">
-        <div className="max-w-[40rem] sm:min-w-[28rem] min-w-[95vw] sm:px-0 px-4 py-3 rounded-xl shadow-2xl">
+      <section className="flex min-h-screen items-center justify-center bg-white">
+        <div className="min-w-[95vw] max-w-[40rem] rounded-xl px-4 py-3 shadow-2xl sm:min-w-[28rem] sm:px-0">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               ساخت حساب کاربری{" "}
@@ -116,7 +116,7 @@ export default function page() {
                     type="text"
                     onFocus={() => setErrors(initialState)}
                     required
-                    className="block w-full px-1 bg-white rounded-md py-1.5 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-2 focus:border-green outline-none sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border border-gray-300 bg-white px-1 py-1.5 text-gray-900 shadow-sm outline-none placeholder:text-gray-400 focus:border-2 focus:border-green sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function page() {
                     type="text"
                     onFocus={() => setErrors(initialState)}
                     required
-                    className="block w-full px-1 bg-white rounded-md py-1.5 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-2 focus:border-green outline-none sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border border-gray-300 bg-white px-1 py-1.5 text-gray-900 shadow-sm outline-none placeholder:text-gray-400 focus:border-2 focus:border-green sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function page() {
                     type="text"
                     onFocus={() => setErrors(initialState)}
                     required
-                    className="block w-full px-1 bg-white rounded-md py-1.5 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-2 focus:border-green outline-none sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border border-gray-300 bg-white px-1 py-1.5 text-gray-900 shadow-sm outline-none placeholder:text-gray-400 focus:border-2 focus:border-green sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -187,7 +187,7 @@ export default function page() {
                     value={registerInfos?.password}
                     autoComplete="current-password"
                     required
-                    className="block w-full px-1 bg-white rounded-md py-1.5 text-gray-900 shadow-sm border border-gray-300 placeholder:text-gray-400 focus:border-2 focus:border-green outline-none sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border border-gray-300 bg-white px-1 py-1.5 text-gray-900 shadow-sm outline-none placeholder:text-gray-400 focus:border-2 focus:border-green sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -195,7 +195,7 @@ export default function page() {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-green px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#0A5B01] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-green px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm duration-300 hover:bg-[#0A5B01] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   {isLoading ? <FormSpinner /> : ` ساخت حساب`}
                 </button>

@@ -4,32 +4,32 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="grid xs:grid-cols-2 m-auto max-w-[1080px] my-16">
+    <section className="m-auto my-16 grid max-w-[1080px] xs:grid-cols-2">
       <Link
         href="/product?order=newset"
-        className="transition-transform transform-gpu hover:scale-110 duration-1000 relative"
+        className="relative transform-gpu transition-transform duration-1000 hover:scale-110"
       >
         <Image
           src="/image/sub-banner-1.WEBP"
           width={200}
           height={73}
           alt=""
-          className="w-full max-h-[73px]"
+          className="max-h-[73px] w-full"
         />
       </Link>
       <Link
         href="/product?q=syrup"
-        className="transition-transform transform-gpu hover:scale-110 duration-1000 relative"
+        className="relative transform-gpu transition-transform duration-1000 hover:scale-110"
       >
         <Image
           src="/image/sub-banner-2.WEBP"
           width={200}
           height={73}
           alt=""
-          className="w-full max-h-[73px]"
+          className="max-h-[73px] w-full"
         />
       </Link>
-    </div>
+    </section>
   );
 };
 

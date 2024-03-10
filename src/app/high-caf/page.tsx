@@ -13,7 +13,7 @@ export default async function page() {
     <>
       <Header />
 
-      <section className="m-auto max-w-[1080px] my-16 mt-24">
+      <section className="m-auto my-16 mt-24 max-w-[1080px]">
         <Image
           src="/image/man-drinking-high-caff-coffee.webp"
           width={500}

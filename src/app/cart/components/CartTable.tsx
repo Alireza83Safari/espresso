@@ -19,7 +19,7 @@ export default function CartTable({ cartItem }: any) {
   };
 
   return (
-    <div className="md:col-span-3 min-w-full sm:text-base text-sm px-1">
+    <div className="min-w-full px-1 text-sm sm:text-base md:col-span-3">
       <div className="grid grid-cols-5">
         <div className="col-span-2">محصول</div>
         <div className="col-span-1">عکس</div>
@@ -29,19 +29,19 @@ export default function CartTable({ cartItem }: any) {
 
       {!!cartItem?.length &&
         cartItem?.map((cart: any) => (
-          <div className="grid grid-cols-5 my-3 sm:text-sm text-xs border-b">
-            <div className="flex items-center col-span-2">
+          <div className="my-3 grid grid-cols-5 border-b text-xs sm:text-sm">
+            <div className="col-span-2 flex items-center">
               {cart?.product?.name}
             </div>
             <div className="col-span-1">
               <Image src={cart?.product?.image} width={70} height={70} alt="" />
             </div>
-            <div className="flex items-center col-span-1">
+            <div className="col-span-1 flex items-center">
               {cart?.product?.price}
             </div>
-            <div className="flex items-center col-span-1">
+            <div className="col-span-1 flex items-center">
               <FaX
-                className="text-red-500 text-xl cursor-pointer"
+                className="cursor-pointer text-xl text-red-500"
                 onClick={() => deleteCartItem(cart?._id)}
               />
             </div>

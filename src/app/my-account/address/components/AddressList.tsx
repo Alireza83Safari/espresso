@@ -6,9 +6,12 @@ interface AddressListProps {
 
 export const AddressList: React.FC<AddressListProps> = ({ address }) => {
   return (
-    <div className="md:mb-16 mb-8">
+    <div className="mb-8 md:mb-16">
       {address?.map((item) => (
-        <div className="grid grid-cols-2 border p-3 gap-y-5 mb-7 rounded-lg mx-4 bg-gray-50 hover:bg-white duration-300 xs:text-base text-sm">
+        <div
+          className="mx-4 mb-7 grid grid-cols-2 gap-y-5 rounded-lg border bg-gray-50 p-3 text-sm duration-300 hover:bg-white xs:text-base"
+          key={item?._id}
+        >
           <div className="flex">
             <p className="ml-2 text-textGray">نام:</p>
             <p>{item?.firstname}</p>
@@ -29,7 +32,7 @@ export const AddressList: React.FC<AddressListProps> = ({ address }) => {
             <p className="ml-2 text-textGray">شماره:</p>
             <p>{item?.phone}</p>
           </div>
-          <div className="flex col-span-2">
+          <div className="col-span-2 flex">
             <p className="ml-2 text-textGray">آدرس:</p>
             <p>{item?.address}</p>
           </div>

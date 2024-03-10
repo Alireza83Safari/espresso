@@ -1,1 +1,1 @@
-export const apiUrl = `https://espresso.liara.run/`;
+export const apiUrl = `http://localhost:3000/`;

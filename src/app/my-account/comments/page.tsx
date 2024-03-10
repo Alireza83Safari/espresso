@@ -20,9 +20,9 @@ export default async function page() {
       {myComments?.map((comment: CommentType) => (
         <Link
           href={comment?.product?._id}
-          className="grid grid-cols-2 border mx-2 p-3 min-h-[11rem] min-w-full col-span-2 hover:bg-slate-50 duration-500 rounded-lg xs:text-base text-sm"
+          className="col-span-2 mx-2 grid min-h-[11rem] min-w-full grid-cols-2 rounded-lg border p-3 text-sm duration-500 hover:bg-slate-50 xs:text-base"
         >
-          <div className="flex items-center md:col-span-1 col-span-2">
+          <div className="col-span-2 flex items-center md:col-span-1">
             <p className="ml-1 text-textGray">محصول:</p>
             <p>{comment?.product?.name}</p>
           </div>
@@ -41,15 +41,15 @@ export default async function page() {
                 comment?.status === "pending"
                   ? "text-orange-500"
                   : comment?.status === "accept"
-                  ? "text-green"
-                  : "text-red-600"
+                    ? "text-green"
+                    : "text-red-600"
               }
             >
               {comment?.status === "pending"
                 ? "انتظار برای تایید"
                 : comment?.status === "accept"
-                ? "پذیفته شده"
-                : "رد شده"}
+                  ? "پذیفته شده"
+                  : "رد شده"}
             </p>
           </div>
 
@@ -58,7 +58,7 @@ export default async function page() {
             <p>{comment?.createdAt.slice(0, 10)}</p>
           </div>
 
-          <div className="flex items-center col-span-2">
+          <div className="col-span-2 flex items-center">
             <p className="ml-1 text-textGray">نظر:</p>
             <p>{comment?.body}</p>
           </div>

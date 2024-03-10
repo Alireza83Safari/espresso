@@ -19,7 +19,7 @@ export default async function page({ searchParams }: any) {
     <>
       <Header />
 
-      <section className="lg:mt-32 mt-40 mx-auto max-w-[1080px] mb-16">
+      <section className="mx-auto mb-16 mt-40 max-w-[1080px] lg:mt-32">
         <FilterProduct />
         <ProductsPage products={products} />
       </section>

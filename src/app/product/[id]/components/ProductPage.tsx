@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { ProductType } from "@/types/product";
 import Image from "next/image";
-import { FaTruck } from "react-icons/fa";
+import { FaHeart, FaTruck } from "react-icons/fa";
 import ProductFooter from "./ProductFooter";
 import { useCoffeePriceCalculator } from "@/hooks/useCoffePrice";
 import { addToCart } from "@/actions/addToCart";
@@ -26,36 +26,36 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
   });
 
   return (
-    <div className="grid md:grid-cols-5 lg:mt-32 mt-40 mx-auto max-w-[1080px]">
-      <div className="md:col-span-2 flex justify-center">
+    <div className="mx-auto mt-40 grid max-w-[1080px] md:grid-cols-5 lg:mt-32">
+      <div className="flex justify-center md:col-span-2">
         <Image
           src={product?.image}
           width={500}
           height={500}
           alt={product?.name}
-          className="object-contain min-w-full"
+          className="min-w-full object-contain"
         />
       </div>
-      <div className="md:col-span-3 flex justify-center text-center pb-12 md:mt-0 mt-10">
+      <div className="mt-10 flex justify-center pb-12 text-center md:col-span-3 md:mt-0">
         <div className="max-w-[26rem md:px-12">
-          <h1 className="xs:text-3xl text-xl text-textGray">{product?.name}</h1>
-          <p className="xs:text-2xl text-lg mt-7 text-center">
+          <h1 className="text-xl text-textGray xs:text-3xl">{product?.name}</h1>
+          <p className="mt-7 text-center text-lg xs:text-2xl">
             {minPrice?.toLocaleString()}تومان -{" "}
             {product?.price?.toLocaleString()}
             تومان
           </p>
           <p className="mt-4 text-lg">قهوه {product?.seedType}</p>
-          <div className="flex justify-center mt-4 text-lime-600">
-            <FaTruck className="text-3xl mr-2 ml-2" />
-            <p className="xs:text-2xl text-lg font-semibold">ارسال رایگان</p>
+          <div className="mt-4 flex justify-center text-lime-600">
+            <FaTruck className="ml-2 mr-2 text-3xl" />
+            <p className="text-lg font-semibold xs:text-2xl">ارسال رایگان</p>
           </div>
 
-          <div className="mt-12 xs:text-base text-sm">
+          <div className="mt-12 text-sm xs:text-base">
             <div>
               <label htmlFor="c" className="block">
                 نوع آسیاب
               </label>
-              <select name="c" id="c" className="border w-full py-1 px-3">
+              <select name="c" id="c" className="w-full border px-3 py-1">
                 <option value="">بدون آسیاب</option>
                 <option value="">اسپرسو خانگی</option>
                 <option value="">دمی</option>
@@ -70,7 +70,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
                 وزن
               </label>
               <select
-                className="border w-full py-1 px-3"
+                className="w-full border px-3 py-1"
                 onChange={(e) => setWeight(+e.target.value)}
               >
                 <option value={250}>250گرم</option>
@@ -81,30 +81,38 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
             </div>
           </div>
 
-          <div className="flex items-center mt-10">
-            <p className="xs:text-2xl text-lg ml-4">{calculatedPrice}تومان</p>
+          <div className="mt-10 flex items-center">
+            <p className="ml-4 text-lg xs:text-2xl">{calculatedPrice}تومان</p>
             <button
-              className="bg-green py-1 px-3 text-white rounded-sm"
+              className="rounded-sm bg-green px-3 py-1 text-white"
               onClick={() =>
                 addToCart({ product: product?._id, user: (session as any)?.id })
               }
             >
               افزودن به سبد خرید
             </button>
+
+            <button className="mr-4 text-2xl">
+              <FaHeart
+                className={
+                  product?.isFavorite ? "text-red-500" : "text-slate-300"
+                }
+              />
+            </button>
           </div>
 
-          <div className="text-sm text-textGray mt-12">
+          <div className="mt-12 text-sm text-textGray">
             <div className="flex border-b border-gray-400 py-2">
               <p className="ml-1">شناسه محصول:</p>
               <p>نامعلوم</p>
             </div>
 
-            <div className="flex mt-3 border-b border-gray-400 py-2">
+            <div className="mt-3 flex border-b border-gray-400 py-2">
               <p className="ml-1">دسته:</p>
               <p> برشته کاری درکاپی, قهوه, قهوه, قهوه تجاری</p>
             </div>
 
-            <div className="flex mt-3 py-2">
+            <div className="mt-3 flex py-2">
               <p className="ml-1">برچسب:</p>
               <p>{product?.label}</p>
             </div>

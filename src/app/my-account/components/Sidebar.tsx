@@ -11,8 +11,8 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="border-l lg:pr-0 pr-1 md:w-[15rem]">
-      <div className="flex items-center md:justify-normal justify-center mb-4">
+    <aside className="border-l pr-1 md:w-[15rem] lg:pr-0">
+      <div className="mb-4 flex items-center justify-center md:justify-normal">
         <Image
           src="/image/user.png"
           className="rounded-full"
@@ -20,13 +20,13 @@ export default function Sidebar() {
           height={60}
           alt=""
         />
-        <p className="mr-4 lg:flex md:hidden flex lg:text-base text-lg">
+        <p className="mr-4 flex text-lg md:hidden lg:flex lg:text-base">
           {(session as any)?.username}
         </p>
       </div>
       {accountSidebarItem.map((menu) => (
         <Link
-          className={`block py-3 border-b md:px-0 px-5 ${
+          className={`block border-b px-5 py-3 md:px-0 ${
             pathname?.includes(menu?.href) && " border-l-4 border-l-green"
           } `}
           href={menu?.href}
@@ -35,7 +35,9 @@ export default function Sidebar() {
           {menu?.title}
         </Link>
       ))}
-      <div className="block py-3 border-b md:text-base text-sm md:px-0 px-5">خروج </div>
-    </div>
+      <div className="block border-b px-5 py-3 text-sm md:px-0 md:text-base">
+        خروج{" "}
+      </div>
+    </aside>
   );
 }

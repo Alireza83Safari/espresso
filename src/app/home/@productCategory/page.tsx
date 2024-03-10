@@ -33,7 +33,7 @@ const page = () => {
     },
   };
   return (
-    <div className="m-auto max-w-[1080px] gap-y-8">
+    <section className="m-auto max-w-[1080px] gap-y-8">
       <Swiper
         slidesPerView={5}
         spaceBetween={30}
@@ -46,19 +46,19 @@ const page = () => {
       >
         {productCategory?.map((category) => (
           <SwiperSlide>
-            <div className="relative h-[150px] w-[150px] rounded-3xl overflow-hidden m-auto flex justify-center">
+            <div className="relative m-auto flex h-[150px] w-[150px] justify-center overflow-hidden rounded-3xl">
               <div
-                className="h-full w-full bg-cover bg-center transition-transform transform hover:scale-150 duration-[3000ms] flex justify-center items-center"
+                className="flex h-full w-full transform items-center justify-center bg-cover bg-center transition-transform duration-[3000ms] hover:scale-150"
                 style={{ backgroundImage: `url(${category?.image})` }}
                 key={category?.id}
               >
-                <p className="text-white text-sm">{category?.titel}</p>
+                <p className="text-sm text-white">{category?.titel}</p>
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   );
 };
 

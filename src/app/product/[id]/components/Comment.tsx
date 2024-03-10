@@ -71,11 +71,11 @@ const Comment: React.FC<CommentPrice> = ({ product }) => {
                   width={40}
                   height={40}
                   alt=""
-                  className=" rounded-full w-12 h-12"
+                  className=" h-12 w-12 rounded-full"
                 />
               </div>
               <div>
-                <div className="flex items-center mt-2">
+                <div className="mt-2 flex items-center">
                   <div className="flex items-center">
                     <i data-star={comment?.rate}></i>
                   </div>
@@ -93,7 +93,7 @@ const Comment: React.FC<CommentPrice> = ({ product }) => {
 
       <div className="mt-14">
         <h2 className="text-xl text-black">نقد و بررسی‌ها</h2>
-        <div className="border p-4 grid grid-cols-2">
+        <div className="grid grid-cols-2 border p-4">
           <div className="col-span-2">
             <p>اولین کسی باشید که دیدگاهی می نویسد"{product?.name}"</p>
 
@@ -105,14 +105,14 @@ const Comment: React.FC<CommentPrice> = ({ product }) => {
                 name="body"
                 onChange={handleInputChange}
                 value={commentValue?.body}
-                className={`border min-w-full outline-none min-h-[10rem] px-2 py-1 focus:shadow-md ${
+                className={`min-h-[10rem] min-w-full border px-2 py-1 outline-none focus:shadow-md ${
                   fieldErrors.body ? "border-red-500" : ""
                 }`}
                 onFocus={() => setFieldErrors({ ...fieldErrors, body: false })}
               ></textarea>
             </div>
           </div>
-          <div className="sm:col-span-1 col-span-2 sm:ml-2">
+          <div className="col-span-2 sm:col-span-1 sm:ml-2">
             <label htmlFor="" className="block">
               امتیاز*
             </label>
@@ -122,7 +122,7 @@ const Comment: React.FC<CommentPrice> = ({ product }) => {
               onChange={(e) =>
                 setCommentValue({ ...commentValue, rate: +e.target.value })
               }
-              className={`border min-w-full focus:shadow-md outline-none py-[2px] ${
+              className={`min-w-full border py-[2px] outline-none focus:shadow-md ${
                 fieldErrors.rate ? "border-red-500" : ""
               }`}
               onFocus={() => setFieldErrors({ ...fieldErrors, rate: false })}
@@ -136,13 +136,13 @@ const Comment: React.FC<CommentPrice> = ({ product }) => {
               </option>
             </select>
           </div>
-          <div className="sm:col-span-1 col-span-2 sm:mr-2">
+          <div className="col-span-2 sm:col-span-1 sm:mr-2">
             <label htmlFor="" className="block">
               ایمیل
             </label>
             <input
               type="text"
-              className="border min-w-full focus:shadow-md outline-none"
+              className="min-w-full border outline-none focus:shadow-md"
             />
           </div>
 
@@ -152,7 +152,7 @@ const Comment: React.FC<CommentPrice> = ({ product }) => {
               من در مرورگر برای زمانی که دوباره دیدگاهی می‌نویسم.
             </div>
             <button
-              className="bg-green px-6 py-1 text-white mt-3"
+              className="mt-3 bg-green px-6 py-1 text-white"
               onClick={createComment}
             >
               ثبت

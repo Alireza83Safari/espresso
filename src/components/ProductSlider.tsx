@@ -30,11 +30,11 @@ const ProductSlider: React.FC<ProductSlider> = ({ title, products }) => {
     },
   };
   return (
-    <div className="m-auto max-w-[1080px] my-20">
-      <div className="flex justify-center items-center mb-12">
-        <b className="flex-1 bg-gray-200 h-[2px]"></b>
-        <h1 className="text-xl px-4">{title}</h1>
-        <b className="flex-1 bg-gray-200 h-[2px]"></b>
+    <div className="m-auto my-20 max-w-[1080px]">
+      <div className="mb-12 flex items-center justify-center">
+        <b className="h-[2px] flex-1 bg-gray-200"></b>
+        <h1 className="px-4 text-xl">{title}</h1>
+        <b className="h-[2px] flex-1 bg-gray-200"></b>
       </div>
 
       <Swiper

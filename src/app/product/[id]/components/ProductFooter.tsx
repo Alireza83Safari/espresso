@@ -13,12 +13,12 @@ const ProductFooter: React.FC<ProductFooterProps> = ({ product }) => {
 
   return (
     <div className="my-5">
-      <div className="flex xs:text-base text-sm">
+      <div className="flex text-sm xs:text-base">
         {productFooterBtn?.map((item) => (
           <div
-            className={`xs:px-5 px-2 py-2 ml-1${
+            className={`px-2 py-2 xs:px-5 ml-1${
               showMenu == item?.showMenuValue
-                ? "bg-white border-x border-t-2 border-t-black"
+                ? "border-x border-t-2 border-t-black bg-white"
                 : " bg-gray-200"
             }`}
             onClick={() => setShowMenu(item?.showMenuValue)}
@@ -26,30 +26,30 @@ const ProductFooter: React.FC<ProductFooterProps> = ({ product }) => {
             {item?.title === "نظرات"
               ? `${item?.title} (${
                   product?.comments.filter(
-                    (comment) => comment?.status === "accept"
+                    (comment) => comment?.status === "accept",
                   )?.length
                 })`
               : item?.title}
           </div>
         ))}
       </div>
-      <div className="border border-gray-200 sm:p-4 p-2 text-textGray leading-8">
+      <div className="border border-gray-200 p-2 leading-8 text-textGray sm:p-4">
         {showMenu === "description" ? (
           product?.description
         ) : showMenu === "completDesc" ? (
           <div className="grid grid-cols-4 font-extralight">
             <div className="col-span-1">
-              <p className="py-2 border-b">وزن</p>
-              <p className="py-2 border-b">نوع آسیاب</p>
-              <p className="py-2 border-b">میزان کافئین</p>
+              <p className="border-b py-2">وزن</p>
+              <p className="border-b py-2">نوع آسیاب</p>
+              <p className="border-b py-2">میزان کافئین</p>
               <p className="py-2">ابزار دم آوری</p>
             </div>
             <div className="col-span-3">
-              <p className="py-2 border-b">{product?.weight}گرم</p>
-              <p className="py-2 border-b">
+              <p className="border-b py-2">{product?.weight}گرم</p>
+              <p className="border-b py-2">
                 اسپرسو خانگی, بدون آسیاب, دمی, صنعتی, فرنچ پرس, موکاپات
               </p>
-              <p className="py-2 border-b">{product?.caffeine}</p>
+              <p className="border-b py-2">{product?.caffeine}</p>
               <p className="py-2">
                 اسپرسوساز, دمی, فرنچ پرس, کولد برو, موکاپات
               </p>

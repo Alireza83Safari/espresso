@@ -19,10 +19,13 @@ export default async function layout({
     <>
       <Header />
       {isAuthenticated ? (
-        <div className="max-w-[1080px] mx-auto container mb-32 mt-60 md:flex">
+        <div className="container mx-auto mb-32 mt-60 max-w-[1080px] md:flex">
           <Sidebar />
           <SubHeader />
-          <section className="w-full md:px-3 px-1 md:mt-0 mt-10"> {children}</section>
+          <section className="mt-10 w-full px-1 md:mt-0 md:px-3">
+            {" "}
+            {children}
+          </section>
         </div>
       ) : (
         redirect("/login")

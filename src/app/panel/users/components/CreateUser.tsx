@@ -35,65 +35,65 @@ const CreateUser = () => {
 
   return (
     <form
-      className="sm:grid sm:grid-cols-2 lg:gap-x-7 gap-x-3 mb-12 gap-y-6 md:mx-10 mx-4 sm:p-4 p-2 rounded-lg bg-slate-50 shadow-lg"
+      className="mx-4 mb-12 gap-x-3 gap-y-6 rounded-lg bg-slate-50 p-2 shadow-lg sm:grid sm:grid-cols-2 sm:p-4 md:mx-10 lg:gap-x-7"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
         <label className="block text-sm">نام</label>
         <input
           type="text"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="نام"
           {...register("firstname")}
         />
         {errors.firstname && (
-          <p className="text-red-500 text-sm mt-1">
+          <p className="mt-1 text-sm text-red-500">
             {errors.firstname.message}
           </p>
         )}
       </div>
 
-      <div className="sm:mt-0 mt-4">
+      <div className="mt-4 sm:mt-0">
         <label className="block text-sm">نام خانوادگی</label>
         <input
           type="text"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="نام خانوادگی"
           {...register("lastname")}
         />
         {errors.lastname && (
-          <p className="text-red-500 text-sm mt-1">{errors.lastname.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.lastname.message}</p>
         )}
       </div>
 
-      <div className="sm:mt-0 mt-4">
+      <div className="mt-4 sm:mt-0">
         <label className="block text-sm">نام کاربری</label>
         <input
           type="text"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="نام کاربری"
           {...register("username")}
         />
         {errors.username && (
-          <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.username.message}</p>
         )}
       </div>
 
-      <div className="sm:mt-0 mt-4">
+      <div className="mt-4 sm:mt-0">
         <label className="block text-sm">رمز عبور</label>
         <input
           type="text"
-          className="border min-w-full py-1 rounded-md outline-none focus:border-green px-2"
+          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
           placeholder="رمز عبور"
           {...register("password")}
         />
         {errors.password && (
-          <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.password.message}</p>
         )}
       </div>
 
       <button
-        className="min-w-full bg-green py-2 rounded-lg text-white col-span-2 hover:bg-[#0A5B01] duration-300 md:mt-0 mt-5"
+        className="col-span-2 mt-5 min-w-full rounded-lg bg-green py-2 text-white duration-300 hover:bg-[#0A5B01] md:mt-0"
         type="submit"
       >
         ساخت کاربر

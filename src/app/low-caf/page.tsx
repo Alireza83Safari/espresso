@@ -12,7 +12,7 @@ export default async function page() {
     <>
       <Header />
 
-      <section className="m-auto max-w-[1080px] my-16 mt-24">
+      <section className="m-auto my-16 mt-24 max-w-[1080px]">
         <Image
           src="/image/man-drinking-high-caff-coffee.webp"
           width={500}
@@ -27,7 +27,7 @@ export default async function page() {
           قهوه به خصوص پیشنهاد کنیم ممکن نیست. به این دلیل که بسته به میزان
           فعالیت شما، باید میزان کافئین مورد انتظارتون رو مشخص کنید.
         </p>
-        <h2 className="text-lg mt-10">
+        <h2 className="mt-10 text-lg">
           اما سوال اصلی اینجاست که آیا قهوه واقعا به شما در ورزش کردن کمک میکنه؟
         </h2>
         <p className="mt-4 text-sm leading-7 text-textGray">
@@ -38,7 +38,7 @@ export default async function page() {
           افزایش پیدا کنه.
         </p>
 
-        <h2 className="text-lg mt-10">
+        <h2 className="mt-10 text-lg">
           خب چطوری بفهمیم چه قهوه برای ورزش مناسبه؟
         </h2>
         <p className="mt-10 text-sm leading-7 text-textGray">
@@ -49,7 +49,7 @@ export default async function page() {
         </p>
         <ProductSlider title="" products={coffees} />
 
-        <h2 className="text-lg mt-10 text-red-500">یک هشدار نه دو تا هشدار</h2>
+        <h2 className="mt-10 text-lg text-red-500">یک هشدار نه دو تا هشدار</h2>
         <p className="mt-10 text-sm leading-7 text-textGray">
           هشدار اول ما به شما اینکه قهوه قبل از خواب استفاده نکنید ممکنه مشکلات
           جدی برای شما مثل توهم به وجود بیاره و روز بعدی شما رو هم تحت تاثیر

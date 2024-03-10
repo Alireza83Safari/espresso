@@ -24,16 +24,16 @@ const Banner = () => {
       <SwiperSlide>
         <Link
           href="/product"
-          className="transition-transform transform-gpu hover:scale-110 duration-300 bg-banner-1 bg-center bg-cover h-[24rem] justify-center items-center -z-10 lg:mt-[92px] mt-[137px] flex"
+          className="-z-10 mt-[137px] flex h-[24rem] transform-gpu items-center justify-center bg-banner-1 bg-cover bg-center transition-transform duration-300 hover:scale-110 lg:mt-[92px]"
         >
-          <div className="text-white text-center mb-8">
-            <p className="md:text-[3.6rem] text-[2.4rem] font-bold">
+          <div className="mb-8 text-center text-white">
+            <p className="text-[2.4rem] font-bold md:text-[3.6rem]">
               شروع روز خوب
             </p>
-            <p className="md:text-[3.6rem] text-[2.4rem] font-bold mt-5">
+            <p className="mt-5 text-[2.4rem] font-bold md:text-[3.6rem]">
               با یک قهوه خوب
             </p>
-            <button className="border-2 border-white py-3 px-10 text-lg font-semibold hover:bg-white duration-300 hover:text-green rounded-3xl mt-12">
+            <button className="mt-12 rounded-3xl border-2 border-white px-10 py-3 text-lg font-semibold duration-300 hover:bg-white hover:text-green">
               مشاهده محصولات
             </button>
           </div>
@@ -43,17 +43,17 @@ const Banner = () => {
       <SwiperSlide>
         <Link
           href={"/product?q=باکسونت"}
-          className="transition-transform transform-gpu hover:scale-110 duration-300 flex items-center relative"
+          className="relative flex transform-gpu items-center transition-transform duration-300 hover:scale-110"
         >
-          <div className="absolute top-0 right-0 left-0 bg-banner-2 bg-center bg-cover lg:mt-[93px] mt-[140px] lg:min-h-[24rem] sm:flex items-center">
-            <div className="text-white mb-8 lg::pr-16 md:pr-10 sm:pr-4 mt-8">
-              <p className="lg:text-[3.3rem] sm:text-[2.2rem] text-[1.7rem] font-bold">
+          <div className="absolute left-0 right-0 top-0 mt-[140px] items-center bg-banner-2 bg-cover bg-center sm:flex lg:mt-[93px] lg:min-h-[24rem]">
+            <div className="lg::pr-16 mb-8 mt-8 text-white sm:pr-4 md:pr-10">
+              <p className="text-[1.7rem] font-bold sm:text-[2.2rem] lg:text-[3.3rem]">
                 برشته کاری قهوه باکسولنت
               </p>
-              <p className="text-sm font-light mt-5">
+              <p className="mt-5 text-sm font-light">
                 قهوه ای که به شما انرژی و هیجان میدهد
               </p>
-              <button className="border-2 border-white md:py-3 py-2 md:px-10 px-4 md:text-lg font-semibold hover:bg-white duration-300 hover:text-green rounded-3xl mt-12">
+              <button className="mt-12 rounded-3xl border-2 border-white px-4 py-2 font-semibold duration-300 hover:bg-white hover:text-green md:px-10 md:py-3 md:text-lg">
                 مشاهده محصولات باکسولنت
               </button>
             </div>

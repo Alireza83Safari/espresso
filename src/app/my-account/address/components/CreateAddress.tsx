@@ -38,7 +38,7 @@ export default function CreateAddress() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="xs:grid xs:grid-cols-2 gap-y-4 px-4"
+      className="gap-y-4 px-4 xs:grid xs:grid-cols-2"
     >
       <div className="xs:px-2">
         <label htmlFor="firstname" className="block">
@@ -47,12 +47,12 @@ export default function CreateAddress() {
         <input
           type="text"
           {...register("firstname")}
-          className={`border px-2 min-w-full py-1 rounded-md outline-none focus:border-green ${
+          className={`min-w-full rounded-md border px-2 py-1 outline-none focus:border-green ${
             errors.firstname ? "border-red-500" : ""
           }`}
         />
         {errors.firstname && (
-          <span className="text-red-500 text-sm">
+          <span className="text-sm text-red-500">
             {errors.firstname.message}
           </span>
         )}
@@ -65,12 +65,12 @@ export default function CreateAddress() {
         <input
           type="text"
           {...register("lastname")}
-          className={`border px-2 min-w-full py-1 rounded-md outline-none focus:border-green ${
+          className={`min-w-full rounded-md border px-2 py-1 outline-none focus:border-green ${
             errors.lastname ? "border-red-500" : ""
           }`}
         />
         {errors.lastname && (
-          <span className="text-red-500 text-sm">
+          <span className="text-sm text-red-500">
             {errors.lastname.message}
           </span>
         )}
@@ -83,12 +83,12 @@ export default function CreateAddress() {
         <input
           type="number"
           {...register("phone")}
-          className={`border px-2 min-w-full py-1 rounded-md outline-none focus:border-green ${
+          className={`min-w-full rounded-md border px-2 py-1 outline-none focus:border-green ${
             errors.phone ? "border-red-500" : ""
           }`}
         />
         {errors.phone && (
-          <span className="text-red-500 text-sm">{errors.phone.message}</span>
+          <span className="text-sm text-red-500">{errors.phone.message}</span>
         )}
       </div>
 
@@ -99,12 +99,12 @@ export default function CreateAddress() {
         <input
           type="number"
           {...register("plaque")}
-          className={`border px-2 min-w-full py-1 rounded-md outline-none focus:border-green ${
+          className={`min-w-full rounded-md border px-2 py-1 outline-none focus:border-green ${
             errors.plaque ? "border-red-500" : ""
           }`}
         />
         {errors.plaque && (
-          <span className="text-red-500 text-sm">{errors.plaque.message}</span>
+          <span className="text-sm text-red-500">{errors.plaque.message}</span>
         )}
       </div>
 
@@ -115,12 +115,12 @@ export default function CreateAddress() {
         <input
           type="text"
           {...register("city")}
-          className={`border px-2 min-w-full py-1 rounded-md outline-none focus:border-green ${
+          className={`min-w-full rounded-md border px-2 py-1 outline-none focus:border-green ${
             errors.city ? "border-red-500" : ""
           }`}
         />
         {errors.city && (
-          <span className="text-red-500 text-sm">{errors.city.message}</span>
+          <span className="text-sm text-red-500">{errors.city.message}</span>
         )}
       </div>
 
@@ -131,16 +131,16 @@ export default function CreateAddress() {
         <input
           type="text"
           {...register("address")}
-          className={`border px-2 min-w-full py-1 rounded-md outline-none focus:border-green ${
+          className={`min-w-full rounded-md border px-2 py-1 outline-none focus:border-green ${
             errors.address ? "border-red-500" : ""
           }`}
         />
         {errors.address && (
-          <span className="text-red-500 text-sm">{errors.address.message}</span>
+          <span className="text-sm text-red-500">{errors.address.message}</span>
         )}
       </div>
       <button
-        className="col-span-2 bg-green text-white py-2 rounded-lg xs:mx-1 xs:w-auto w-full xs:mt-0 mt-5"
+        className="col-span-2 mt-5 w-full rounded-lg bg-green py-2 text-white xs:mx-1 xs:mt-0 xs:w-auto"
         type="submit"
       >
         افزودن آدرس

@@ -37,7 +37,7 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
     // calculate products total price
     const calculatedTotalPrice: number = cartItem?.reduce(
       (acc: number, cart: any) => acc + cart?.product?.price,
-      0
+      0,
     );
     setTotalPrice(calculatedTotalPrice);
     setTotalPrice(calculatedTotalPrice);
@@ -72,8 +72,8 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
   };
 
   return (
-    <section className="grid lg:grid-cols-2 grid-cols-1 lg:mt-36 mt-44 mb-20 m-auto max-w-[1080px] px-2">
-      <div className="sm:text-base text-sm">
+    <section className="m-auto mb-20 mt-44 grid max-w-[1080px] grid-cols-1 px-2 lg:mt-36 lg:grid-cols-2">
+      <div className="text-sm sm:text-base">
         <div className="grid grid-cols-4">
           <div className="col-span-2">محصول</div>
           <div className="col-span-1">عکس</div>
@@ -82,8 +82,8 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
 
         {!!cartItem?.length &&
           cartItem?.map((cart: any) => (
-            <div className="grid grid-cols-4 my-3 sm:text-sm text-xs border-b">
-              <div className="flex items-center col-span-2">
+            <div className="my-3 grid grid-cols-4 border-b text-xs sm:text-sm">
+              <div className="col-span-2 flex items-center">
                 {cart?.product?.name}
               </div>
               <div className="col-span-1">
@@ -94,7 +94,7 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
                   alt=""
                 />
               </div>
-              <div className="flex items-center col-span-1">
+              <div className="col-span-1 flex items-center">
                 {cart?.product?.price}
               </div>
             </div>
@@ -105,13 +105,13 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
         {!!address?.length ? (
           address?.map((item: AddressType) => (
             <div
-              className={`grid grid-cols-2 border p-2 gap-y-5 relative mb-7 rounded-lg sm:text-base text-sm sm:mx-4 bg-gray-50 sm:mt-0 mt-5 hover:bg-white duration-300 ${
+              className={`relative mb-7 mt-5 grid grid-cols-2 gap-y-5 rounded-lg border bg-gray-50 p-2 text-sm duration-300 hover:bg-white sm:mx-4 sm:mt-0 sm:text-base ${
                 chooseAddress === item?._id && "border-2 border-green"
               }`}
               onClick={() => setChooseAddress(item?._id)}
             >
               <button onClick={() => deleteAddress(item?._id)}>
-                <FaX className="text-red-500 absolute left-1 top-1" />
+                <FaX className="absolute left-1 top-1 text-red-500" />
               </button>
               <div className="flex">
                 <p className="ml-2 text-textGray">نام:</p>
@@ -133,7 +133,7 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
                 <p className="ml-2 text-textGray">شماره:</p>
                 <p>{item?.phone}</p>
               </div>
-              <div className="flex col-span-2">
+              <div className="col-span-2 flex">
                 <p className="ml-2 text-textGray">آدرس:</p>
                 <p>{item?.address}</p>
               </div>
@@ -147,7 +147,7 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
       </div>
 
       <button
-        className="bg-green min-w-full py-2 rounded-lg text-white disabled:bg-gray-300"
+        className="min-w-full rounded-lg bg-green py-2 text-white disabled:bg-gray-300"
         disabled={!chooseAddress?.length}
         onClick={createOrder}
       >
