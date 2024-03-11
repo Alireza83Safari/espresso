@@ -1,8 +1,5 @@
-// components/Pagination.tsx
-
 "use client";
-import React, { useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import React from "react";
 
 interface PaginationProps {
   currentPage: number;
@@ -15,17 +12,6 @@ const Pagination: React.FC<PaginationProps> = ({
   setCurrentPage,
   totalPages,
 }) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const urlPage = searchParams.get("page");
-  const getPaginationURL = (page: number) => {
-    router.push(`?page=${!!urlPage ? urlPage : page}`);
-  };
-
-  useEffect(() => {
-    getPaginationURL(currentPage);
-  }, [currentPage]);
-
   return (
     <nav className="mt-4 flex justify-center">
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (

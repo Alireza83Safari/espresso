@@ -88,7 +88,7 @@ export default function page() {
     <>
       <Header />
 
-      <section className="flex min-h-screen items-center justify-center bg-white">
+      <section className="mt-20 flex min-h-screen items-center justify-center bg-white">
         <div className="min-w-[95vw] max-w-[40rem] rounded-xl px-4 py-3 shadow-2xl sm:min-w-[28rem] sm:px-0">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -206,7 +206,7 @@ export default function page() {
               حساب دارید؟{" "}
               <Link
                 href="/login"
-                className="font-semibold leading-6 text-green hover:bg-[#0A5B01]"
+                className="font-semibold leading-6 text-green hover:text-[#0A5B01]"
               >
                 ورود به حساب
               </Link>

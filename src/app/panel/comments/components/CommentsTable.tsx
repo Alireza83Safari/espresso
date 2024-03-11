@@ -45,7 +45,7 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
 
   return (
     <div className="mx-4 overflow-x-auto md:mx-10">
-      <table className="w-full rounded-xl bg-slate-50 shadow-lg md:w-[83.3vw]">
+      <table className="w-full rounded-xl bg-slate-100 shadow-lg md:w-[83.3vw]">
         <thead>
           <tr className="grid-cols-8 border-b py-3 text-center text-xs md:grid md:text-sm 2xl:py-4">
             <th className="min-w-[3rem] py-4 md:py-0">#</th>

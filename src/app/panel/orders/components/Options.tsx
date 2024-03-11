@@ -12,19 +12,19 @@ const OrderOptions: React.FC<OrderOptionsProps> = ({ orders }) => {
 
   return (
     <div className="mx-4 mb-10 md:mx-10 md:grid md:grid-cols-3 md:gap-x-10">
-      <div className="rounded-xl bg-slate-50 py-8 text-center shadow-xl">
+      <div className="rounded-xl bg-slate-100 py-8 text-center shadow-xl">
         <h2 className="text-xl md:text-2xl">مجموع سفارشات</h2>
         <p className="pt-4 text-3xl font-black text-indigo-600 md:text-4xl">
           {orders?.length}
         </p>
       </div>
-      <div className="mt-5 rounded-xl bg-slate-50 py-8 text-center shadow-xl md:mt-0">
+      <div className="mt-5 rounded-xl bg-slate-100 py-8 text-center shadow-xl md:mt-0">
         <h2 className="text-xl md:text-2xl">مجموع ارزش</h2>
         <p className="pt-4 text-3xl font-black text-indigo-600 md:text-4xl">
           {totalOrdersPrice?.toLocaleString()}
         </p>
       </div>
-      <div className="mt-5 rounded-xl bg-slate-50 py-8 text-center shadow-xl md:mt-0">
+      <div className="mt-5 rounded-xl bg-slate-100 py-8 text-center shadow-xl md:mt-0">
         <h2 className="text-xl md:text-2xl">مجموع مالیات</h2>
         <p className="pt-4 text-3xl font-black text-indigo-600 md:text-4xl">
           {Math.floor(totalOrdersPrice / 9)?.toLocaleString()}

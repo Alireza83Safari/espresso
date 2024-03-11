@@ -10,7 +10,7 @@ export default function Sidebar() {
   return (
     <aside className="fixed bottom-0 right-0 top-0 min-w-[50px] overflow-auto bg-green font-bold text-white xs:min-w-[60px] md:min-w-[110px] lg:min-w-[130px]">
       <Link href="dashboard" className="text-center">
-        <p className="mt-4 hidden w-full text-center font-bold text-white lg:flex">
+        <p className="mt-4 hidden w-full justify-center text-center font-bold text-white lg:flex">
           اسپرسوگرام
         </p>
       </Link>

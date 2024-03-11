@@ -23,7 +23,7 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
   };
   return (
     <div className="mx-4 overflow-x-auto md:mx-10">
-      <table className="min-w-[83.3vw] rounded-xl bg-slate-50 shadow-lg">
+      <table className="min-w-[83.3vw] rounded-xl bg-slate-100 shadow-lg">
         <thead>
           <tr className="grid-cols-7 border-b py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem]">
             <th className="min-w-[3rem] py-4 sm:py-0">#</th>

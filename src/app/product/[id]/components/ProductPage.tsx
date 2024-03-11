@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { ProductType } from "@/types/product";
 import Image from "next/image";
-import { FaHeart, FaTruck } from "react-icons/fa";
+import { FaTruck } from "react-icons/fa";
 import ProductFooter from "./ProductFooter";
 import { useCoffeePriceCalculator } from "@/hooks/useCoffePrice";
 import { addToCart } from "@/actions/addToCart";
@@ -90,14 +90,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
               }
             >
               افزودن به سبد خرید
-            </button>
-
-            <button className="mr-4 text-2xl">
-              <FaHeart
-                className={
-                  product?.isFavorite ? "text-red-500" : "text-slate-300"
-                }
-              />
             </button>
           </div>
 

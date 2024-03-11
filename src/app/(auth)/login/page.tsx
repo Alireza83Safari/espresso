@@ -101,7 +101,7 @@ const Login: React.FC = () => {
     <>
       <Header />
 
-      <section className="flex min-h-screen items-center justify-center bg-white">
+      <section className="mt-4 flex min-h-screen items-center justify-center bg-white">
         <div className="min-w-[95vw] max-w-[40rem] rounded-xl px-4 py-3 shadow-2xl sm:min-w-[28rem] sm:px-0">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">

@@ -43,15 +43,14 @@ const AddProduct = () => {
 
   return (
     <form
-      className="mx-2 mb-12 gap-y-6 rounded-lg bg-slate-50 p-2 shadow-lg sm:mx-10 sm:grid sm:gap-x-3 sm:p-4 md:grid-cols-2 lg:gap-x-7"
+      className="mx-2 mb-12 gap-y-6 rounded-lg bg-slate-100 p-2 shadow-lg sm:mx-10 sm:grid sm:gap-x-3 sm:p-4 md:grid-cols-2 lg:gap-x-7"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
         <label className="block text-sm">نام</label>
         <input
           type="text"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
-          placeholder="نام"
+          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("name")}
         />
         {errors.name && (
@@ -63,8 +62,7 @@ const AddProduct = () => {
         <label className="block text-sm">دانه</label>
         <input
           type="text"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
-          placeholder="دانه"
+          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("seedType")}
         />
         {errors.seedType && (
@@ -75,7 +73,7 @@ const AddProduct = () => {
       <div className="mt-4 sm:mt-0">
         <label className="block text-sm">نوع دانه</label>
         <select
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
+          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("seed")}
         >
           <option value="mix"></option>
@@ -92,8 +90,7 @@ const AddProduct = () => {
         <label className="block text-sm">کافین</label>
         <input
           type="text"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
-          placeholder="کافین"
+          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("caffeine")}
         />
         {errors.caffeine && (
@@ -105,8 +102,7 @@ const AddProduct = () => {
         <label className="block text-sm">قیمت</label>
         <input
           type="number"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
-          placeholder="قیمت"
+          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("price")}
         />
         {errors.price && (
@@ -118,8 +114,7 @@ const AddProduct = () => {
         <label className="block text-sm">عکس</label>
         <input
           type="text"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
-          placeholder="عکس"
+          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("image")}
         />
         {errors.image && (
@@ -130,8 +125,7 @@ const AddProduct = () => {
       <div className="col-span-2 mt-4 sm:mt-0">
         <label className="block text-sm">توضیحات</label>
         <textarea
-          className="min-h-[8rem] min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
-          placeholder="توضیحات"
+          className="min-h-[8rem] min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("description")}
         />
         {errors.description && (

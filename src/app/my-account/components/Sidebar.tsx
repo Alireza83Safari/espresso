@@ -1,14 +1,19 @@
 "use client";
 import { accountSidebarItem } from "@/constants/constants";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import React from "react";
 
 export default function Sidebar() {
   const { data: session } = useSession();
   const pathname = usePathname();
+
+  const logoutHanlder = () => {
+    signOut();
+    redirect("/");
+  };
 
   return (
     <aside className="border-l pr-1 md:w-[15rem] lg:pr-0">
@@ -35,7 +40,10 @@ export default function Sidebar() {
           {menu?.title}
         </Link>
       ))}
-      <div className="block border-b px-5 py-3 text-sm md:px-0 md:text-base">
+      <div
+        className="block border-b px-5 py-3 text-sm md:px-0 md:text-base"
+        onClick={logoutHanlder}
+      >
         خروج{" "}
       </div>
     </aside>
