@@ -6,14 +6,12 @@ import { FaTruck } from "react-icons/fa";
 import ProductFooter from "./ProductFooter";
 import { useCoffeePriceCalculator } from "@/hooks/useCoffePrice";
 import { addToCart } from "@/actions/addToCart";
-import { useSession } from "next-auth/react";
 
 interface ProductPageProps {
   product: ProductType;
 }
 
 const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
-  const { data: session } = useSession();
   const [weight, setWeight] = useState(250);
   const { calculatedPrice } = useCoffeePriceCalculator({
     price: product?.price,
@@ -85,9 +83,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
             <p className="ml-4 text-lg xs:text-2xl">{calculatedPrice}تومان</p>
             <button
               className="rounded-sm bg-green px-3 py-1 text-white"
-              onClick={() =>
-                addToCart({ product: product?._id, user: (session as any)?.id })
-              }
+              onClick={() => addToCart(product, 1)}
             >
               افزودن به سبد خرید
             </button>

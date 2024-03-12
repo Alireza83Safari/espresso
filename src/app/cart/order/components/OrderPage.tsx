@@ -9,24 +9,24 @@ import CreateAddress from "@/app/my-account/address/components/CreateAddress";
 import { FaX } from "react-icons/fa6";
 import { deleteAddress } from "@/actions/deleteAddress";
 import { clientRevalidateTag } from "@/helper/clientRevalidateTag";
+import getCartItem from "@/actions/getCartItem";
 
 interface OrderPageProps {
-  cartItem: any;
   address: AddressType[];
   userId: string;
 }
 
-const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
+const OrderPage: React.FC<OrderPageProps> = ({ address, userId }) => {
   const [chooseAddress, setChooseAddress] = useState("");
   const { push } = useRouter();
   const [item, setItem] = useState<string[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
-
+  const { cart } = getCartItem();
   useEffect(() => {
-    if (cartItem) {
-      const productIds = cartItem?.reduce((prev: string[], next: any) => {
-        if (next.product && next.product._id) {
-          prev.push(next.product._id);
+    if (cart) {
+      const productIds = cart?.reduce((prev: string[], next: any) => {
+        if (next.product && next._id) {
+          prev.push(next._id);
         }
         return prev;
       }, []);
@@ -35,13 +35,12 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
     }
 
     // calculate products total price
-    const calculatedTotalPrice: number = cartItem?.reduce(
-      (acc: number, cart: any) => acc + cart?.product?.price,
+    const calculatedTotalPrice: number = cart?.reduce(
+      (acc: number, cart: any) => acc + cart?.price,
       0,
     );
     setTotalPrice(calculatedTotalPrice);
-    setTotalPrice(calculatedTotalPrice);
-  }, [cartItem]);
+  }, [cart]);
 
   const createOrder = async () => {
     try {
@@ -65,6 +64,7 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
         await fetch(`${apiUrl}/api/cart/clear-cart/${userId}`, {
           method: "DELETE",
         });
+        localStorage.removeItem("cart");
         clientRevalidateTag("order");
         push("/home");
       }
@@ -80,22 +80,15 @@ const OrderPage: React.FC<OrderPageProps> = ({ cartItem, address, userId }) => {
           <div className="col-span-1">قیمت</div>
         </div>
 
-        {!!cartItem?.length &&
-          cartItem?.map((cart: any) => (
+        {!!cart?.length &&
+          cart?.map((cart: any) => (
             <div className="my-3 grid grid-cols-4 border-b text-xs sm:text-sm">
-              <div className="col-span-2 flex items-center">
-                {cart?.product?.name}
-              </div>
+              <div className="col-span-2 flex items-center">{cart?.name}</div>
               <div className="col-span-1">
-                <Image
-                  src={cart?.product?.image}
-                  width={70}
-                  height={70}
-                  alt=""
-                />
+                <Image src={cart?.image} width={70} height={70} alt="" />
               </div>
               <div className="col-span-1 flex items-center">
-                {cart?.product?.price}
+                {cart?.price?.toLocaleString()}
               </div>
             </div>
           ))}

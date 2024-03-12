@@ -1,15 +1,28 @@
-import { apiUrl } from "@/services/apiUrl";
+"use client";
+import React, { useEffect, useState } from "react";
+import { CartType } from "@/types/cart";
 
-export const getCartItem = async (userId: string) => {
-  if (userId) {
-    const res = await fetch(`${apiUrl}/api/cart/${userId}`, {
-      cache: "no-store",
-      next: {
-        tags: ["cart"],
-      },
-    });
-    const cartItem = await res.json();
+const getCartItem = () => {
+  const [cart, setCart] = useState() as any;
+  const [isLoading, setLoading] = useState(false);
 
-    return cartItem;
-  }
+  const getCart = () => {
+    setLoading(true);
+    const localCart: CartType[] = JSON.parse(
+      localStorage.getItem("cart") as any,
+    );
+    if (localCart?.length) {
+      setLoading(false);
+      setCart(localCart);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getCart();
+  }, []);
+
+  return { cart, getCart, isLoading };
 };
+
+export default getCartItem;

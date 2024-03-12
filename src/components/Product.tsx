@@ -1,18 +1,15 @@
 "use client";
 import React from "react";
-import { addToCart } from "@/actions/addToCart";
 import { ProductType } from "@/types/product";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { addToCart } from "@/actions/addToCart";
 
 interface ProductProps {
   product: ProductType;
 }
 
 const Product: React.FC<ProductProps> = ({ product }) => {
-  const { data: session } = useSession();
-
   return (
     <div className="my-5 border-l border-gray-200 text-center">
       <div className="text-center">
@@ -29,9 +26,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
 
           <div
             className="absolute bottom-0 left-0 right-0 hidden w-full cursor-pointer bg-green py-2 text-sm text-white group-hover:block"
-            onClick={() =>
-              addToCart({ product: product?._id, user: (session as any)?.id })
-            }
+            onClick={() => addToCart(product, 1)}
           >
             افزودن به سبد خرید
           </div>
