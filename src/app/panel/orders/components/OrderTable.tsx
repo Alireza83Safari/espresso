@@ -25,12 +25,12 @@ const OrderTable: React.FC<OrdersTableProps> = ({ orders }) => {
     <div className="mx-4 overflow-x-auto md:mx-10">
       <table className="min-w-full rounded-xl bg-slate-100 shadow-xl">
         <thead>
-          <tr className="grid-cols-5 border-b py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4">
-            <th className="min-w-[3rem] py-4 xs:py-0">ردیف</th>
-            <th className="min-w-[5rem]">مبلغ</th>
-            <th className="min-w-[7rem]">کاربر</th>
-            <th className="min-w-[6rem]">تاریخ</th>
-            <th className="min-w-[6rem]">#</th>
+          <tr className="grid-cols-5 border-b text-center text-xs xs:grid md:text-sm [&>th]:min-w-[5rem] [&>th]:py-4">
+            <th>ردیف</th>
+            <th>مبلغ</th>
+            <th>کاربر</th>
+            <th>تاریخ</th>
+            <th>#</th>
           </tr>
         </thead>
 
@@ -38,15 +38,13 @@ const OrderTable: React.FC<OrdersTableProps> = ({ orders }) => {
           {!!orders?.length ? (
             orders?.map((order, index) => (
               <tr
-                className="grid-cols-5 py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4 2xl:text-base"
+                className="grid-cols-5 text-center text-xs xs:grid md:text-sm 2xl:text-base [&>td]:min-w-[5rem] [&>td]:py-4 border-b"
                 key={order?._id}
               >
-                <td className="min-w-[3rem] py-4 xs:py-0">{index + 1}</td>
-                <td className="min-w-[5rem]">{order?.totalPrice}</td>
-                <td className="min-w-[7rem]">{order?.user?.username}</td>
-                <td className="min-w-[6rem]">
-                  {order?.createdAt?.slice(0, 10)}
-                </td>
+                <td>{index + 1}</td>
+                <td>{order?.totalPrice}</td>
+                <td>{order?.user?.username}</td>
+                <td>{order?.createdAt?.slice(0, 10)}</td>
                 <td className="flex items-center justify-center gap-x-3 ">
                   <FaTrashAlt
                     className="cursor-pointer text-red-500"

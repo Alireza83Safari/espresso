@@ -47,15 +47,15 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
     <div className="mx-4 overflow-x-auto md:mx-10">
       <table className="w-full rounded-xl bg-slate-100 shadow-lg md:w-[83.3vw]">
         <thead>
-          <tr className="grid-cols-8 border-b py-3 text-center text-xs md:grid md:text-sm 2xl:py-4">
-            <th className="min-w-[3rem] py-4 md:py-0">#</th>
-            <th className="min-w-[7rem]">کاربر</th>
-            <th className="min-w-[5rem]">عکس</th>
-            <th className="min-w-[5rem]">امتیاز</th>
-            <th className="min-w-[8rem]">متن</th>
-            <th className="min-w-[8rem]">وضعیت</th>
-            <th className="min-w-[5rem]">تاریخ</th>
-            <th className="min-w-[5rem]">#</th>
+          <tr className="grid-cols-8 border-b py-3 text-center text-xs md:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem]">
+            <th>#</th>
+            <th>کاربر</th>
+            <th>عکس</th>
+            <th>امتیاز</th>
+            <th>متن</th>
+            <th>وضعیت</th>
+            <th>تاریخ</th>
+            <th>#</th>
           </tr>
         </thead>
 
@@ -63,12 +63,12 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
           {!!comments?.length ? (
             comments?.map((comment, index) => (
               <tr
-                className="grid-cols-8 py-3 text-center text-xs md:grid md:text-sm 2xl:py-4 2xl:text-base"
+                className="grid-cols-8 border-b text-center text-xs md:grid md:text-sm 2xl:text-base [&>td]:min-w-[5rem] [&>td]:py-4"
                 key={comment?._id}
               >
-                <td className="min-w-[3rem] py-5 md:py-0">{index + 1}</td>
-                <td className=" min-w-[7rem]">{comment?.user?.username}</td>
-                <td className="flex min-w-[5rem] justify-center">
+                <td>{index + 1}</td>
+                <td>{comment?.user?.username}</td>
+                <td className="flex justify-center">
                   <Image
                     src={comment?.product?.image}
                     width={40}
@@ -76,9 +76,9 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
                     alt=""
                   />
                 </td>
-                <td className="min-min-w-[5rem]">{comment?.rate}</td>
-                <td className="min-w-[8rem]">{comment?.body?.slice(0, 20)}</td>
-                <td className="min-w-[5rem]">
+                <td>{comment?.rate}</td>
+                <td>{comment?.body?.slice(0, 20)}</td>
+                <td>
                   {comment?.status === "pending" ? (
                     <>
                       <button
@@ -116,11 +116,9 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
                     </span>
                   )}
                 </td>
-                <td className="min-w-[5rem]">
-                  {comment?.updatedAt?.slice(0, 10)}
-                </td>
+                <td>{comment?.updatedAt?.slice(0, 10)}</td>
 
-                <td className=" flex min-w-[5rem] justify-center gap-x-3 space-x-2">
+                <td className="flex justify-center gap-x-3 space-x-2">
                   <FaTrashAlt
                     className="text-red-500"
                     onClick={() => deleteComment(comment?._id)}
