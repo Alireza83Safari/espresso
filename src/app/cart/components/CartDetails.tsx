@@ -19,34 +19,20 @@ const CartDetails: React.FC<CartDetailsProps> = ({ cart }) => {
   }, [cart]);
 
   return (
-    <div className="rounded-md border p-4 md:col-span-2">
-      <p className="border-b pb-3 text-lg">جمع کل سبد خرید</p>
-      <div className="flex justify-between border-b py-2">
-        <p>جمع جزء</p>
-        <p>{totalPrice?.toLocaleString()} تومان</p>
+    <div className="rounded-md border p-4 md:col-span-2 mx-3">
+      <p className="pb-4 text-center text-lg">جمع کل سبد خرید</p>
+      <div className="flex justify-between py-3 text-sm">
+        <p>تعداد کالاها</p>
+        <p>{cart?.length}</p>
       </div>
-      <div className="flex justify-between border-b py-2">
+      <div className="flex justify-between py-3 text-sm">
         <p>مجموع</p>
         <p>{totalPrice?.toLocaleString()} تومان</p>
       </div>
-      {/*      <div className="relative mt-4">
-          <input
-            type="text"
-            placeholder="کد تخفیف"
-            className="min-w-full rounded-md border px-2 py-1"
-            value={coupon}
-            onChange={(e) => setCoupon(e.target.value)}
-          />
-          <button>
-            <FaPlus
-              className=" absolute left-2 top-2 text-lg"
-              onClick={validateCoupon}
-            />
-          </button>
-        </div> */}
+
       <Link href="/cart/order">
         <button className="mt-5 min-w-full rounded-md bg-green py-2 text-white">
-          ادامه جهت تسویه حساب
+          تایید و تکمیل سفارش
         </button>
       </Link>
     </div>

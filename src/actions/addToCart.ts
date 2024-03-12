@@ -1,26 +1,49 @@
-import { clientRevalidateTag } from "@/helper/clientRevalidateTag";
-import { apiUrl } from "@/services/apiUrl";
+import { CartType } from "@/types/cart";
+import { ProductType } from "@/types/product";
 import toast from "react-hot-toast";
 
-interface addToCartProps {
-  product: string;
-  user: string;
-}
+export const addToCart = (product: ProductType, count: number) => {
+  const cart: CartType[] =
+    JSON.parse(localStorage.getItem("cart") as any) || [];
 
-export const addToCart = async ({ product, user }: addToCartProps) => {
-  if (user == undefined) {
-    toast.error("ابتدا وارد حساب خود شوید");
-    return false;
-  }
-  const res = await fetch(`${apiUrl}/api/cart`, {
-    method: "POST",
-    body: JSON.stringify({ product, user }),
-  });
+  if (cart?.length) {
+    const isInCart = cart.some((item) => item._id === product._id);
 
-  if (res.status === 200) {
-    clientRevalidateTag("cart");
+    if (isInCart) {
+      cart.forEach((item) => {
+        if (item._id === product._id) {
+          item.count = item.count + count;
+        }
+      });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      toast.success("محصول با موفقیت به سبد خرید اضافه شد");
+    } else {
+      const cartItem = {
+        _id: product._id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        count,
+      };
+
+      cart.push(cartItem);
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      toast.success("محصول با موفقیت به سبد خرید اضافه شد");
+    }
+  } else {
+    const cartItem = {
+      _id: product._id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      count,
+    };
+    console.log(cartItem);
+
+    cart.push(cartItem);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
     toast.success("محصول با موفقیت به سبد خرید اضافه شد");
-  } else if (res.status === 422) {
-    toast.error("محصول از قبل در سبد خرید وجود دارد");
   }
 };

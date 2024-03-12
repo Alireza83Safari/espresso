@@ -1,3 +1,4 @@
+import { CiDiscount1 } from "react-icons/ci";
 import { FaBox, FaComment, FaUser } from "react-icons/fa";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
@@ -26,33 +27,40 @@ export const accountSidebarItem = [
 export const panelMenuItems = [
   {
     icon: (
-      <RxDashboard className="ml-1 text-white md:text-lg xs:text-2xl text-lg" />
+      <RxDashboard className="ml-1 text-lg text-white xs:text-2xl md:text-lg" />
     ),
     text: "داشبورد",
     href: "/panel/dashboard",
   },
   {
-    icon: <FaBox className="ml-1 text-white md:text-lg xs:text-2xl text-lg" />,
+    icon: <FaBox className="ml-1 text-lg text-white xs:text-2xl md:text-lg" />,
     text: "محصولات",
     href: "/panel/products",
   },
   {
     icon: (
-      <MdProductionQuantityLimits className="ml-1 text-white md:text-lg xs:text-2xl text-lg" />
+      <MdProductionQuantityLimits className="ml-1 text-lg text-white xs:text-2xl md:text-lg" />
     ),
     text: "سفارشات",
     href: "/panel/orders",
   },
   {
     icon: (
-      <FaComment className="ml-1 text-white md:text-lg xs:text-2xl text-lg" />
+      <FaComment className="ml-1 text-lg text-white xs:text-2xl md:text-lg" />
     ),
     text: "کامنت",
     href: "/panel/comments",
   },
   {
-    icon: <FaUser className="ml-1 text-white md:text-lg xs:text-2xl text-lg" />,
+    icon: <FaUser className="ml-1 text-lg text-white xs:text-2xl md:text-lg" />,
     text: "کاربران",
     href: "/panel/users",
+  },
+  {
+    icon: (
+      <CiDiscount1 className="ml-1 text-lg text-white xs:text-2xl md:text-lg" />
+    ),
+    text: "تخفیفات",
+    href: "/panel/discount",
   },
 ];

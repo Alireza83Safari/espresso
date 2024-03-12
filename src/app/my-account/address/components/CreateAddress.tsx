@@ -23,7 +23,7 @@ export default function CreateAddress() {
       return null;
     }
     if ((session as any)?.id) {
-      const res = await fetch(`${apiUrl}/api/address`, {
+      const res = await fetch(`/api/address`, {
         method: "POST",
         body: JSON.stringify({ ...data, user: (session as any)?.id }),
       });
