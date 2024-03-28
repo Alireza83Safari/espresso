@@ -13,7 +13,7 @@ export default async function page({ searchParams }: any) {
   if (order) APIURL += `order=${order}&`;
   if (q) APIURL += `q=${q}&`;
 
-  const products = await getProducts(APIURL !== `?` ? APIURL : "");
+  const products = await getProducts(APIURL);
 
   return (
     <>
