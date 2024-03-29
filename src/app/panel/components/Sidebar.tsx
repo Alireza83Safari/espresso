@@ -17,21 +17,19 @@ export default function Sidebar() {
 
       <div className="lg:mt-2">
         {panelMenuItems.map((item) => (
-          <div>
-            <Link
-              className={` text-black-700 relative flex items-center justify-center whitespace-nowrap  py-6 text-sm sm:px-4 lg:justify-normal  ${
-                location?.includes(item?.href) &&
-                "  border-l-4 border-[#8AD5D0] font-black text-[#8AD5D0]"
-              }`}
-              key={item.href}
-              href={item.href}
-            >
-              <>
-                {item.icon}
-                <p className="hidden md:inline">{item.text}</p>
-              </>
-            </Link>
-          </div>
+          <Link
+            className={` text-black-700 relative flex items-center justify-center whitespace-nowrap  py-6 text-sm sm:px-4 lg:justify-normal  ${
+              location?.includes(item?.href) &&
+              "  border-l-4 border-[#8AD5D0] font-black text-[#8AD5D0]"
+            }`}
+            key={item.href}
+            href={item.href}
+          >
+            <>
+              {item.icon}
+              <p className="hidden md:inline">{item.text}</p>
+            </>
+          </Link>
         ))}
       </div>
     </aside>
