@@ -27,6 +27,7 @@ const AddProduct = () => {
           " قهوه اتیوپی, قهوه اسپیشیالیتی, قهوه تخصصی, قهوه تک خاستگاه, قهوه درکاپی, قهوه درکاپی اسپشیالیتی, قهوه های اسپشیالیتی, قهوه یرگاچف",
         weight: 1000,
         category: "65db38aa902679ef02d18d53",
+        image: "/",
       }),
     });
     const response = await res.json();
@@ -39,7 +40,6 @@ const AddProduct = () => {
       setValue("seed", "");
       setValue("caffeine", "");
       setValue("price", 0);
-      setValue("image", "");
       setValue("description", "");
       toast.success("ساخت محصول موفقیت آمیز بود");
       clientRevalidateTag("products");
@@ -121,20 +121,6 @@ const AddProduct = () => {
             {errors.price && (
               <p className="mt-1 text-sm text-red-500">
                 {errors.price.message}
-              </p>
-            )}
-          </div>
-
-          <div className="mt-4 sm:mt-0">
-            <label className="block text-sm">عکس</label>
-            <input
-              type="text"
-              className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
-              {...register("image")}
-            />
-            {errors.image && (
-              <p className="mt-1 text-sm text-red-500">
-                {errors.image.message}
               </p>
             )}
           </div>

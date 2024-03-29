@@ -32,7 +32,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
       <div className="mx-4 overflow-x-auto md:mx-10">
         <table className="max-w-[86vw] overflow-auto rounded-xl bg-slate-100 shadow-lg">
           <thead>
-            <tr className="grid-cols-6 border-b text-center text-xs sm:text-sm md:grid lg:text-base [&>th]:min-w-[5rem] [&>th]:py-4">
+            <tr className="grid-cols-6 border-b py-4 text-center text-xs sm:text-sm md:grid lg:text-base [&>th]:min-w-[5rem]">
               <th className="py-4 md:py-0">#</th>
               <th>نام</th>
               <th>قیمت</th>
@@ -46,10 +46,10 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
             {!!products?.length ? (
               products?.map((product, index) => (
                 <tr
-                  className="grid-cols-6 border-b text-center text-xs md:grid md:text-sm [&>td]:min-w-[5rem] [&>td]:py-4"
+                  className="grid-cols-6 px-2 py-3 text-center text-[10px] text-xs sm:text-sm md:grid lg:text-base 2xl:py-4 [&>th]:min-w-[5rem]"
                   key={product?._id}
                 >
-                  <td>{index + 1}</td>
+                  <td className="py-4 md:py-0">{index + 1}</td>
                   <td className="truncate text-ellipsis whitespace-nowrap">
                     {product?.name}
                   </td>
@@ -58,7 +58,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
                     <Image width={40} height={40} src={product?.image} alt="" />
                   </td>
                   <td>{product?.updatedAt?.slice(0, 10)}</td>
-                  <td className="gap-x-3 flex items-center justify-center">
+                  <td className="flex items-center justify-center gap-x-3 ">
                     <FaTrashAlt
                       className="cursor-pointer text-red-500"
                       onClick={() => deleteProduct(product?._id)}

@@ -12,6 +12,5 @@ export const productSchema = yup.object().shape({
       const parsedValue = parseInt(String(originalValue), 10);
       return isNaN(parsedValue) ? undefined : parsedValue;
     }),
-  image: yup.string().required("عکس الزامی است"),
   description: yup.string().required("توضیحات الزامی است"),
 });

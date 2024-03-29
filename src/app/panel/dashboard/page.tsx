@@ -1,5 +1,4 @@
 import { getComments } from "@/actions/getComments";
-import { getDisounts } from "@/actions/getDiscounts";
 import { getOrders } from "@/actions/getOrders";
 import { getProducts } from "@/actions/getProducts";
 import { getUsers } from "@/actions/getUsers";
@@ -12,7 +11,6 @@ export default async function page() {
   const users = await getUsers();
   const products = await getProducts();
   const orders = await getOrders();
-  const discounts = await getDisounts();
 
   return (
     <div className="mx-4 grid grid-cols-3 gap-x-8 gap-y-6 md:mx-10">
@@ -45,14 +43,6 @@ export default async function page() {
         <p className="mt-5 text-3xl text-indigo-600"> {orders?.length}</p>
         <Link href="/panel/orders" className="mt-5 text-lg underline">
           مدیریت سفارشات
-        </Link>
-      </div>
-
-      <div className=" rounded-xl bg-slate-100 py-5 text-center shadow-xl duration-500 hover:bg-slate-100 hover:shadow-sm">
-        <h2 className="text-2xl">تخفیفات</h2>
-        <p className="mt-5 text-3xl text-indigo-600"> {discounts?.length}</p>
-        <Link href="/panel/orders" className="mt-5 text-lg underline">
-          مدیریت تخفیفات
         </Link>
       </div>
     </div>

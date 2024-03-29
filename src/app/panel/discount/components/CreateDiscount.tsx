@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { clientRevalidateTag } from "@/helper/clientRevalidateTag";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -21,12 +22,15 @@ const CreateDiscount = () => {
       method: "POST",
       body: JSON.stringify({ ...data, user: (session as any)?.id }),
     });
+    const response = await res.json();
+    console.log(response);
 
     if (res.status === 200) {
       setValue("code", "");
       setValue("count", 0);
       setValue("percent", 0);
       toast.success("ساخت تخفیف موفقیت آمیز بود");
+      clientRevalidateTag("discounts");
     }
   };
 

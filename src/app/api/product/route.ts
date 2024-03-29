@@ -30,7 +30,7 @@ async function handleOrder(order: any) {
     default:
       return NextResponse.json(
         { message: "Invalid order parameter" },
-        { status: 404 }
+        { status: 404 },
       );
   }
   return productQuery;
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
     if (!!nameExist?.length) {
       return NextResponse.json(
         { message: "نام از قبل وجود دارد" },
-        { status: 409 }
+        { status: 409 },
       );
     }
 
@@ -60,14 +60,14 @@ export async function POST(req: NextRequest) {
 
     if (createProduct) {
       return NextResponse.json(
-        { message: "قهوه با موفقیت ایجاد شد" },
-        { status: 200 }
+        { message: "قهوه با موفقیت ایجاد شد", data: createProduct },
+        { status: 200 },
       );
     }
   } catch (error) {
     return NextResponse.json(
       { error: "خطا در پردازش درخواست" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -91,7 +91,7 @@ export async function GET(req: NextRequest) {
 
       case !!q:
         productQuery = await Product.find({ name: { $regex: q } }).populate(
-          "category"
+          "category",
         );
         return NextResponse.json(productQuery);
 
@@ -103,7 +103,7 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       { error: "خطا در پردازش درخواست" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

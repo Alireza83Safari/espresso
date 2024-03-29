@@ -1,6 +1,6 @@
 import connectToDB from "@/libs/db";
 import Discount from "@/models/discount";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
 export async function PUT(req: NextRequest) {
   try {
@@ -30,10 +30,7 @@ export async function PUT(req: NextRequest) {
     );
 
     return Response.json(discount);
-  } catch (error) {
-    return NextResponse.json(
-      { error: "خطا در پردازش درخواست" },
-      { status: 500 },
-    );
+  } catch (err) {
+    return Response.json({ message: err }, { status: 500 });
   }
 }

@@ -2,7 +2,9 @@ import { apiUrl } from "@/services/apiUrl";
 
 export const getDisounts = async () => {
   const res = await fetch(`${apiUrl}/api/discount`, {
-    cache: "no-store",
+    next: {
+      tags: ["discounts"],
+    },
   });
   const discounts = await res.json();
   return discounts;

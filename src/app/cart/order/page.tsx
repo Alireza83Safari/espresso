@@ -2,6 +2,8 @@ import { getAddress } from "@/actions/getAddress";
 import { authOptions } from "@/libs/authOptions";
 import { getServerSession } from "next-auth";
 import OrderPage from "./components/OrderPage";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { redirect } from "next/navigation";
 import OrderHeader from "./components/OrderHeader";
 

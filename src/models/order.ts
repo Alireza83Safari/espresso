@@ -18,10 +18,14 @@ const orderSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    haveDiscount: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);

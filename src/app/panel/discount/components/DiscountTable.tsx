@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { clientRevalidateTag } from "@/helper/clientRevalidateTag";
 import { DiscountType } from "@/types/discount";
 import toast from "react-hot-toast";
 import { FaTrashAlt } from "react-icons/fa";
@@ -16,14 +17,15 @@ const DiscountTable: React.FC<DiscountTableProps> = ({ discounts }) => {
 
     if (res.status === 200) {
       toast.success("تخفیف با موفقیت حذف شد");
+      clientRevalidateTag("discounts");
     }
   };
 
   return (
-    <div className="mx-4 mb-10 overflow-x-auto md:mx-10">
+    <div className="mx-4 overflow-x-auto md:mx-10">
       <table className="min-w-full rounded-xl bg-slate-100 shadow-xl">
         <thead>
-          <tr className="grid-cols-8 border-b text-center text-xs xs:grid md:text-sm [&>th]:min-w-[5rem] [&>th]:py-4">
+          <tr className="grid-cols-8 border-b py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem] [&>th]:py-3">
             <th>ردیف</th>
             <th>کد</th>
             <th>تعداد</th>
@@ -39,7 +41,7 @@ const DiscountTable: React.FC<DiscountTableProps> = ({ discounts }) => {
           {!!discounts?.length ? (
             discounts?.map((discount, index) => (
               <tr
-                className={`grid-cols-8 border-b text-center text-xs xs:grid md:text-sm 2xl:py-4 2xl:text-base [&>td]:min-w-[5rem] [&>td]:py-4 ${discount?.use == discount?.count ? "bg-red-50" : ""}`}
+                className="grid-cols-8 py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4 2xl:text-base [&>td]:min-w-[5rem] [&>td]:py-3"
                 key={discount?._id}
               >
                 <td>{index + 1}</td>

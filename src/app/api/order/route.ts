@@ -15,6 +15,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: validationResults }, { status: 422 });
     }*/
 
+    if(data?.haveDiscount){
+      
+    }
+
     const order = new Order(data);
 
     await order.save();
@@ -30,6 +34,7 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
 export async function GET(req: NextRequest) {
   try {
     await connectToDB();

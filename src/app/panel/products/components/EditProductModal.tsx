@@ -65,7 +65,6 @@ const EditProductModal: React.FC<EditProductModalProps> = ({
       setValue("seed", data.seed);
       setValue("caffeine", data.caffeine);
       setValue("price", data.price);
-      setValue("image", data.image);
       setValue("description", data.description);
     } catch (error) {
       console.error("Error fetching edit product:", error);
@@ -154,19 +153,6 @@ const EditProductModal: React.FC<EditProductModalProps> = ({
           />
           {errors.price && (
             <p className="mt-1 text-sm text-red-500">{errors.price.message}</p>
-          )}
-        </div>
-
-        <div className="mt-4 sm:mt-0">
-          <label className="block text-sm">عکس</label>
-          <input
-            type="text"
-            className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
-            placeholder="عکس"
-            {...register("image")}
-          />
-          {errors.image && (
-            <p className="mt-1 text-sm text-red-500">{errors.image.message}</p>
           )}
         </div>
 

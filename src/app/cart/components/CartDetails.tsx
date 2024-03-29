@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { CartType } from "@/types/cart";
 import Link from "next/link";
+import { FaPlus } from "react-icons/fa";
 
 type CartDetailsProps = {
   cart: CartType[];
