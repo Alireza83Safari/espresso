@@ -40,7 +40,7 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
           {!!users?.length ? (
             users?.map((user, index) => (
               <tr
-                className="grid-cols-7 py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 2xl:text-base [&>th]:min-w-[5rem]"
+                className="grid-cols-7 py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 2xl:text-base [&>td]:min-w-[5rem] [&>td]:min-h-[3rem]"
                 key={user?._id}
               >
                 <td className="py-4 sm:py-0">{index + 1}</td>

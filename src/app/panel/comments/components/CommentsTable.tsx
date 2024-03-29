@@ -63,22 +63,22 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
           {!!comments?.length ? (
             comments?.map((comment, index) => (
               <tr
-                className="grid-cols-8 py-3 text-center text-xs md:grid md:text-sm 2xl:py-4 2xl:text-base"
+                className="grid-cols-8 py-3 text-center text-xs md:grid md:text-sm 2xl:py-4 2xl:text-base [&>td]:min-h-[3rem] [&>td]:min-w-[5rem]"
                 key={comment?._id}
               >
-                <td className="min-w-[3rem] py-5 md:py-0">{index + 1}</td>
-                <td className=" min-w-[7rem]">{comment?.user?.username}</td>
-                <td className="flex min-w-[5rem] justify-center">
+                <td className="py-5 md:py-0">{index + 1}</td>
+                <td className=" ">{comment?.user?.username}</td>
+                <td className="flex  justify-center">
                   <Image
                     src={comment?.product?.image}
                     width={40}
                     height={40}
-                    alt=""
+                    alt="عکس کالا"
                   />
                 </td>
-                <td className="min-min-w-[5rem]">{comment?.rate}</td>
-                <td className="min-w-[8rem]">{comment?.body?.slice(0, 20)}</td>
-                <td className="min-w-[5rem]">
+                <td>{comment?.rate}</td>
+                <td>{comment?.body?.slice(0, 20)}</td>
+                <td>
                   {comment?.status === "pending" ? (
                     <>
                       <button
@@ -116,11 +116,9 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
                     </span>
                   )}
                 </td>
-                <td className="min-w-[5rem]">
-                  {comment?.updatedAt?.slice(0, 10)}
-                </td>
+                <td>{comment?.updatedAt?.slice(0, 10)}</td>
 
-                <td className=" flex min-w-[5rem] justify-center gap-x-3 space-x-2">
+                <td className=" flex  justify-center gap-x-3 space-x-2">
                   <FaTrashAlt
                     className="text-red-500"
                     onClick={() => deleteComment(comment?._id)}

@@ -46,7 +46,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
             {!!products?.length ? (
               products?.map((product, index) => (
                 <tr
-                  className="grid-cols-6 px-2 py-3 text-center text-[10px] text-xs sm:text-sm md:grid lg:text-base 2xl:py-4 [&>th]:min-w-[5rem]"
+                  className="grid-cols-6 px-2 py-3 text-center text-[10px] text-xs sm:text-sm md:grid lg:text-base 2xl:py-4 [&>td]:min-w-[5rem] [&>td]:min-h-[3rem]"
                   key={product?._id}
                 >
                   <td className="py-4 md:py-0">{index + 1}</td>

@@ -38,7 +38,7 @@ const OrderTable: React.FC<OrdersTableProps> = ({ orders }) => {
           {!!orders?.length ? (
             orders?.map((order, index) => (
               <tr
-                className="grid-cols-5 py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4 2xl:text-base"
+                className="grid-cols-5 py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4 2xl:text-base [&>td]:min-h-[3rem]"
                 key={order?._id}
               >
                 <td className="min-w-[3rem] py-4 xs:py-0">{index + 1}</td>

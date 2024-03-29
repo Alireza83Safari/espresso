@@ -11,22 +11,22 @@ const OrderOptions: React.FC<OrderOptionsProps> = ({ orders }) => {
   }, 0);
 
   return (
-    <div className="mx-4 mb-10 md:mx-10 md:grid md:grid-cols-3 md:gap-x-10">
+    <div className="mx-4 mb-10 grid xs:grid-cols-2 md:mx-10 gap-8 lg:grid-cols-3">
       <div className="rounded-xl bg-slate-100 py-8 text-center shadow-xl">
-        <h2 className="text-xl md:text-2xl">مجموع سفارشات</h2>
-        <p className="pt-4 text-3xl font-black text-indigo-600 md:text-4xl">
+        <h2 className="text-xl lg:text-2xl">مجموع سفارشات</h2>
+        <p className="pt-4 text-3xl font-black text-indigo-600 lg:text-4xl">
           {orders?.length}
         </p>
       </div>
-      <div className="mt-5 rounded-xl bg-slate-100 py-8 text-center shadow-xl md:mt-0">
-        <h2 className="text-xl md:text-2xl">مجموع ارزش</h2>
-        <p className="pt-4 text-3xl font-black text-indigo-600 md:text-4xl">
+      <div className="rounded-xl bg-slate-100 py-8 text-center shadow-xl">
+        <h2 className="text-xl lg:text-2xl">مجموع ارزش</h2>
+        <p className="pt-4 text-3xl font-black text-indigo-600 lg:text-4xl">
           {totalOrdersPrice?.toLocaleString()}
         </p>
       </div>
-      <div className="mt-5 rounded-xl bg-slate-100 py-8 text-center shadow-xl md:mt-0">
-        <h2 className="text-xl md:text-2xl">مجموع مالیات</h2>
-        <p className="pt-4 text-3xl font-black text-indigo-600 md:text-4xl">
+      <div className="rounded-xl bg-slate-100 py-8 text-center shadow-xl">
+        <h2 className="text-xl lg:text-2xl">مجموع مالیات</h2>
+        <p className="pt-4 text-3xl font-black text-indigo-600 lg:text-4xl">
           {Math.floor(totalOrdersPrice / 9)?.toLocaleString()}
         </p>
       </div>
