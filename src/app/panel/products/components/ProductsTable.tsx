@@ -32,7 +32,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
       <div className="overflow-x-auto">
         <table className="max-w-[86vw] overflow-auto rounded-xl bg-slate-100 shadow-lg">
           <thead>
-            <tr className="grid-cols-6 border-b py-4 text-center text-xs sm:text-sm md:grid lg:text-base [&>th]:min-w-[5rem]">
+            <tr className="grid-cols-6 border-b border-slate-300 py-4 text-center text-xs sm:text-sm md:grid lg:text-base [&>th]:min-w-[5rem]">
               <th className="py-4 md:py-0">#</th>
               <th>نام</th>
               <th>قیمت</th>
@@ -46,7 +46,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
             {!!products?.length ? (
               products?.map((product, index) => (
                 <tr
-                  className="grid-cols-6 px-2 py-3 text-center text-[10px] text-xs sm:text-sm md:grid lg:text-base 2xl:py-4 [&>td]:min-w-[5rem] [&>td]:min-h-[3rem]"
+                  className="grid-cols-6 px-2 py-3 text-center text-xs sm:text-sm md:grid lg:text-base 2xl:py-4 [&>td]:min-h-[3rem] [&>td]:min-w-[5rem]"
                   key={product?._id}
                 >
                   <td className="py-4 md:py-0">{index + 1}</td>

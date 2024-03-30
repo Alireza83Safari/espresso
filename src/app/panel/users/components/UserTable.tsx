@@ -25,7 +25,7 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
     <div className="overflow-x-auto">
       <table className="min-w-[84vw] rounded-xl bg-slate-100 shadow-lg">
         <thead>
-          <tr className="grid-cols-7 border-b py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem]">
+          <tr className="grid-cols-7 border-b border-slate-300 py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem]">
             <th className="min-w-[3rem] py-4 sm:py-0">#</th>
             <th>نام کاربری</th>
             <th>نام</th>
@@ -40,7 +40,7 @@ const UsersTable: React.FC<UsersTableProps> = ({ users }) => {
           {!!users?.length ? (
             users?.map((user, index) => (
               <tr
-                className="grid-cols-7 py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 2xl:text-base [&>td]:min-w-[5rem] [&>td]:min-h-[3rem]"
+                className="grid-cols-7 py-3 text-center text-xs sm:grid md:text-sm 2xl:py-4 2xl:text-base [&>td]:min-h-[3rem] [&>td]:min-w-[5rem]"
                 key={user?._id}
               >
                 <td className="py-4 sm:py-0">{index + 1}</td>

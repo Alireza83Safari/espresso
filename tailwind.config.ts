@@ -15,6 +15,7 @@ const config: Config = {
       colors: {
         green: "#204D48",
         textGray: "#777777",
+        blue: "#344C63",
       },
       screens: {
         xs: "500px",

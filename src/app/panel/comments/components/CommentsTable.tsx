@@ -47,7 +47,7 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
     <div className="overflow-x-auto">
       <table className="w-full rounded-xl bg-slate-100 shadow-lg md:w-[83.3vw]">
         <thead>
-          <tr className="h-[3rem] grid-cols-8 border-b py-3 text-center text-xs md:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem]">
+          <tr className="h-[3rem] grid-cols-8 border-b border-slate-300 py-3 text-center text-xs md:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem]">
             <th>#</th>
             <th>کاربر</th>
             <th>عکس</th>

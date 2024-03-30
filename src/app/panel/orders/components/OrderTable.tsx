@@ -25,7 +25,7 @@ const OrderTable: React.FC<OrdersTableProps> = ({ orders }) => {
     <div className="overflow-x-auto">
       <table className="min-w-full rounded-xl bg-slate-100 shadow-xl">
         <thead>
-          <tr className="grid-cols-5 border-b py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4">
+          <tr className="grid-cols-5 border-b border-slate-300 py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4">
             <th className="min-w-[3rem] py-4 xs:py-0">ردیف</th>
             <th className="min-w-[5rem]">مبلغ</th>
             <th className="min-w-[7rem]">کاربر</th>

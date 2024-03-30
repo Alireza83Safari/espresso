@@ -42,7 +42,7 @@ const CreateUser = () => {
         <label className="block text-sm">نام</label>
         <input
           type="text"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
+          className="min-w-full rounded-md border border-slate-300 px-2 py-1 outline-none focus:border-green"
           placeholder="نام"
           {...register("firstname")}
         />
@@ -57,7 +57,7 @@ const CreateUser = () => {
         <label className="block text-sm">نام خانوادگی</label>
         <input
           type="text"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
+          className="min-w-full rounded-md border border-slate-300 px-2 py-1 outline-none focus:border-green"
           placeholder="نام خانوادگی"
           {...register("lastname")}
         />
@@ -70,7 +70,7 @@ const CreateUser = () => {
         <label className="block text-sm">نام کاربری</label>
         <input
           type="text"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
+          className="min-w-full rounded-md border border-slate-300 px-2 py-1 outline-none focus:border-green"
           placeholder="نام کاربری"
           {...register("username")}
         />
@@ -83,7 +83,7 @@ const CreateUser = () => {
         <label className="block text-sm">رمز عبور</label>
         <input
           type="text"
-          className="min-w-full rounded-md border px-2 py-1 outline-none focus:border-green"
+          className="min-w-full rounded-md border border-slate-300 px-2 py-1 outline-none focus:border-green"
           placeholder="رمز عبور"
           {...register("password")}
         />

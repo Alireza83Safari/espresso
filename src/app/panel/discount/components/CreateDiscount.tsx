@@ -43,7 +43,7 @@ const CreateDiscount = () => {
         <label className="block text-sm">کد تخفیف</label>
         <input
           type="text"
-          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
+          className="min-w-full rounded-md border border-slate-300 bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("code")}
         />
         {errors.code && (
@@ -55,7 +55,7 @@ const CreateDiscount = () => {
         <label className="block text-sm">تعداد</label>
         <input
           type="number"
-          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
+          className="min-w-full rounded-md border border-slate-300 bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("count")}
         />
         {errors.count && (
@@ -67,7 +67,7 @@ const CreateDiscount = () => {
         <label className="block text-sm">درصد</label>
         <input
           type="number"
-          className="min-w-full rounded-md border bg-slate-50 px-2 py-1 outline-none focus:border-green"
+          className="min-w-full rounded-md border border-slate-300 bg-slate-50 px-2 py-1 outline-none focus:border-green"
           {...register("percent")}
         />
         {errors.percent && (
