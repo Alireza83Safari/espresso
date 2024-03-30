@@ -22,7 +22,7 @@ const DiscountTable: React.FC<DiscountTableProps> = ({ discounts }) => {
   };
 
   return (
-    <div className="mx-4 overflow-x-auto md:mx-10">
+    <div className="overflow-x-auto">
       <table className="min-w-full rounded-xl bg-slate-100 shadow-xl">
         <thead>
           <tr className="grid-cols-8 border-b py-4 text-center text-xs xs:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem] [&>th]:py-3">

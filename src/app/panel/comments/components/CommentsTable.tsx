@@ -44,18 +44,18 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
   };
 
   return (
-    <div className="mx-4 overflow-x-auto md:mx-10">
+    <div className="overflow-x-auto">
       <table className="w-full rounded-xl bg-slate-100 shadow-lg md:w-[83.3vw]">
         <thead>
-          <tr className="grid-cols-8 border-b py-3 text-center text-xs md:grid md:text-sm 2xl:py-4">
-            <th className="min-w-[3rem] py-4 md:py-0">#</th>
-            <th className="min-w-[7rem]">کاربر</th>
-            <th className="min-w-[5rem]">عکس</th>
-            <th className="min-w-[5rem]">امتیاز</th>
-            <th className="min-w-[8rem]">متن</th>
-            <th className="min-w-[8rem]">وضعیت</th>
-            <th className="min-w-[5rem]">تاریخ</th>
-            <th className="min-w-[5rem]">#</th>
+          <tr className="h-[3rem] grid-cols-8 border-b py-3 text-center text-xs md:grid md:text-sm 2xl:py-4 [&>th]:min-w-[5rem]">
+            <th>#</th>
+            <th>کاربر</th>
+            <th>عکس</th>
+            <th>امتیاز</th>
+            <th>متن</th>
+            <th>وضعیت</th>
+            <th>تاریخ</th>
+            <th>#</th>
           </tr>
         </thead>
 
@@ -68,7 +68,7 @@ const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => {
               >
                 <td className="py-5 md:py-0">{index + 1}</td>
                 <td className=" ">{comment?.user?.username}</td>
-                <td className="flex  justify-center">
+                <td className="flex justify-center">
                   <Image
                     src={comment?.product?.image}
                     width={40}

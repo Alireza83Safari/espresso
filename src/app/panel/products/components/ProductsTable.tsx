@@ -29,7 +29,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products }) => {
   };
   return (
     <>
-      <div className="mx-4 overflow-x-auto md:mx-10">
+      <div className="overflow-x-auto">
         <table className="max-w-[86vw] overflow-auto rounded-xl bg-slate-100 shadow-lg">
           <thead>
             <tr className="grid-cols-6 border-b py-4 text-center text-xs sm:text-sm md:grid lg:text-base [&>th]:min-w-[5rem]">

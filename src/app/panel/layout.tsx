@@ -23,7 +23,7 @@ export default async function layout({
       {isAuthenticated ? (
         <div className="relative">
           <Sidebar />
-          <section className="pr-[50px] xs:pr-[60px] md:pr-[110px] lg:pr-[130px]">
+          <section className="mx-4 pr-[50px] xs:pr-[60px] sm:mx-6 md:mx-8 md:pr-[110px] lg:pr-[130px]">
             {children}
           </section>
         </div>

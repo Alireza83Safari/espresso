@@ -35,7 +35,7 @@ const CreateUser = () => {
 
   return (
     <form
-      className="mx-4 mb-12 gap-x-3 gap-y-6 rounded-lg bg-slate-100 p-2 shadow-lg sm:grid sm:grid-cols-2 sm:p-4 md:mx-10 lg:gap-x-7"
+      className="mb-12 gap-x-3 gap-y-6 rounded-lg bg-slate-100 p-2 shadow-lg sm:grid sm:grid-cols-2 sm:p-4 lg:gap-x-7"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>

@@ -33,7 +33,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
   };
 
   return (
-    <div className="mx-2 mb-12 gap-y-6 rounded-lg bg-slate-100 p-2 shadow-lg sm:mx-10 sm:gap-x-3 sm:p-4 lg:gap-x-7">
+    <div className="mb-12 gap-y-6 rounded-lg bg-slate-100 p-2 shadow-lg sm:gap-x-3 sm:p-4 lg:gap-x-7">
       <input
         type="file"
         accept="image/*"

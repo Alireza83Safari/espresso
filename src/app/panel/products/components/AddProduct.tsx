@@ -31,7 +31,6 @@ const AddProduct = () => {
       }),
     });
     const response = await res.json();
-    console.log(res);
 
     if (res.status === 200) {
       setProductId(response?.data?._id);
@@ -52,7 +51,7 @@ const AddProduct = () => {
         <ImageUploader productId={productId} setProductId={setProductId} />
       ) : (
         <form
-          className="mx-2 mb-12 gap-y-6 rounded-lg bg-slate-100 p-2 shadow-lg sm:mx-10 sm:grid sm:gap-x-3 sm:p-4 md:grid-cols-2 lg:gap-x-7"
+          className="mb-12 gap-y-6 rounded-lg bg-slate-100 p-2 shadow-lg sm:grid sm:gap-x-3 sm:p-4 md:grid-cols-2 lg:gap-x-7"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div>
