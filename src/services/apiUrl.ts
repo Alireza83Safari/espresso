@@ -1,1 +1,1 @@
-export const apiUrl = `https://espresso.liara.run/`;
+export const apiUrl = process.env.API_URL;
