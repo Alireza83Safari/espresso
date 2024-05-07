@@ -5,7 +5,6 @@ export const deleteCartItem = async (userId: string) => {
     cache: "no-store",
     method: "DELETE",
   });
-  console.log(res);
 
   return res.status;
 };

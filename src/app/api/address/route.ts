@@ -14,18 +14,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 
-    const createProduct = await Address.create(data);
+    const createCoffee = await Address.create(data);
 
-    if (createProduct) {
+    if (createCoffee) {
       return NextResponse.json(
         { message: "آدرس با موفقیت ایجاد شد" },
-        { status: 200 }
+        { status: 200 },
       );
     }
   } catch (error) {
     return NextResponse.json(
       { error: "خطا در پردازش درخواست" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

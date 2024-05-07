@@ -29,7 +29,7 @@ export const authOptions: AuthOptions = {
 
           const passwordsMatch = await bcrypt.compare(
             credentials?.password,
-            user.password
+            user.password,
           );
 
           if (!passwordsMatch) {
@@ -38,7 +38,6 @@ export const authOptions: AuthOptions = {
 
           return user;
         } catch (error: any) {
-          console.log("Error: ", error);
           throw new Error("Invalid Credentials");
         }
       },

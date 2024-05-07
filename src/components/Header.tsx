@@ -27,7 +27,7 @@ const Header = () => {
   };
   const handleSearch = () => {
     if (searchQuery) {
-      push(`/product?q=${searchQuery}`);
+      push(`/coffee?q=${searchQuery}`);
       setOpenSearch(false);
     }
   };
@@ -96,25 +96,25 @@ const Header = () => {
                 <li className="lg:border-none border-b lg:p-0 p-3">وبلاگ</li>
                 <li className="lg:border-none border-b lg:p-0 group transition duration-300 p-3 relative">
                   <div className="flex items-center">
-                    <Link href="/product">قهوه</Link>
+                    <Link href="/coffee">قهوه</Link>
                     <IoIosArrowDown className="text-sm" />
                   </div>
                   <div className="lg:absolute top-7 right-0 hidden lg:group-hover:flex group-hover:block bg-white border rounded-lg border-gray-300 p-3">
                     <ul className="lg:border-l w-[11rem] px-2">
                       <li className="font-bold text-black text-lg">
-                        <Link href="/product">قهوه تجاری</Link>
+                        <Link href="/coffee">قهوه تجاری</Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product">برشته کاری درکاپی</Link>
+                        <Link href="/coffee">برشته کاری درکاپی</Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product">برشته کاری باکسونت</Link>
+                        <Link href="/coffee">برشته کاری باکسونت</Link>
                       </li>
                     </ul>
                     <ul className="lg:border-l w-[11rem] px-2">
                       <li className="font-bold text-black text-lg">
                         <Link
-                          href="/product?q=اسپشیالیتی"
+                          href="/coffee?q=اسپشیالیتی"
                           className="font-bold text-black"
                         >
                           قهوه اسپشیالیتی
@@ -122,7 +122,7 @@ const Header = () => {
                       </li>
                       <li className="text-sm my-3">
                         <Link
-                          href="/product?q=اسپشیالیتی"
+                          href="/coffee?q=اسپشیالیتی"
                           className="text-sm my-3"
                         >
                           برشته کاری درکاپی
@@ -130,15 +130,15 @@ const Header = () => {
                       </li>
 
                       <li className="font-bold text-black text-lg">
-                        <Link href="/product">قهوه تجاری</Link>
+                        <Link href="/coffee">قهوه تجاری</Link>
                       </li>
                     </ul>
                     <ul className="w-[11rem] px-2">
                       <li className="font-bold text-black text-lg">
-                        <Link href="/product?q=اسپشیالیتی">قهوه سنتی</Link>
+                        <Link href="/coffee?q=اسپشیالیتی">قهوه سنتی</Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product?q=کرمانی">قهوه درکاپی سنتی</Link>
+                        <Link href="/coffee?q=کرمانی">قهوه درکاپی سنتی</Link>
                       </li>
                     </ul>
                   </div>
@@ -152,18 +152,18 @@ const Header = () => {
                   <div className="lg:absolute top-7 right-0 hidden lg:group-hover:flex group-hover:block bg-white border rounded-lg border-gray-300 p-3">
                     <ul className="w-[11rem] px-2">
                       <li className="font-bold text-black text-lg">
-                        <Link href="/product?category=powder">
+                        <Link href="/coffee?category=powder">
                           پودرهای خوراکی
                         </Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product?q=چاکلت">هات چاکلت</Link>
+                        <Link href="/coffee?q=چاکلت">هات چاکلت</Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product?q=ماسالا">چای ماسالا</Link>
+                        <Link href="/coffee?q=ماسالا">چای ماسالا</Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product?q=کاپوچینو">کاپوچینو</Link>
+                        <Link href="/coffee?q=کاپوچینو">کاپوچینو</Link>
                       </li>
                     </ul>
                   </div>
@@ -177,33 +177,33 @@ const Header = () => {
                   <div className="lg:absolute top-7 right-0 hidden lg:group-hover:flex group-hover:block bg-white border rounded-lg border-gray-300 p-3">
                     <ul className="lg:border-l w-[11rem] px-2">
                       <li className="font-bold text-black text-lg">
-                        <Link href="/product?category=espresso-maker">
+                        <Link href="/coffee?category=espresso-maker">
                           قهوه ساز ها
                         </Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product?q=مباشی">مباشی</Link>
+                        <Link href="/coffee?q=مباشی">مباشی</Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product?q=نوا">نوا</Link>
+                        <Link href="/coffee?q=نوا">نوا</Link>
                       </li>
                     </ul>
                     <ul className="w-[11rem] px-2">
                       <li className="font-bold text-black text-lg">
                         <Link
-                          href="/product?q=آسیاب"
+                          href="/coffee?q=آسیاب"
                           className="font-bold text-black"
                         >
                           آسیاب قهوه خانگی
                         </Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product?q=برقی" className="text-sm my-3">
+                        <Link href="/coffee?q=برقی" className="text-sm my-3">
                           آسیاب قهوه برقی
                         </Link>
                       </li>
                       <li className="text-sm my-3">
-                        <Link href="/product?q=دستی" className="text-sm my-3">
+                        <Link href="/coffee?q=دستی" className="text-sm my-3">
                           آسیاب قهوه دستی
                         </Link>
                       </li>

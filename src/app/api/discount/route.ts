@@ -9,13 +9,11 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
     const validationResult = discountValidator(data);
 
-    console.log(validationResult);
     if (validationResult !== true) {
       return NextResponse.json({ message: validationResult }, { status: 422 });
     }
 
     const isCodeExist = await Discount.find({ code: data?.code });
-    console.log("isCodeExist=>>", isCodeExist);
 
     if (!!isCodeExist?.length) {
       return NextResponse.json(

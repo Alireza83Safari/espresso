@@ -1,17 +1,17 @@
 import { CartType } from "@/types/cart";
-import { ProductType } from "@/types/product";
+import { CoffeeType } from "@/types/coffee";
 import toast from "react-hot-toast";
 
-export const addToCart = (product: ProductType, count: number) => {
+export const addToCart = (coffee: CoffeeType, count: number) => {
   const cart: CartType[] =
     JSON.parse(localStorage.getItem("cart") as any) || [];
 
   if (cart?.length) {
-    const isInCart = cart.some((item) => item._id === product._id);
+    const isInCart = cart.some((item) => item._id === coffee._id);
 
     if (isInCart) {
       cart.forEach((item) => {
-        if (item._id === product._id) {
+        if (item._id === coffee._id) {
           item.count = item.count + count;
         }
       });
@@ -19,31 +19,16 @@ export const addToCart = (product: ProductType, count: number) => {
       toast.success("محصول با موفقیت به سبد خرید اضافه شد");
     } else {
       const cartItem = {
-        _id: product._id,
-        name: product.name,
-        price: product.price,
-        image: product.image,
+        _id: coffee._id,
+        name: coffee.name,
+        price: coffee.price,
+        image: coffee.image,
         count,
       };
 
       cart.push(cartItem);
-
       localStorage.setItem("cart", JSON.stringify(cart));
       toast.success("محصول با موفقیت به سبد خرید اضافه شد");
     }
-  } else {
-    const cartItem = {
-      _id: product._id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      count,
-    };
-    console.log(cartItem);
-
-    cart.push(cartItem);
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    toast.success("محصول با موفقیت به سبد خرید اضافه شد");
   }
 };

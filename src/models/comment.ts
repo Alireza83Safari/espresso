@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Product = require("../models/product");
 
 export const schema = mongoose.Schema(
   {
@@ -33,7 +32,7 @@ export const schema = mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Comment = mongoose.models.Comment || mongoose.model("Comment", schema);

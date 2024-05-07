@@ -1,4 +1,4 @@
-import { ProductType } from "./product";
+import { CoffeeType } from "./coffee";
 import { UserType } from "./user";
 
 export interface CommentType {
@@ -6,7 +6,7 @@ export interface CommentType {
   body: string;
   status: string;
   rate: number;
-  product: ProductType;
+  product: CoffeeType;
   user: UserType;
   createdAt: string;
   updatedAt: string;
